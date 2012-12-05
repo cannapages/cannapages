@@ -1,0 +1,25 @@
+defaults: &defaults
+  host: localhost
+  # mongoid defaults for configurable settings
+  autocreate_indexes: false
+  allow_dynamic_fields: true
+  include_root_in_json: false
+  parameterize_keys: true
+  persist_in_safe_mode: false
+  raise_not_found_error: true
+  reconnect_time: 3
+development:
+  <<: *defaults
+  database: C14_development
+test: &TEST
+  <<: *defaults
+  database: C14_test
+cucumber:
+  <<: *TEST
+# set these environment variables on your prod server
+production:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>

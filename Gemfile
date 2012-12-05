@@ -11,7 +11,6 @@ gem 'haml'
 group :development, :test do
   gem 'capybara'
   gem 'cucumber'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-rails'
@@ -22,6 +21,10 @@ group :development, :test do
   gem 'faker'
   gem 'haml-rails'
 	gem 'debugger'
+end
+
+group :test do
+  gem 'cucumber-rails'
 end
 
 group :assets do

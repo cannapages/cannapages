@@ -1,0 +1,33 @@
+!!! XML
+!!!
+%html
+	%head
+		%title Awesome App
+		= javascript_include_tag :application
+		= csrf_meta_tag
+		= stylesheet_link_tag :application
+		/[if lt IE 8]
+		= stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+
+		%body.bp.two-col
+
+		#container
+
+			#header
+				%h1 Awesome App Header
+
+			#sidebar
+				%div item 1
+				%div item 2
+				%div item 3
+				%div item 4
+
+			#content
+				- if notice
+					%p.notice= notice
+				- if alert
+					%p.error= alert
+				= yield
+
+			#footer
+				%h3 Awesome App Footer

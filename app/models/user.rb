@@ -12,7 +12,9 @@ class User
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
-  
+	validates_format_of :password, with: /[a-z]+[0-9]+/i
+	validates_length_of :password, minimum: 8, maximum: 16 
+ 
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time

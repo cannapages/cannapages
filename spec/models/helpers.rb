@@ -9,5 +9,5 @@ def change_attrs_and_assert model, attrs
 	model.update_attributes attr
 	model.save
 	model.reload
-	yield model attr
+	yield model.attributes
 end

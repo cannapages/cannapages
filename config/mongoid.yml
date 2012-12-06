@@ -1,25 +1,115 @@
-defaults: &defaults
-  host: localhost
-  # mongoid defaults for configurable settings
-  autocreate_indexes: false
-  allow_dynamic_fields: true
-  include_root_in_json: false
-  parameterize_keys: true
-  persist_in_safe_mode: false
-  raise_not_found_error: true
-  reconnect_time: 3
-development:
+development: &defaults
+  sessions:
+    default: &default_session
+      database: C41_development
+      # Provides the hosts the default session can connect to. Must be an array
+      # of host:port pairs. (required)
+      hosts:
+        - localhost:27017
+      options:
+        # Change whether the session persists in safe mode by default.
+        # (default: false)
+        # safe: false
+
+        # Change the default consistency model to :eventual or :strong.
+        # :eventual will send reads to secondaries, :strong sends everything
+        # to master. (default: :eventual)
+        # consistency: :strong
+  # Configure Mongoid specific options. (optional)
+  options:
+    # Configuration for whether or not to allow access to fields that do
+    # not have a field definition on the model. (default: true)
+    allow_dynamic_fields: false
+
+    # Enable the identity map, needed for eager loading. (default: false)
+    # identity_map_enabled: false
+
+    # Includes the root model name in json serialization. (default: false)
+    # include_root_in_json: false
+
+    # Include the _type field in serializaion. (default: false)
+    # include_type_for_serialization: false
+
+    # Preload all models in development, needed when models use
+    # inheritance. (default: false)
+    preload_models: true
+
+    # Protect id and type from mass assignment. (default: true)
+    # protect_sensitive_fields: true
+
+    # Raise an error when performing a #find and the document is not found.
+    # (default: true)
+    raise_not_found_error: false
+
+    # Raise an error when defining a scope with the same name as an
+    # existing method. (default: false)
+    # scope_overwrite_exception: false
+
+    # Skip the database version check, used when connecting to a db without
+    # admin access. (default: false)
+    # skip_version_check: false
+
+    # User Active Support's time zone in conversions. (default: true)
+    # use_activesupport_time_zone: true
+
+    # Ensure all times are UTC in the app side. (default: false)
+    # use_utc: false
+
+test:
   <<: *defaults
-  database: C14_development
-test: &TEST
-  <<: *defaults
-  database: C14_test
-cucumber:
-  <<: *TEST
-# set these environment variables on your prod server
+  sessions:
+    default:
+      <<: *default_session
+      database: C41_test
+
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  # This starts the session configuration settings. You may have as
+  # many sessions as you like, but you must have at least 1 named
+  # 'default'.
+  sessions:
+    # Define the default session.
+    default:
+      # A session can have any number of hosts. Usually 1 for a single
+      # server setup, and at least 3 for a replica set. Hosts must be
+      # an array of host:port pairs. This session is single server.
+      hosts:
+        - localhost:27017
+      # Define the default database name.
+      database: C41_production
+      # Since this database points at a session connected to MongoHQ, we must
+      # provide the authentication details.
+    # This defines a secondary session at a replica set.
+    replica_set:
+      # This configuration is a 3 node replica set.
+      hosts:
+        - localhost:27017
+      database: aviation_production
+      # We can set session specific options, like reads executing
+      # on secondary nodes, and defaulting the session to safe mode.
+      options:
+        consistency: :eventual
+        safe: true
+    # This defines a tertiary session at a Mongos fronted shard.
+    shard:
+      # This configuration is a Mongos shard server.
+      hosts:
+        - localhost:27017
+      database: aviation_production
+    # This configuration shows an authenticated replica set via a uri.
+    another:
+      uri: mongodb://localhost:27017
+  # Here we put the Mongoid specific configuration options. These are explained
+  # in more detail next.
+  options:
+    allow_dynamic_fields: false
+    identity_map_enabled: true
+    include_root_in_json: true
+    include_type_for_serialization: true
+    # Note this can also be true if you want to preload everything, but this is
+    # almost never necessary. Most of the time set this to false.
+    scope_overwrite_exception: true
+    raise_not_found_error: false
+    skip_version_check: false
+    use_activesupport_time_zone: false
+    use_utc: true
+

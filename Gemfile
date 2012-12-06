@@ -10,6 +10,7 @@ gem 'capistrano'
 gem 'haml'
 gem 'spork', '~> 0.9.0.rc'
 gem 'geokit'
+gem 'sanitize'
 group :development, :test do
   gem 'capybara'
   gem 'cucumber'

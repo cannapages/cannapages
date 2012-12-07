@@ -3,3 +3,7 @@
 	#searchbar
 		= image_tag "logotop.png", id: "logotop"
 		#mainsearchform
+			= simple_form_for Search.new, action:"/" do |f|
+				= f.input :query, label: "Query", input_html: {class:"topsearch"}
+				= f.input :user_location, label: "UserLocation", input_html: {class:"topsearch"}
+				

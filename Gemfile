@@ -11,6 +11,7 @@ gem 'haml'
 gem 'spork', '~> 0.9.0.rc'
 gem 'geokit'
 gem 'sanitize'
+gem 'simple_form'
 group :development, :test do
   gem 'capybara'
   gem 'cucumber'

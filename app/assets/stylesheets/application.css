@@ -11,4 +11,5 @@
  *= require_self
  *= require screen
  *= require print
+ *= require main
  */

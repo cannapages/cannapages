@@ -1,0 +1,35 @@
+#mainheader{
+	background-image: url('/assets/hempheader.png');
+	height:150px;
+	background-position:center; 
+}
+
+#topblackbar{
+	background:black;
+	height:20px;
+}
+
+#searchbar{
+	width:940px;
+	margin:auto;
+	position:relative;
+}
+
+#logotop{
+	z-index:99;
+	position:relative;
+	left:-330px;
+	top:-20px;
+}
+
+#mainsearchform{
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	top:-145px;
+	left: 180px;
+	z-index:98;
+	background: rgba(0,96,18,.8);
+	width:650px;
+	height:85px;
+	position:relative;
+}

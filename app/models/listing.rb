@@ -36,9 +36,15 @@ class Listing
 	validates_inclusion_of :category, allow_nil: false, in: LISTING_CATEGORY_ARRAY
 
 	#Relations
+	has_one :listing_review
+	embeds_many :comments
 
 	#Callbacks
-	before_save :initialize_anylitics, :format_phone, :update_lat_lng?, :ensure_http
+	before_save :initialize_anylitics, :initialize_dependencies, :format_phone, :update_lat_lng?, :ensure_http
+
+	def initialize_dependencies
+		create_listing_review
+	end
 
 	def initialize_anylitics
 		self.shows, self.clicks, self.featured_shows, self.featured_clicks = 0,0,0,0

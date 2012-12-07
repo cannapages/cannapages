@@ -42,4 +42,10 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+
+	#Begin non devise custom code
+	#Relationships
+	embeds_many :comments
+	has_many :listing_reviews
 end

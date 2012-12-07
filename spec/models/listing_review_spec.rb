@@ -6,7 +6,7 @@ describe ListingReview do
 		reviews = []
 		listing_review = ListingReview.new
 		5.times do |i|
-			listing_review.reviews << Review.create( rating: i + 1 )
+			listing_review.reviews << Review.new( rating: i + 1 )
 		end
 		listing_review
 	end
@@ -21,8 +21,8 @@ describe ListingReview do
 	end
 
 	it "The average review should be a float acurate to one decimal place" do
-		the_listing_review.reviews << Review.create( rating: 5 )
-		the_listing_review.reviews << Review.create( rating: 4 )
+		the_listing_review.reviews << Review.new( rating: 5 )
+		the_listing_review.reviews << Review.new( rating: 4 )
 		the_listing_review.average_rating.should eql 3.4
 	end
 

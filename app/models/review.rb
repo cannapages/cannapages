@@ -1,5 +1,5 @@
 class Review
   include Mongoid::Document
   field :rating, type: Integer
-	belongs_to :listing_review
+	embedded_in :listing_review
 end

@@ -82,5 +82,9 @@ describe Listing do
 		buddies.should_not be_valid
 	end
 
-	
+	it "Should create a new ListingReview on creation" do
+		buddies.save
+		buddies.listing_review.class.should be ListingReview
+	end
+
 end

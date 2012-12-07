@@ -1,7 +1,8 @@
 class ListingReview
   include Mongoid::Document
 
-	has_many :reviews
+	embeds_many :reviews
+	belongs_to :listing
 
 	def average_rating
 		total = reviews.inject(0) { |sum,e| e.rating + sum }

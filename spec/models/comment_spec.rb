@@ -8,9 +8,10 @@ describe Comment do
 								user_name: "Bob420",
 								user_email: "bob420@gmail.com"
 	end
-
-	it "Should have a working a factory" do
-		the_comment.save.should be_true
+	let(:the_user) do
+		User.new  email: "someone@somewhere.com",
+							password: "abcd1234",
+							password_confirmation: "abcd1234"
 	end
 
 end

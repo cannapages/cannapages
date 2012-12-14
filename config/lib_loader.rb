@@ -1,0 +1,1 @@
+require 'relationship_synchronizer'

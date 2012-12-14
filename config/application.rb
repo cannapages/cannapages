@@ -65,5 +65,10 @@ module C41
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 		config.action_view.javascript_expansions[:defaults] = %w(jquery.min jquery-ui.min rails)
+
+		# Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
+    config.autoload_paths += Dir[Rails.root.join('lib', 'extensions')]
+    config.autoload_paths += Dir[Rails.root.join('lib', 'modules')]
   end
 end

@@ -8,12 +8,13 @@ class User
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
+  field :user_name,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
-	validates_format_of :password, with: /[a-z]+[0-9]+/i
-	validates_length_of :password, minimum: 8, maximum: 16 
+	validates_format_of :password, with: /[a-z]+[0-9]+/i, unless: Proc.new { |user| user.password.nil?  }
+	validates_length_of :password, minimum: 8, maximum: 16, unless: Proc.new { |user| user.password.nil?  }
  
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -43,9 +44,7 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
 
-
-	#Begin non devise custom code
 	#Relationships
-	embeds_many :comments
-	has_many :listing_reviews
+	has_and_belongs_to_many :listings_reviewed, :class_name => 'Listing', :inverse_of => nil
+
 end

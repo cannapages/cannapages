@@ -2,9 +2,7 @@
 
 FactoryGirl.define do
   factory :comment do
-    body "MyString"
-    rating 1
-    user_name "MyString"
-    user_email "MyString"
+    body "These guys were blah"
+    rating 3
   end
 end

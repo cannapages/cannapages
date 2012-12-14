@@ -30,24 +30,29 @@ class Listing
 	field :clicks, type: Integer
 	field :featured_shows, type: Integer
 	field :featured_clicks, type: Integer
+	#Ratings
+	field :rating, type: Float
+	field :num_of_reviews, type: Integer
 	
 	#Validations
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
 	validates_inclusion_of :category, allow_nil: false, in: LISTING_CATEGORY_ARRAY
 
 	#Relations
-	has_one :listing_review
+	has_one :listing_review, autobuild: true, autosave: true
 	embeds_many :comments
 
 	#Callbacks
-	before_save :initialize_anylitics, :initialize_dependencies, :format_phone, :update_lat_lng?, :ensure_http
+	before_save :initialize_anylitics, :format_phone, :update_lat_lng?, :ensure_http
+	before_create :initialize_dependencies
 
 	def initialize_dependencies
-		create_listing_review
+		create_listing_review unless listing_review
+		self.rating = listing_review.average_rating
 	end
 
 	def initialize_anylitics
-		self.shows, self.clicks, self.featured_shows, self.featured_clicks = 0,0,0,0
+		self.shows, self.clicks, self.featured_shows, self.featured_clicks, self.num_of_reviews = 0,0,0,0,0
 	end
 
 	def format_phone
@@ -72,6 +77,12 @@ class Listing
 				self.send( (attr.to_s + '=').to_sym, "http://" + self.send(attr) )
 			end
 		end
+	end
+
+	#Custome getters and setters
+	def rating
+		rating = read_attribute(:rating)
+		rating == -1? :notrated : rating
 	end
 
 	#Helpers

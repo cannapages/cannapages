@@ -24,4 +24,7 @@ describe Article do
 		the_article.content.should eql "<p><b>Something important</b>More stuff</p>"
 	end
 
+	it "Should copy to a volume" do
+
+	end
 end

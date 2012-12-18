@@ -4,6 +4,9 @@
 		= image_tag "logotop.png", id: "logotop"
 		#mainsearchform
 			= simple_form_for Search.new, action:"/" do |f|
-				= f.input :query, label: "Query", input_html: {class:"topsearch"}
-				= f.input :user_location, label: "UserLocation", input_html: {class:"topsearch"}
+				= f.input :query, label: false, placeholder: "Query", input_html: {class:"topsearch"}
+				%p#near near
+				= f.input :user_location, label: false, placeholder: "UserLocation", input_html: {class:"topsearch"}
+			.mainsearchbtn
+				= image_tag "searchicon.png", id:"topsearchicon"
 				

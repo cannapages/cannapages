@@ -1,5 +1,6 @@
 class ListingReview
   include Mongoid::Document
+	include Mongoid::Timestamps
 
 	embeds_many :reviews
 	belongs_to :listing

@@ -87,6 +87,11 @@ describe Listing do
 		buddies.listing_review.class.should be ListingReview
 	end
 
+	it "Should create a new live menu on creation" do
+		buddies.save
+		buddies.live_menu.class.should be LiveMenu
+	end
+
 	it "Should initialize with a number of reviews as 0" do
 		buddies.save
 		buddies.num_of_reviews.should eql 0

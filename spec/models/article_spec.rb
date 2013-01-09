@@ -7,8 +7,16 @@ describe Article do
 								content: "KLJLKJLJLJK:LJLJKLJLKJL DFSKLJLJLLK DFSJLKJ:L"
 	end
 
+	let(:article) do
+		FactoryGirl.build :article
+	end
+
   it "Should have a working fixture" do
 		the_article.save.should be_true
+	end
+
+	it "Should have a working factory" do
+		article.should be_valid
 	end
 
 	it "Should initialize anylitics" do
@@ -24,7 +32,4 @@ describe Article do
 		the_article.content.should eql "<p><b>Something important</b>More stuff</p>"
 	end
 
-	it "Should copy to a volume" do
-
-	end
 end

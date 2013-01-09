@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Search do
+describe LiveMenu do
 end

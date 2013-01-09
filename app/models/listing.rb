@@ -33,6 +33,8 @@ class Listing
 	#Ratings
 	field :rating, type: Float
 	field :num_of_reviews, type: Integer
+	#Relations
+	field :live_menu_id, type: String
 	
 	#Validations
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
@@ -40,6 +42,7 @@ class Listing
 
 	#Relations
 	has_one :listing_review, autobuild: true, autosave: true
+	has_one :live_menu, autobuild: true
 	embeds_many :comments
 
 	#Callbacks
@@ -49,6 +52,8 @@ class Listing
 	def initialize_dependencies
 		create_listing_review unless listing_review
 		self.rating = listing_review.average_rating
+		
+		create_live_menu unless live_menu
 	end
 
 	def initialize_anylitics

@@ -1,6 +1,12 @@
 class ListingsController < ApplicationController
   def index
   end
+  
+  def create
+  end
+  
+  def update
+  end
 
   def show
   end
@@ -10,6 +16,9 @@ class ListingsController < ApplicationController
 
   def edit
   end
+  
+  def destroy
+  end
 
   def admin_index
   end
@@ -18,5 +27,11 @@ class ListingsController < ApplicationController
   end
 
   def admin_new
+  end
+  
+  def admin_update
+  end
+  
+  def admin_create
   end
 end

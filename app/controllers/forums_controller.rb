@@ -1,13 +1,22 @@
 class ForumsController < ApplicationController
   def index
   end
+  
+  def create
+  end
+  
+  def update
+  end
 
   def show
   end
 
-  def edit
+  def new
   end
 
-  def new
+  def edit
+  end
+  
+  def destroy
   end
 end

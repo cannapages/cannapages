@@ -5,6 +5,7 @@ gem 'bson_ext'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook', require: "omniauth-facebook"
+gem 'omniauth-twitter'
 gem 'cancan'
 gem 'jquery-rails'
 gem 'passenger'

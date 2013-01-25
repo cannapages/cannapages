@@ -34,8 +34,23 @@ class User
 	has_and_belongs_to_many :listings_reviewed, :class_name => 'Listing', :inverse_of => nil
 
 	#Validations
-  validates_presence_of :email
   validates_presence_of :encrypted_password
-	validates_format_of :password, with: /[a-z]+[0-9]+/i, unless: Proc.new { |user| user.password.nil?  }
-	validates_length_of :password, minimum: 8, maximum: 16, unless: Proc.new { |user| user.password.nil?  }
+
+	#Methods
+	def email_required?
+    super && provider.blank?
+	end
+
+	def self.find_oauth(auth, signed_in_resource=nil)
+		user = User.where(:provider => auth.provider, :uid => auth.uid).first
+		unless user
+			user = User.create(name:auth.extra.raw_info.name,
+													 provider:auth.provider,
+													 uid:auth.uid,
+													 email:auth.info.email,
+													 password:Devise.friendly_token[0,20]
+													 )
+		end
+		user
+	end
 end

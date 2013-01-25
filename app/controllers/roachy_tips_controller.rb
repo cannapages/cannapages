@@ -1,0 +1,2 @@
+class RoachyTipsController < ApplicationController
+end

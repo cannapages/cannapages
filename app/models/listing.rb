@@ -18,7 +18,7 @@ class Listing
 	field :twitter, type: String
 	field :facebook, type: String
 	#Service types
-  field :category, type: String
+  field :category, type: Array
 	field :match_coupons, type: Boolean
 	field :glass_sale, type: Boolean
 	field :whole_sale, type: Boolean

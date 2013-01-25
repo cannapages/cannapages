@@ -1,6 +1,9 @@
 C41::Application.routes.draw do
+  resources :roachy_tips
+
+
 	root :to => "home#index"
-	devise_for :users
+	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 	resources :searches
 
 	get "/listings/admin_index" => "listings#admin_index", as: :listings_admin_index

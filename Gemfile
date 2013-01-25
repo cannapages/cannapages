@@ -4,7 +4,7 @@ gem 'mongoid'
 gem 'bson_ext'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', require: "omniauth-facebook"
 gem 'cancan'
 gem 'jquery-rails'
 gem 'passenger'

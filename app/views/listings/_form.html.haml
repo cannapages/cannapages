@@ -1,0 +1,17 @@
+= simple_form_for @listing do |f|
+	= f.input :name
+	= f.input :about, :as => :text
+	= f.input :phone
+	= f.input :street_address
+	= f.input :city
+	= f.input :state
+	= f.input :zip
+	= f.input :website, :required => false
+	= f.input :twitter, :required => false
+	= f.input :facebook, :required => false
+	= f.input :category, :check_boxes => LISTING_CATEGORY_ARRAY
+	= f.input :match_coupons, :collection => YESNO
+	= f.input :glass_sale, :collection =>YESNO
+	= f.input :whole_sale, :collection =>YESNO
+	
+	=f.button :submit

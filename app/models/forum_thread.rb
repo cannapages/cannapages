@@ -2,6 +2,7 @@ class ForumThread
   include Mongoid::Document
   include Mongoid::Timestamps
   field :title, type: String
+  field :content, type: String
   field :views, type: Integer
   
   embedded_in :forum

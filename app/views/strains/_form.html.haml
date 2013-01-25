@@ -1,0 +1,8 @@
+= simple_form_for @strain do |f|
+	= f.input :strain_name
+	= f.input :dominance, :collection => STRAIN_DOMINANCE_ARRAY
+	= f.input :thc
+	= f.input :cbd
+	= f.input :cbn
+	= f.input :total_cannabinoids
+	= f.button :submit

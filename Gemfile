@@ -20,6 +20,7 @@ group :development, :test do
 	gem 'watchr'
   gem 'shoulda'
   gem 'factory_girl_rails'
+	gem 'faker'
   gem 'autotest'
   gem 'launchy'
   gem 'faker'

@@ -78,8 +78,10 @@ class Listing
 
 	def ensure_http
 		[ :website, :facebook, :twitter ].each do |attr|
-			unless (self.send(attr) =~ /^http:\/\//)
-				self.send( (attr.to_s + '=').to_sym, "http://" + self.send(attr) )
+			if self.send(attr)
+				unless (self.send(attr) =~ /^http:\/\//)
+					self.send( (attr.to_s + '=').to_sym, "http://" + self.send(attr) )
+				end
 			end
 		end
 	end

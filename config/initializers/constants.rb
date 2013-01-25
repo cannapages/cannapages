@@ -5,7 +5,7 @@ LEGAL_STATE_ARRAY = [ 'Alaska', 'Arizona', 'California', 'Colorado',
                                         
 YESNO = ['yes','no']           
   
-LISTING_CATEGORY_ARRAY = [ 'Dispensary', 'Grow Store', 'Head Shop', 'Kind Doctor', 'Kind Land Lord' ]
+LISTING_CATEGORY_ARRAY = [ 'Dispensary', 'Grow Store', 'Head Shop', 'Kind Doctor', 'Kind Land Lord', 'Smoke Shop', 'Kind Lawyer', 'Grow Consultant' ]
 
 STRAIN_DOMINANCE_ARRAY = [ 'Indica', 'Sativa', 'Hybrid' ]
 

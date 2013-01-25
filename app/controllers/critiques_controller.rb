@@ -1,6 +1,12 @@
 class CritiquesController < ApplicationController
   def index
   end
+  
+  def create
+  end
+  
+  def update
+  end
 
   def show
   end
@@ -9,5 +15,8 @@ class CritiquesController < ApplicationController
   end
 
   def edit
+  end
+  
+  def destroy
   end
 end

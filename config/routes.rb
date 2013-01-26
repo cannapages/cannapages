@@ -18,7 +18,8 @@ C41::Application.routes.draw do
 	
 	get "rss_feeds/admin_index" => "rss_feeds#admin_index", as: :rss_feeds_admin_index
 	resources :rss_feeds
-	resources :forum
+	resources :forums
+	resources :roachy_tips
 	
 
 end

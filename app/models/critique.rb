@@ -16,4 +16,10 @@ class Critique
 		self.content = Sanitize.clean( content, Sanitize::Config::RELAXED)
 	end
 
+	class << self
+		def search( query )
+			(where( title: (%r[#{query}]i) ).to_a + where( content: (%r[#{query}]i) ).to_a).uniq!
+		end
+	end
+
 end

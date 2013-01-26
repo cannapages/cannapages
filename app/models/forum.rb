@@ -10,4 +10,15 @@ class Forum
   def initialize_anylitics
 		self.views = 0
 	end
+
+	class << self
+		def search( query )
+			inject([]) do |forum,result|
+				result + threads.inject([]) do |thread,result|
+					(thread.posts.where( title: (%r[#{query}]i) ).to_a + thread.posts.where( content: (%r[#{query}]i) ).to_a).uniq!
+				end
+			end
+		end
+	end
+
 end

@@ -97,5 +97,22 @@ class Listing
 		"#{self.street_address} #{self.city}, #{self.state} #{self.zip}"
 	end
 
+	class << self
+
+		#Name category within miles
+		def distance_search
+			
+		end
+
+		#Name 
+		def light_search( query )
+			(where( name: (%r[#{query}]i) ).to_a + where( category: (%r[#{query}]i) ).to_a).uniq!
+		end
+
+		def heavy_search( query )
+			(where( name: (%r[#{query}]i) ).to_a + where( category: (%r[#{query}]i) ).to_a).uniq!
+		end
+
+	end
 
 end

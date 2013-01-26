@@ -40,6 +40,8 @@ class Listing
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
 	validates_inclusion_of :category, allow_nil: false, in: LISTING_CATEGORY_ARRAY
 
+	attr_accessor :distance
+
 	#Relations
 	has_one :listing_review, autobuild: true, autosave: true
 	has_one :live_menu, autobuild: true
@@ -98,18 +100,21 @@ class Listing
 	end
 
 	class << self
+		def calculate_distance_for_each_listing_in_array( listings_array, user_location )
+			listings_array.each do |listing|
+				listing.distance = DistanceHelper::distance_between( user_location.lat, user_location.lng, lat, lng )
+			end
+		end
 
 		#Name category within miles
-		def distance_search
-			
+		def distance_search( query )
+			listings = light_search( query )
+			Listings.calculate_distance_for_each_listing_in_array( listings, params[:user_location] )
+			listings.sort! { |a,b| a.distance <=> b.distance }
 		end
 
 		#Name 
 		def light_search( query )
-			(where( name: (%r[#{query}]i) ).to_a + where( category: (%r[#{query}]i) ).to_a).uniq!
-		end
-
-		def heavy_search( query )
 			(where( name: (%r[#{query}]i) ).to_a + where( category: (%r[#{query}]i) ).to_a).uniq!
 		end
 

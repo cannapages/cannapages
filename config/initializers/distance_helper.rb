@@ -17,7 +17,7 @@ module DistanceHelper
 		distance_between( lat1, lng1, lat2, lng2 )
 	end
 
-	def self.distance_between( lat1, lon1, lat2, lon2, type )
+	def self.distance_between( lat1, lon1, lat2, lon2, type = :mi )
 		return "Unkown" if ( lat1.nil? or lon1.nil? or lat2.nil? or lon2.nil? )
 		dlon = lon2 - lon1
 		dlat = lat2 - lat1

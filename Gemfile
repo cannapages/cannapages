@@ -16,6 +16,7 @@ gem 'geokit'
 gem 'sanitize'
 gem 'simple_form'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'

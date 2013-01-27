@@ -17,3 +17,5 @@
 				- if alert
 					%p.error= alert
 				= yield
+				= yield :scripts
+				= stylesheet_link_tag "map"

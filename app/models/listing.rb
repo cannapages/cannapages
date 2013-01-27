@@ -50,7 +50,15 @@ class Listing
 	field :saturday_end, type: Date
 	field :sunday_start, type: Date
 	field :sunday_end, type: Date
-
+	#Specials
+	field :monday_special, type: String
+	field :tuesday_special, type: String
+	field :wednesday_special, type: String
+	field :thurday_special, type: String
+	field :friday_special, type: String
+	field :saturday_special, type: String
+	field :sunday_special, type: String
+	field :weekly_special, type: String
 	
 	#Validations
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
@@ -61,6 +69,7 @@ class Listing
 	#Relations
 	has_one :listing_review, autobuild: true, autosave: true
 	has_one :live_menu, autobuild: true
+	has_many :strain_tests
 	embeds_many :comments
 
 	#Callbacks

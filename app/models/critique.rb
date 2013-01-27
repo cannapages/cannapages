@@ -6,6 +6,8 @@ class Critique
   field :views, type: Integer
   field :likes, type: Integer
 
+	embeds_many :commetns
+
 	before_save :initialize_anylitics, :remove_unwanted_html_tags
 
 	def initialize_anylitics

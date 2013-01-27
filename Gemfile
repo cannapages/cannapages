@@ -17,6 +17,7 @@ gem 'sanitize'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'

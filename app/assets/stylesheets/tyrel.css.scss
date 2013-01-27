@@ -1,0 +1,20 @@
+#fieldguide {
+	.fieldguidehome {
+		p {
+			width: 155px;
+		}
+	}
+}
+
+#homefeatured {
+	position: relative;
+	#aarowlogo {
+		float: left;
+	}
+	#featureddispensaries {
+		float: left;
+	}
+	#location_change {
+		float: right;
+	}
+}

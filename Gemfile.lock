@@ -108,6 +108,7 @@ GEM
     fssm (0.2.9)
     geokit (1.6.5)
       multi_json
+    gmaps4rails (1.5.6)
     haml (3.1.7)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -296,6 +297,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   geokit
+  gmaps4rails
   haml
   haml-rails
   jquery-rails

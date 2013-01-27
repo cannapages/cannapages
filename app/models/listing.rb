@@ -1,7 +1,10 @@
 class Listing
 	#Modules
+	include Gmaps4rails::ActsAsGmappable
   include Mongoid::Document
 	include Mongoid::Timestamps
+
+	acts_as_gmappable :lat_lng_array => :location
 
 	#Fields
 	#Info
@@ -122,6 +125,43 @@ class Listing
 	#Helpers
 	def full_address
 		"#{self.street_address} #{self.city}, #{self.state} #{self.zip}"
+	end
+
+	def formated_phone
+		"#{phone[0..2]}-#{phone[3..5]}-#{phone[5..9]}"
+	end
+
+	#Gmaps4Rails
+	def gmaps4rails_infowindow
+		"<a href='/listings/#{id}'><h4>#{name}</h4></a>" +
+		"<p>#{formated_phone}</p>" +
+		"<p>#{full_address}</p>"
+	end
+
+	def gmaps4rails_marker_picture
+		{
+			"picture" => "/assets/leaf-pin.png",
+			"width" =>  28,
+			"height" => 39
+			# "marker_anchor" => ,   # array,   facultative
+			# "shadow_picture" => ,  # string,  facultative
+			# "shadow_width" => ,    # string,  facultative
+			# "shadow_height" => ,   # string,  facultative
+			# "shadow_anchor" => ,   # string,  facultative
+			# "rich_marker" =>   ,   # html, facultative
+		}
+	end
+
+	def location
+		{lat: lat, lng: lng, return_array: true}
+	end
+
+	def latitude
+		lat
+	end
+
+	def longitude
+		lng
 	end
 
 	class << self

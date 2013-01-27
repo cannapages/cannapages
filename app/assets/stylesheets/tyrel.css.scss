@@ -1,8 +1,11 @@
 #fieldguide {
+	position: relative;
+	img {
+		position: absolute;
+		left: 52px;
+	}
 	.fieldguidehome {
-		p {
-			width: 155px;
-		}
+		margin-left: 265px;
 	}
 }
 
@@ -17,4 +20,32 @@
 	#location_change {
 		float: right;
 	}
+}
+
+.topsearch{
+	width: 200px;
+	height: 30px;
+}
+
+input[type="text"], input[type="password"], input[type="url"], input[type="email"], input.text, input.title, textarea, select {
+	float: left;
+	margin-right: 35px;
+	margin-top: 22px;
+	position: relative;
+	left: 30px;
+}
+
+#navbar {
+	position: absolute;
+	top: 150px;
+	ul {
+		position: absolute;
+		top: 0px;
+		right: 205px;
+	}
+}
+
+.container {
+	position: relative;
+	top: 92px;
 }

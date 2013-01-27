@@ -129,9 +129,7 @@ h2{
 
 
 #fieldguide {
-	background-image: url('/assets/homepage-header.png');
 	height: 175px;
-	background-repeat: no-repeat; 
 	float: left; 
 	width: 460px;
 }
@@ -230,7 +228,7 @@ h2{
 #logotop{
 	z-index:99;
 	position:relative;
-	left:-330px;
+	left: 42px;
 	top:-20px;
 }
 
@@ -266,6 +264,8 @@ h2{
 
 #topsearchicon{
 	margin-top:5px;
+	position: relative;
+	left: 26px;
 }
 
 #near{

@@ -3,6 +3,7 @@
 	%h2	Explore the largest collection of cannabis dispensaries and "kind" comapnies in the world
 	%h3	Chceck out the Cannapages Field Guide for everything you'll need to make the most informed choice on the strain variety for you.
 .span-12.last#fieldguide
+	= image_tag "/assets/homepage-header.png"
 	%ul.fieldguidehome
 		%li
 			%p= "Strain: #{@strain.name}"
@@ -14,8 +15,9 @@
 			%p= "Notes: #{@strain.bio_exerpt}"
 .span-20.append-2.prepend-2#homefeatured
 	= image_tag "aarow-logo.png", id: "aarowlogo"
-	%h1#featureddispensaries= "Featured Dispensaries by user_location"
-	= link_to "Change Location", "#", id: "location_change"
+	%h2#featureddispensaries= "Featured Dispensaries by user_location"
+	= link_to "#", id: "location_change" do
+		%h2 Change Location
 	= gmaps4rails(@listings)
 .span-24#homespecials
 	%ul

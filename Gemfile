@@ -17,6 +17,7 @@ gem 'sanitize'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'blueprint-rails'
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'

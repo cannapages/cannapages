@@ -1,2 +1,38 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+.span-12.first#welcome
+	%h1	Welcome to Cannapages
+	%h2	Explore the largest collection of cannabis dispensaries and "kind" comapnies in the world
+	%h3	Chceck out the Cannapages Field Guide for everything you'll need to make the most informed choice on the strain variety for you.
+.span-12.last#fieldguide
+	%ul.fieldguidehome
+		%li#Strain
+			%p hi
+		%li#Shop
+			%p hi
+		%li#Price
+			%p hi
+		%li#Lineage
+			%p hi
+		%li#Notes
+			%p hi
+.span-20.append-2.prepend-2#homefeatured
+	= image_tag "aarow-logo.png", id: "aarowlogo"
+	%h1#featureddispensaries
+		= link_to "Change Location", "#"
+.span-24#homespecials
+	%ul
+		%li= image_tag "naturaleaf.png", id: "homespeshlogo" 
+		%li= image_tag "theclinic.png", id: "homespeshlogo" 
+		%li= image_tag "madmonday.png", id: "homespeshlogo" 
+.span-24#homefooter
+	.span-8.first.footersection
+		%h2.footertitle
+			%p#theharvestfeed 
+				= image_tag "forum-footerlogo.png", id: "footerlogo" 
+	.span-8.footersection
+		%h2.footertitle
+			%p#cannasaver
+				= image_tag "saver-footerlogo.png", id: "footerlogo"
+	.span-8.last.footersection
+		%h2.footertitle
+			%p#cannacadets
+				= image_tag "cadet-footerlogo.png", id: "footerlogo"

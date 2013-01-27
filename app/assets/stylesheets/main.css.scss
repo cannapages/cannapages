@@ -1,3 +1,209 @@
+
+@font-face {
+    font-family: 'freehand575_btregular';
+    src: url('/assets/freeh575-webfont.eot');
+    src: url('/assets/freeh575-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/freeh575-webfont.woff') format('woff'),
+         url('/assets/freeh575-webfont.ttf') format('truetype'),
+         url('/assets/freeh575-webfont.svg#freehand575_btregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'gothic821_cn_btregular';
+    src: url('goth821c-webfont.eot');
+    src: url('goth821c-webfont.eot?#iefix') format('embedded-opentype'),
+         url('goth821c-webfont.woff') format('woff'),
+         url('goth821c-webfont.ttf') format('truetype'),
+         url('goth821c-webfont.svg#gothic821_cn_btregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ul{
+	list-style: none;
+}
+
+li{
+	list-style: none;
+}
+
+p{
+	margin: 0;
+	padding: 0;
+	font-family: 'gothic821_cn_btregular';
+}            
+
+h1{
+	margin:0;
+	padding:0;
+	font-family: 'gothic821_cn_btregular';
+}   
+ 
+h2{
+	margin:0;
+	padding:0;
+	font-family: 'gothic821_cn_btregular';
+}
+
+#container {
+	text-align: left;
+}
+
+#critlogo {
+	height: 430px;
+	float: left;
+}
+
+#strain{
+	
+}
+
+#shop{
+	
+}
+
+#price{
+	
+}
+
+#Lineage{
+	
+}
+
+#notes{
+	
+}
+
+#aarowlogo{
+	
+}
+
+#featureddispensaries{
+	
+}
+
+
+
+#crit-leftslide{
+	height: 300px;
+	float: left;
+}
+
+#crit-leftitle{
+	height: 30px;
+}
+
+#crit-leftmock{
+	
+}
+
+#crit-rightslide{
+	height: 320px;
+	float:left;
+}
+
+#crit-rightitle{
+	height:30px;
+}
+
+#crit-rightmock{
+	
+}
+
+#latestcrit{
+	height: 300px;
+	float: left;
+}
+
+
+#fieldguide {
+	background-image: url('/assets/homepage-header.png');
+	height: 175px;
+	background-repeat: no-repeat; 
+	float: left; 
+	width: 460px;
+}
+
+.fieldguidehome{
+	z-index: -1;   
+	height: 175px;     
+	margin-left: 220px;
+	margin-top: 30px;
+} 
+
+.footertitle{
+	
+}
+
+#welcome {   
+	height: 175px;    
+	float: left;
+	h1{
+		font-family:'gothic821_cn_btregular';
+		color: green;
+	}
+	h2{
+		font-family:'gothic821_cn_btregular';
+		color:green;
+	}
+	h3{
+		font-family:'gothic821_cn_btregular';
+		color: green;
+	}
+} 
+
+#homefeatured{
+	border: 1px grey solid;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height:340px;
+}             
+
+#homespecials{
+	margin: 0px auto;
+}
+
+#homespecials ul{
+	width: 960px;
+}              
+
+#homespecials li{
+	float: left;
+	width: 320px;
+}
+
+#homespecials{
+	height:145px;
+}   
+
+#homefooter{
+	height: 115px;
+} 
+
+#theharvestfeed{
+	
+}
+
+#cannasaver{
+	
+}
+
+#cannacadets{
+	
+}
+
+.footersection{
+	
+}
+
 #mainheader{
 	background-image: url('/assets/hempheader.png');
 	height:150px;

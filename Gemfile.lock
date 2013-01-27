@@ -34,6 +34,9 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     bcrypt-ruby (3.0.1)
+    blueprint-rails (0.2.0)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
     bourne (1.1.2)
       mocha (= 0.10.5)
     bson (1.8.0)
@@ -272,6 +275,7 @@ PLATFORMS
 
 DEPENDENCIES
   autotest
+  blueprint-rails
   bson_ext
   cancan
   capistrano

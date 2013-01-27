@@ -1,5 +1,6 @@
 class RoachyTipsController < ApplicationController
   def index
+    render layout: "business_backend"
   end
   
   def create

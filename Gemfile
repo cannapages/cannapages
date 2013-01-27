@@ -17,7 +17,11 @@ gem 'sanitize'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+<<<<<<< HEAD
 gem 'blueprint-rails'
+=======
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+>>>>>>> 8967df28e711d319fd57b432b79c080afa352920
 group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'

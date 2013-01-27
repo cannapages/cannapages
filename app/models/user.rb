@@ -32,7 +32,7 @@ class User
 	attr_accessible :email, :user_name, :password, :password_confirmation, :provider, :uid
 
 	#Relationships
-	has_and_belongs_to_many :listings_reviewed, :class_name => 'Listing', :inverse_of => nil
+	has_many :reviews
 
 	#Validations
   validates_presence_of :encrypted_password

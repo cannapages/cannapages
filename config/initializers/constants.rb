@@ -10,3 +10,6 @@ LISTING_CATEGORY_ARRAY = [ 'Dispensary', 'Grow Store', 'Head Shop', 'Kind Doctor
 STRAIN_DOMINANCE_ARRAY = [ 'Indica', 'Sativa', 'Hybrid' ]
 
 SEARCH_TYPE_ARRAY = [ 'Strain', 'Article', 'Critique', 'Listing', 'Coupon' ]
+
+USER_ROLES_ARRAY = [ 'Basic', 'Business', 'Admin' ]
+	

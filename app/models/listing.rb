@@ -35,6 +35,22 @@ class Listing
 	field :num_of_reviews, type: Integer
 	#Relations
 	field :live_menu_id, type: String
+	#Business Hours
+	field :monday_start, type: Date
+	field :monday_end, type: Date
+	field :tuesday_start, type: Date
+	field :tuesday_end, type: Date
+	field :wednesday_start, type: Date
+	field :wednesday_end, type: Date
+	field :thursday_start, type: Date
+	field :thursday_end, type: Date
+	field :friday_start, type: Date
+	field :friday_end, type: Date
+	field :saturday_start, type: Date
+	field :saturday_end, type: Date
+	field :sunday_start, type: Date
+	field :sunday_end, type: Date
+
 	
 	#Validations
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY

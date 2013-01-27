@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+	include Mongoid::Timestamps
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -12,7 +13,7 @@ class User
   field :encrypted_password, :type => String, :default => ""
 	field :provider, type: String
 	field :uid, type: String
-
+	field :roles, type: Array
  
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -36,6 +37,12 @@ class User
 	#Validations
   validates_presence_of :encrypted_password
 
+	before_validation :insure_basic_role
+
+	def insure_basic_role
+		self.roles ||= ["Basic"]
+	end
+
 	#Methods
 	def email_required?
     super && provider.blank?
@@ -53,4 +60,5 @@ class User
 		end
 		user
 	end
+
 end

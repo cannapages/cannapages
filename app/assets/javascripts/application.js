@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+// Custom Scripts
+//= require main
+
 //= jquery-turbolinks
 //= turbolinks
-//= require main

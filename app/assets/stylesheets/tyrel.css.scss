@@ -1,3 +1,7 @@
+$dark_green: #046414;
+$dark_blue: #2020E0;
+$light_grey: #C8C8C8;
+
 #fieldguide {
 	position: relative;
 	img {
@@ -11,6 +15,12 @@
 
 #homefeatured {
 	position: relative;
+	h2 {
+		color: $dark_green;
+		&#location_change {
+			color: $dark_blue;
+		}
+	}
 	#aarowlogo {
 		float: left;
 	}
@@ -19,6 +29,20 @@
 	}
 	#location_change {
 		float: right;
+	}
+	#featured_listings_container {
+		position: absolute;
+		top: 36px;
+		left: 494px;
+		.featured_listing {
+			border-top: 2px solid $light_grey;
+			height: 78px;
+			width: 378px;
+			padding: 10px;
+			img {
+				float: left;
+			}
+		}
 	}
 }
 

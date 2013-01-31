@@ -15,10 +15,17 @@
 			%p= "Notes: #{@strain.bio_exerpt}"
 .span-20.append-2.prepend-2#homefeatured
 	= image_tag "aarow-logo.png", id: "aarowlogo"
-	%h2#featureddispensaries= "Featured Dispensaries by user_location"
-	= link_to "#", id: "location_change" do
-		%h2 Change Location
+	%h2#featureddispensaries= "Dispensaries by user_location"
+	-# = link_to "#", id: "location_change" do
+	-# 	%h2 Change Location
+	%h2#location_change Featured Listings
 	= gmaps4rails(@listings)
+	#featured_listings_container
+		- @featured_listings.each do |listing|
+			.featured_listing
+				= image_tag "/assets/leaf-pin.png"
+				%h4= listing.name
+				%p= listing.weekly_special
 .span-24#homespecials
 	%ul
 		%li= image_tag "naturaleaf.png", id: "homespeshlogo" 

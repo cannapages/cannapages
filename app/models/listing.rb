@@ -3,6 +3,8 @@ class Listing
 	include Gmaps4rails::ActsAsGmappable
   include Mongoid::Document
 	include Mongoid::Timestamps
+	include Mongoid::Paperclip
+	has_mongoid_attached_file :logo, :styles => { thumb: "70x70#", medium: "320x320#", large: "500x500#" }
 
 	acts_as_gmappable :lat_lng_array => :location
 
@@ -67,7 +69,7 @@ class Listing
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
 	validates_inclusion_of :category, allow_nil: false, in: LISTING_CATEGORY_ARRAY
 
-	attr_accessor :distance
+	attr_accessor :distance, :gmaps, :latitude, :longitude
 
 	#Relations
 	has_one :listing_review, autobuild: true, autosave: true
@@ -152,16 +154,12 @@ class Listing
 		}
 	end
 
+	def gmaps4rails_address
+		full_address
+	end
+
 	def location
 		{lat: lat, lng: lng, return_array: true}
-	end
-
-	def latitude
-		lat
-	end
-
-	def longitude
-		lng
 	end
 
 	class << self

@@ -4,9 +4,9 @@ class Listing
   include Mongoid::Document
 	include Mongoid::Timestamps
 	include Mongoid::Paperclip
-	has_mongoid_attached_file :logo, :styles => { thumb: "70x70#", medium: "320x320#", large: "500x500#" }
+	has_mongoid_attached_file :logo, :styles => { thumb: "75x75#", medium: "150x150#", large: "250x250#" }
 
-	acts_as_gmappable :lat_lng_array => :location
+	acts_as_gmappable lat: "lat", lng: "lng"
 
 	#Fields
 	#Info
@@ -17,8 +17,11 @@ class Listing
   field :city, type: String
   field :state, type: String
   field :zip, type: String
+
+	field :gmaps, type: Boolean
   field :lat, type: Float
   field :lng, type: Float
+
 	field :website, type: String
 	field :twitter, type: String
 	field :facebook, type: String
@@ -68,8 +71,6 @@ class Listing
 	#Validations
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
 	validates_inclusion_of :category, allow_nil: false, in: LISTING_CATEGORY_ARRAY
-
-	attr_accessor :distance, :gmaps, :latitude, :longitude
 
 	#Relations
 	has_one :listing_review, autobuild: true, autosave: true
@@ -142,9 +143,9 @@ class Listing
 
 	def gmaps4rails_marker_picture
 		{
-			"picture" => "/assets/leaf-pin.png",
-			"width" =>  28,
-			"height" => 39
+			"picture" => (self.featured ? "/assets/leaf-pin-featured.png" : "/assets/leaf-pin.png" ),
+			"width" => (self.featured ? 42 : 28),
+			"height" => (self.featured ? 53 : 39)
 			# "marker_anchor" => ,   # array,   facultative
 			# "shadow_picture" => ,  # string,  facultative
 			# "shadow_width" => ,    # string,  facultative

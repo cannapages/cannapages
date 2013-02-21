@@ -35,4 +35,6 @@ class Strain
 		chars = bio.length
 		(chars > 100) ? (bio[0..97] + "...") : bio
 	end
+
+	scope :one_randome, Proc.new { limit(-1).skip( Random.rand(Strain.count) ) }
 end

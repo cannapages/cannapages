@@ -19,7 +19,7 @@
 	-# = link_to "#", id: "location_change" do
 	-# 	%h2 Change Location
 	%h2#location_change Featured Listings
-	= gmaps4rails(@listings)
+	= gmaps4rails(@map_listings)
 	#featured_listings_container
 		- @featured_listings.each do |listing|
 			.featured_listing
@@ -27,6 +27,7 @@
 				%h4= listing.name
 				%p= listing.weekly_special
 .span-24#homespecials
+	%h2 Current Cannabis Specials for Denver, CO
 	%ul
 		%li= image_tag "naturaleaf.png", id: "homespeshlogo" 
 		%li= image_tag "theclinic.png", id: "homespeshlogo" 

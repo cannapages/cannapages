@@ -1,3 +1,20 @@
+$dark_green: #046414;
+
+body {
+	h1{
+		font-family:'gothic821_cn_btregular';
+		font-size: 55px;
+		color: $dark_green;
+	}
+	h2{
+		font-family:'gothic821_cn_btregular';
+		color: $dark_green;
+	}
+	h3{
+		font-family:'gothic821_cn_btregular';
+		color: $dark_green;
+	}
+}
 
 @font-face {
     font-family: 'freehand575_btregular';
@@ -148,18 +165,6 @@ h2{
 #welcome {   
 	height: 175px;    
 	float: left;
-	h1{
-		font-family:'gothic821_cn_btregular';
-		color: green;
-	}
-	h2{
-		font-family:'gothic821_cn_btregular';
-		color:green;
-	}
-	h3{
-		font-family:'gothic821_cn_btregular';
-		color: green;
-	}
 } 
 
 #homefeatured{

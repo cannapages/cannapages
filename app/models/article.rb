@@ -7,7 +7,8 @@ class Article
   field :views, type: Integer
   field :likes, type: Integer
 
-	before_save :initialize_anylitics, :remove_unwanted_html_tags, :also_embed_in_article_container
+	before_create :initialize_anylitics
+	before_save :remove_unwanted_html_tags
 
 	def initialize_anylitics
 		self.views, self.likes = 0,0

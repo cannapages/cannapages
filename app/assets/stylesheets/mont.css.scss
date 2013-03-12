@@ -48,6 +48,10 @@ li{
 	list-style: none;
 }
 
+a{
+	color:$dark_green;
+}
+
 p{
 	margin: 0;
 	padding: 0;
@@ -69,24 +73,34 @@ h2{
 #black_bar{
 	height:30px;
 	background:black;
-	
+	width:100%;
 }
 
-#main_header{
-	background-image: url('/assets/hempheader.png');
-	height:150px;
-	background-position:center;
+#head_container{
+	width:100%;
+	height:275px;
 }
 
-#search_bar{
+#inner_header{
+	margin-top:-200px;
+	height:195px;
+}
+
+#hempheader{
+	width:100%;
 	height:150px;
-	
-	img{
-		position:relative;
-		top:-45px;
-		left:200px;
-		z-index:99;
-	}
+	min-width:950px;
+}
+
+#logotop{
+	position: relative;
+	z-index:99;
+}
+
+#search_icon{
+	position:absolute;
+	left:540px;
+	top:26px;
 }
 
 .topsearch{
@@ -96,17 +110,27 @@ h2{
 }
 
 #searchform{
-	position: absolute;
-	top:55px;
-	left:352px;
 	display: inline;
-	width:580px;
-	height:40px;
-	padding-top: 15px;
+	position:absolute;
+	margin-top:60px;
+	margin-left:-50px;
+	width:600px;
+	height:50px;
+	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 60px;
 	border-radius:10px;
 	background-color: rgba(0,134,16,.8);
+}
+
+#navbar{
+	position:absolute;
+}
+
+#navimage{
+	width:100%;
+	min-width:950px;
+	height:100px;
 }
 
 #search_user_location{
@@ -123,8 +147,7 @@ h2{
 #navlinks{
 	position:relative;
 	z-index:99;
-	top:-90px;
-	left:730px;
+	margin-top:-100px;
 	
 	img:hover{
 		background: -moz-radial-gradient(center, ellipse cover,  rgba(229,255,0,1) 0%, rgba(246,255,163,0) 64%, rgba(255,255,255,0) 100%); /* FF3.6+ */

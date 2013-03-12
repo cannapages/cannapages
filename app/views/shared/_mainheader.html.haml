@@ -1,17 +1,14 @@
-#topblackbar
-#mainheader
-	#searchbar
-		= image_tag "logotop.png", id: "logotop"
-		#headspacer
-		#mainsearchform
+#black_bar
+#main_header
+	#search_bar
+		= image_tag "main_logo.png", id: "logotop"
+		#searchform
 			= simple_form_for Search.new, action:"/" do |f|
 				= f.input :query, label: false, placeholder: "Query", input_html: {class:"topsearch"}
 				%p#near near
 				= f.input :user_location, label: false, placeholder: "UserLocation", input_html: {class:"topsearch"}
-			.mainsearchbtn
-				= image_tag "searchicon.png", id:"topsearchicon"
 	#navbar
-		= image_tag "/assets/navbar.png"
+		= image_tag "/assets/navbar2.png"
 		#navlinks
 			%ul
 				%li
@@ -27,3 +24,12 @@
 						= image_tag "/assets/forum-icon.png"
 					= link_to "#" do
 						= image_tag "/assets/saver-icon.png"
+
+
+//						#mainsearchform
+//							= simple_form_for Search.new, action:"/" do |f|
+//								= f.input :query, label: false, placeholder: "Query", input_html: {class:"topsearch"}
+//								%p#near near
+//								= f.input :user_location, label: false, placeholder: "UserLocation", input_html: {class:"topsearch"}
+//							.mainsearchbtn
+//								= image_tag "searchicon.png", id:"topsearchicon"

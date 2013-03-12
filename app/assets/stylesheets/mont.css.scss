@@ -1,0 +1,138 @@
+$dark_green: #046414;
+
+body {
+	h1{
+		font-family:'gothic821_cn_btregular';
+		font-size: 55px;
+		color: $dark_green;
+	}
+	h2{
+		font-family:'gothic821_cn_btregular';
+		color: $dark_green;
+	}
+	h3{
+		font-family:'gothic821_cn_btregular';
+		color: $dark_green;
+	}
+}
+
+@font-face {
+    font-family: 'freehand575_btregular';
+    src: url('/assets/freeh575-webfont.eot');
+    src: url('/assets/freeh575-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/freeh575-webfont.woff') format('woff'),
+         url('/assets/freeh575-webfont.ttf') format('truetype'),
+         url('/assets/freeh575-webfont.svg#freehand575_btregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gothic821_cn_btregular';
+    src: url('goth821c-webfont.eot');
+    src: url('goth821c-webfont.eot?#iefix') format('embedded-opentype'),
+         url('goth821c-webfont.woff') format('woff'),
+         url('goth821c-webfont.ttf') format('truetype'),
+         url('goth821c-webfont.svg#gothic821_cn_btregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ul{
+	list-style: none;
+}
+
+li{
+	list-style: none;
+}
+
+p{
+	margin: 0;
+	padding: 0;
+	font-family: 'gothic821_cn_btregular';
+}            
+
+h1{
+	margin:0;
+	padding:0;
+	font-family: 'gothic821_cn_btregular';
+}   
+ 
+h2{
+	margin:0;
+	padding:0;
+	font-family: 'gothic821_cn_btregular';
+}
+
+#black_bar{
+	height:30px;
+	background:black;
+	
+}
+
+#main_header{
+	background-image: url('/assets/hempheader.png');
+	height:150px;
+	background-position:center;
+}
+
+#search_bar{
+	height:150px;
+	
+	img{
+		position:relative;
+		top:-45px;
+		left:200px;
+		z-index:99;
+	}
+}
+
+.topsearch{
+	width: 200px;
+	height: 30px;
+	float: left;
+}
+
+#searchform{
+	position: absolute;
+	top:55px;
+	left:352px;
+	display: inline;
+	width:580px;
+	height:40px;
+	padding-top: 15px;
+	padding-bottom: 20px;
+	padding-left: 60px;
+	border-radius:10px;
+	background-color: rgba(0,134,16,.8);
+}
+
+#search_user_location{
+	margin-left:15px;
+}
+
+#near{
+	margin-left: 15px;
+	margin-top: 15px;
+	float:left;
+	color:white;
+}
+
+#navlinks{
+	position:relative;
+	z-index:99;
+	top:-90px;
+	left:730px;
+	
+	img:hover{
+		background: -moz-radial-gradient(center, ellipse cover,  rgba(229,255,0,1) 0%, rgba(246,255,163,0) 64%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(229,255,0,1)), color-stop(64%,rgba(246,255,163,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+		background: -webkit-radial-gradient(center, ellipse cover,  rgba(229,255,0,1) 0%,rgba(246,255,163,0) 64%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-radial-gradient(center, ellipse cover,  rgba(229,255,0,1) 0%,rgba(246,255,163,0) 64%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+		background: -ms-radial-gradient(center, ellipse cover,  rgba(229,255,0,1) 0%,rgba(246,255,163,0) 64%,rgba(255,255,255,0) 100%); /* IE10+ */
+		background: radial-gradient(ellipse at center,  rgba(229,255,0,1) 0%,rgba(246,255,163,0) 64%,rgba(255,255,255,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5ff00', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	}
+}

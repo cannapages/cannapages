@@ -10,7 +10,6 @@
  *              
  *= require blueprint
  *= require_self
- *= require main
- *= require tyrel
+ *= require mont
  *= require gmaps4rails
  */

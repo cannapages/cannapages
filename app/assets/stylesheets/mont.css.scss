@@ -9,6 +9,7 @@ body {
 	h2{
 		font-family:'gothic821_cn_btregular';
 		color: $dark_green;
+		line-height:1.2em;
 	}
 	h3{
 		font-family:'gothic821_cn_btregular';
@@ -200,4 +201,13 @@ h2{
 		background: radial-gradient(ellipse at center,  rgba(229,255,0,1) 0%,rgba(246,255,163,0) 64%,rgba(255,255,255,0) 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5ff00', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 	}
+}
+
+#home_page_featured{
+	float:right;
+	margin-top:-70px;
+}
+
+#home_text{
+	margin-top:-186px;
 }

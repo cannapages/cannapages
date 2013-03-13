@@ -267,3 +267,20 @@ h2{
 #harvestheader{
 	margin-top:-30px;
 }
+
+.forum_container{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding:20px;
+}
+
+.forum_list{
+	float:left;
+}
+
+.forum_info{
+	float:right;
+}

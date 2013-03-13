@@ -1,17 +1,16 @@
-#topblackbar
-#mainheader
-	#searchbar
-		= image_tag "logotop.png", id: "logotop"
-		#headspacer
-		#mainsearchform
+#black_bar
+#main_header
+	= image_tag "hempheader.png", id: "hempheader"
+	#search_bar
+		= image_tag "main_logo.png", id: "logotop"
+		#searchform
 			= simple_form_for Search.new, action:"/" do |f|
 				= f.input :query, label: false, placeholder: "Query", input_html: {class:"topsearch"}
 				%p#near near
 				= f.input :user_location, label: false, placeholder: "UserLocation", input_html: {class:"topsearch"}
-			.mainsearchbtn
-				= image_tag "searchicon.png", id:"topsearchicon"
+			= image_tag "search_icon.png", id: "search_icon"
 	#navbar
-		= image_tag "/assets/navbar.png"
+		= image_tag "/assets/navbar2.png"
 		#navlinks
 			%ul
 				%li

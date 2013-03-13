@@ -1,0 +1,26 @@
+#black_bar
+#head2_container
+	.container
+		.span-12
+			= image_tag "logotop-75-75.png", id: "altlogotop"
+			#altsearchform
+				= simple_form_for Search.new, action:"/" do |f|
+					= f.input :query, label: false, placeholder: "Query", input_html: {class:"alttopsearch"}
+					%p#near near
+					= f.input :user_location, label: false, placeholder: "UserLocation", input_html: {class:"alttopsearch"}
+				= image_tag "search_icon.png", id: "altsearch_icon"
+		.span-12.last#altnavlinks
+			%ul
+				%li
+					= link_to "#" do
+						= image_tag "/assets/field-logo.png"
+					= link_to "#" do
+						= image_tag "/assets/news-icon.png"
+					= link_to "#" do
+						= image_tag "/assets/critiques-icon.png"
+					= link_to "#" do
+						= image_tag "/assets/members-icon.png"
+					= link_to "#" do
+						= image_tag "/assets/forum-icon.png"
+					= link_to "#" do
+						= image_tag "/assets/saver-icon.png"

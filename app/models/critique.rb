@@ -1,12 +1,17 @@
 class Critique
   include Mongoid::Document
 	include Mongoid::Timestamps
+	include Mongoid::Paperclip
+
   field :title, type: String
   field :content, type: String
   field :views, type: Integer
   field :likes, type: Integer
 
-	embeds_many :commetns
+	embeds_many :comments
+	belongs_to :listing
+	belongs_to :user
+  has_mongoid_attached_file :critique_image, :styles => { :large => "300x300#", :small => "150x150#" }
 
 	before_save :initialize_anylitics, :remove_unwanted_html_tags
 

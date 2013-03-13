@@ -1,11 +1,16 @@
 class Article
   include Mongoid::Document
 	include Mongoid::Timestamps
-	field :soul_id, type: String
   field :title, type: String
+	field :url, type: String
+	field :author, type: String
   field :content, type: String
+  field :published, type: String
+  field :categories, type: String
   field :views, type: Integer
   field :likes, type: Integer
+
+	validates_uniqueness_of :url
 
 	before_create :initialize_anylitics
 	before_save :remove_unwanted_html_tags

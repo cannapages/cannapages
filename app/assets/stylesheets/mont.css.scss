@@ -203,6 +203,16 @@ h2{
 	}
 }
 
+#grad_bar{
+	background-image:url('gradbar.png');
+	background-repeat: repeat-x;
+	height:250px;
+}
+
+#top{
+	margin-top:-250px;
+}
+
 #home_page_featured{
 	float:right;
 	margin-top:-70px;
@@ -252,4 +262,8 @@ h2{
 .bottom_text{
 	position:absolute;
 	float:right;
+}
+
+#harvestheader{
+	margin-top:-30px;
 }

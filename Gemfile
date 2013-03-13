@@ -17,6 +17,7 @@ gem 'blueprint-rails'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'gmaps4rails'
 gem 'feedzirra'
+gem 'placefinder', require: 'placefinder'
 group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'

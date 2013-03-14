@@ -316,6 +316,22 @@ h2{
 	}
 }
 
+#view_page{
+	background-color:#2900F4;
+	position:relative;
+	top:10px;
+	left:10px;
+	width:120px;
+	height:40px;
+	border-radius:10px;
+	
+	p{
+		color:white;
+		font-size:20px;
+		pading:10px;
+	}
+}
+
 #back_nav{
 
 	li{
@@ -332,4 +348,15 @@ h2{
 	border-bottom: 2px solid black;
 	width:100px;
 	height:10px;
+}
+
+.back_top{
+	padding-top:20px;
+}
+
+.back_content{
+	background-color:#D7E5DB;
+	position:relative;
+	left:200px;
+	bottom:355px;
 }

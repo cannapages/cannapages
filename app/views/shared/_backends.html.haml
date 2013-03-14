@@ -1,11 +1,12 @@
-#top
-.container
+.container.back_top
 	.span-4.prepend-4.clear-left
 		= image_tag "http://placehold.it/100x100"
 	.span-10
 		%h1 Company/User Name
 	.span-6.last
-		%button View Site
+		= link_to '#' do
+			#view_page
+				%p View Page
 .container
 	.span-4.first#back_nav
 		%ul

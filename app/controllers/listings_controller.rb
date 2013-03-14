@@ -12,12 +12,15 @@ class ListingsController < ApplicationController
   end
 
   def new
+    render layout: "business_backend"
   end
 
   def edit
+    render layout: "business_backend"
   end
   
   def destroy
+    render layout: "business_backend"
   end
 
   def admin_index

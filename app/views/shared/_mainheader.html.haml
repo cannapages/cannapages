@@ -4,7 +4,7 @@
 	.container#inner_header
 		.span-24
 			= image_tag "main_logo.png", id: "logotop"
-			#searchform
+			#search_form2
 				= simple_form_for Search.new, action:"/" do |f|
 					= f.input :query, label: false, placeholder: "Query", input_html: {class:"topsearch"}
 					%p#near near

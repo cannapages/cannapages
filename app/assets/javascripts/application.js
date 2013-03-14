@@ -16,11 +16,8 @@
 // Custom Scripts
 //= require main
 
-//= require gmaps4rails/gmaps4rails.base
-//= require gmaps4rails/gmaps4rails.bing
-//= require gmaps4rails/gmaps4rails.googlemaps
-//= require gmaps4rails/gmaps4rails.mapquest
-//= require gmaps4rails/gmaps4rails.openlayers
+//= require leaflet.js
+//= require my_leaflet.js
 
 //= jquery-turbolinks
 //= turbolinks

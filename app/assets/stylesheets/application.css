@@ -11,5 +11,7 @@
  *= require blueprint
  *= require_self
  *= require mont
+ *= require tyrel
+ *= require leaflet
  *= require gmaps4rails
  */

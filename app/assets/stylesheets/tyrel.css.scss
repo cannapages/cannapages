@@ -2,74 +2,34 @@ $dark_green: #046414;
 $dark_blue: #2020E0;
 $light_grey: #C8C8C8;
 
-#fieldguide {
-	position: relative;
-	img {
-		position: absolute;
-		left: 52px;
-	}
-	.fieldguidehome {
-		margin-left: 265px;
-	}
+#main_home_heading {
+	z-index: 99;
 }
 
-#homefeatured {
+#home_page_featured {
 	position: relative;
-	h2 {
-		color: $dark_green;
-		&#location_change {
-			color: $dark_blue;
-		}
+	img {
+		z-index: 1;
 	}
-	#aarowlogo {
-		float: left;
-	}
-	#featureddispensaries {
-		float: left;
-	}
-	#location_change {
-		float: right;
-	}
-	#featured_listings_container {
-		position: absolute;
-		top: 36px;
-		left: 494px;
-		.featured_listing {
-			border-top: 2px solid $light_grey;
-			height: 78px;
-			width: 378px;
-			padding: 10px;
-			img {
-				float: left;
+	#fieldguide {
+		ul {
+			position: absolute;
+			top: 42px;
+			left: 283px;
+			width: 170px;
+			z-index: -1;
+			font-size: 10pt;
+			.first {
+				color: $dark_green;
 			}
 		}
 	}
 }
 
-.topsearch{
-	width: 200px;
-	height: 30px;
+#home_text {
+	padding-top: 47px;
 }
 
-input[type="text"], input[type="password"], input[type="url"], input[type="email"], input.text, input.title, textarea, select {
-	float: left;
-	margin-right: 35px;
-	margin-top: 22px;
-	position: relative;
-	left: 30px;
-}
-
-#navbar {
-	position: absolute;
-	top: 150px;
-	ul {
-		position: absolute;
-		top: 0px;
-		right: 205px;
-	}
-}
-
-.container {
-	position: relative;
-	top: 92px;
+#map {
+	height: 250px;
 }

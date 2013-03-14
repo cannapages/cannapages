@@ -10,7 +10,10 @@
 		-# = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
 
 		%body
-			= render 'shared/altheader'
+			- if params[:controller] == "home"
+				= render 'shared/mainheader'
+			- else
+				= render 'shared/altheader'
 			.container
 				- if notice
 					%p.notice= notice

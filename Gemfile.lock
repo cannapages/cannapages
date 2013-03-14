@@ -90,9 +90,6 @@ GEM
       nokogiri (> 0.0.0)
       sax-machine (>= 0.0.12)
     fssm (0.2.10)
-    geokit (1.6.5)
-      multi_json
-    gmaps4rails (1.5.6)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -125,6 +122,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
+    mongo (1.8.3)
+      bson (~> 1.8.3)
     mongoid (3.1.2)
       activemodel (~> 3.2)
       moped (~> 1.4.2)
@@ -234,13 +233,12 @@ DEPENDENCIES
   factory_girl_rails
   faker
   feedzirra
-  geokit
-  gmaps4rails
   haml
   haml-rails
   jquery-rails
   jquery-turbolinks
   launchy
+  mongo
   mongoid
   mongoid-paperclip
   omniauth

@@ -1,12 +1,9 @@
 class Listing
 	#Modules
-	include Gmaps4rails::ActsAsGmappable
   include Mongoid::Document
 	include Mongoid::Timestamps
 	include Mongoid::Paperclip
 	has_mongoid_attached_file :logo, :styles => { thumb: "75x75#", medium: "150x150#", large: "250x250#" }
-
-	acts_as_gmappable lat: "lat", lng: "lng"
 
 	#Fields
 	#Info
@@ -18,9 +15,9 @@ class Listing
   field :state, type: String
   field :zip, type: String
 
-	field :gmaps, type: Boolean
   field :lat, type: Float
   field :lng, type: Float
+	field :loc, type: Array
 
 	field :website, type: String
 	field :twitter, type: String
@@ -67,7 +64,18 @@ class Listing
 	field :saturday_special, type: String
 	field :sunday_special, type: String
 	field :weekly_special, type: String
-	
+
+	#Indexes
+	index(
+  	{ loc: Mongo::GEO2D },
+		{ background: true, sparse: true }
+	)
+
+	#Scopes
+	scope :near, ->(location, distance) do
+		where(:loc => {"$near" => location , '$maxDistance' => distance.fdiv(69.172)})
+	end
+
 	#Validations
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
 	validates_inclusion_of :category, allow_nil: false, in: LISTING_CATEGORY_ARRAY
@@ -104,9 +112,12 @@ class Listing
 	end
 
 	def update_lat_lng
-		geo = Geokit::Geocoders::GoogleGeocoder.geocode self.full_address
-		self.lat = geo.lat
-		self.lng = geo.lng	
+		location_object = YahooHelper.get_location_data( self.full_address )
+		lng = location_object["longitude"]
+		lat = location_object["latitude"]
+		self.loc = [lat.to_f,lng.to_f]
+		self.lng = lng
+		self.lat = lat
 	end
 
 	def ensure_http
@@ -132,35 +143,6 @@ class Listing
 
 	def formated_phone
 		"#{phone[0..2]}-#{phone[3..5]}-#{phone[5..9]}"
-	end
-
-	#Gmaps4Rails
-	def gmaps4rails_infowindow
-		"<a href='/listings/#{id}'><h4>#{name}</h4></a>" +
-		"<p>#{formated_phone}</p>" +
-		"<p>#{full_address}</p>"
-	end
-
-	def gmaps4rails_marker_picture
-		{
-			"picture" => (self.featured ? "/assets/leaf-pin-featured.png" : "/assets/leaf-pin.png" ),
-			"width" => (self.featured ? 42 : 28),
-			"height" => (self.featured ? 53 : 39)
-			# "marker_anchor" => ,   # array,   facultative
-			# "shadow_picture" => ,  # string,  facultative
-			# "shadow_width" => ,    # string,  facultative
-			# "shadow_height" => ,   # string,  facultative
-			# "shadow_anchor" => ,   # string,  facultative
-			# "rich_marker" =>   ,   # html, facultative
-		}
-	end
-
-	def gmaps4rails_address
-		full_address
-	end
-
-	def location
-		{lat: lat, lng: lng, return_array: true}
 	end
 
 	class << self

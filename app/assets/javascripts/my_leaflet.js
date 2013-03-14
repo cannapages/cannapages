@@ -10,7 +10,7 @@ $(document).ready( function() {
     })
 		main_layer = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
 			key: '5990419e5e434f22be45a5f491ce3e54',
-			styleId: 89560,
+			styleId: 89663,
 		})
 		map.addLayer( main_layer )
 

@@ -22,4 +22,5 @@ C41::Application.routes.draw do
 	resources :roachy_tips
 	
 	get 'test_views/home_page' => "test_views#home_page"
+	get 'home/backends' => "home#backends"
 end

@@ -19,7 +19,7 @@ class UserLocation
 	end
 
 	def self.new_from_yahoo_result( result )
-		self.new( result["latitude"], result["longitude"], result["city"], result["state"], result["uzip"], result["street"] )
+		self.new( result["latitude"].to_f, result["longitude"].to_f, result["city"], result["state"], result["uzip"], result["street"] )
 	end
 
 	def max_info_string

@@ -73,7 +73,10 @@ class Listing
 
 	#Scopes
 	scope :near, ->(location, distance) do
-		where(:loc => {"$near" => location , '$maxDistance' => distance.fdiv(69.172)})
+		where(:loc => {"$near" => location , '$maxDistance' => distance.fdiv(69.172)}).limit(0)
+	end
+	scope :featured, ->(num) do
+		where( featured: true ).order_by( featured_shows: :desc ).limit(num)
 	end
 
 	#Validations
@@ -143,27 +146,6 @@ class Listing
 
 	def formated_phone
 		"#{phone[0..2]}-#{phone[3..5]}-#{phone[5..9]}"
-	end
-
-	class << self
-		def calculate_distance_for_each_listing_in_array( listings_array, user_location )
-			listings_array.each do |listing|
-				listing.distance = DistanceHelper::distance_between( user_location.lat, user_location.lng, lat, lng )
-			end
-		end
-
-		#Name category within miles
-		def distance_search( query )
-			listings = light_search( query )
-			Listings.calculate_distance_for_each_listing_in_array( listings, params[:user_location] )
-			listings.sort! { |a,b| a.distance <=> b.distance }
-		end
-
-		#Name 
-		def light_search( query )
-			(where( name: (%r[#{query}]i) ).to_a + where( category: (%r[#{query}]i) ).to_a).uniq!
-		end
-
 	end
 
 end

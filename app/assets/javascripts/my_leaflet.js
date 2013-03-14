@@ -1,9 +1,21 @@
 $(document).ready( function() {
-	user_location = $('user_location')
-	user_lat = parseInt(user_location.data('lat'))
-	user_lng = parseInt(user_location.data('lng'))
+	var user_location = $('user_location')
+	var user_lat = parseInt(user_location.data('lat'))
+	var user_lng = parseInt(user_location.data('lng'))
+	var max_lat = -90;
+	var min_lat = 90;
+	var max_lng = -180;
+	var min_lng = 180;
 
-	if($("#map")) {
+	if($("#map").size() > 0) {
+		//Get the bounds of the map based on the listings
+		$('listing').each( function(index,value) {
+			value = $(value)
+			lat = value.data('lat')
+			lng = value.data('lng')
+			
+		})
+
 		map = new L.Map("map", {
       center: [user_lat, user_lng],
       zoom: 12

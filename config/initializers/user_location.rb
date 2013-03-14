@@ -8,6 +8,7 @@ class UserLocation
   end
 
 	def self.new_from_ip( ip )
+		ip = "168.103.83.225" if ip == "127.0.0.1"
 		result = YahooHelper::get_location_data( ip )
 		self.new_from_yahoo_result( result )
 	end

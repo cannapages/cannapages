@@ -12,12 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-
-// Custom Scripts
 //= require main
-
 //= require leaflet.js
 //= require my_leaflet.js
-
 //= jquery-turbolinks
 //= turbolinks

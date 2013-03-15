@@ -1,2 +1,23 @@
-%h1 Forum_threads#index
-%p Find me in app/views/forum_threads/index.html.haml
+#top
+.span-12.first#header
+	= image_tag "harvest_header.png", id: "harvestheader"
+.span-10.prepend-2.last
+	= image_tag "http://placehold.it/300x150"
+.span-24.forum_container
+	%table
+		%tr
+			%th &nbsp;
+			%th Thread
+			%th Last Post
+			%th Replies
+			%th Views
+		- 10.times do |x|
+			%tr.frow
+				%td.col1
+					= image_tag "leaf-logo-sm.png"
+				%td.col2 
+					%h2 I'm a Thread<br/>
+					%p created by: user
+				%td.col3 Latest Post
+				%td.col4 50
+				%td.col5 17562

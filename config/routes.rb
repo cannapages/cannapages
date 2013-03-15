@@ -19,6 +19,8 @@ C41::Application.routes.draw do
 	get "rss_feeds/admin_index" => "rss_feeds#admin_index", as: :rss_feeds_admin_index
 	resources :rss_feeds
 	resources :forums
+	resources :forum_threads
+	resources :forum_posts
 	resources :roachy_tips
 	
 	get 'test_views/home_page' => "test_views#home_page"

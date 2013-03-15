@@ -60,7 +60,6 @@ a{
 p{
 	margin: 0;
 	padding: 0;
-	font-family: 'gothic821_cn_btregular';
 }            
 
 h1{
@@ -296,25 +295,31 @@ h2{
 	padding:20px;
 }
 
-.fcol1{
+.frow{
+	height:60px;
+	
+	.col1{
 		width:20px;
+	}
+
+	.col2{
+		width:650px;
+	}
+
+	.col3{
+		width:150px;
+	}
+
+	.col4{
+		width:65px;
+	}
+
+	.col5{
+		width:65px;
+	}
 }
 
-.fcol2{
-	width:650px;
-}
 
-.fcol3{
-	width:150px;
-}
-
-.fcol4{
-	width:65px;
-}
-
-.fcol5{
-	width:65px;
-}
 
 #view_page{
 	background-color:#2900F4;

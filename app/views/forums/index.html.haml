@@ -4,11 +4,19 @@
 .span-10.prepend-2.last
 	= image_tag "http://placehold.it/300x150"
 .span-24.forum_container
-	- 10.times do |x|
-		.forum_list
-			= image_tag "leaf-pin.png"
-			%h2 I'm a Forum!
-			%p forum description
-		.forum_info
-			%h2 latest post and such
-	
+	%table
+		%tr
+			%th &nbsp;
+			%th Forum
+			%th Last Post
+			%th Threads
+			%th Posts
+		- 10.times do |x|
+			%tr
+				%td.fcol1
+					= image_tag "leaf-logo-sm.png"
+				%td.fcol2 I'm a forum <br/> Forum Description
+				%td.fcol3 Latest Post
+				%td.fcol4 2532
+				%td.fcol5 17562
+			

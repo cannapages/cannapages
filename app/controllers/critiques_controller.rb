@@ -10,6 +10,8 @@ class CritiquesController < ApplicationController
   end
 
   def show
+    @strain_test = StrainTest.first
+    @strain = @strain_test.strain
   end
 
   def new

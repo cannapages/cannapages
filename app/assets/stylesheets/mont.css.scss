@@ -45,6 +45,30 @@ body {
 
 }
 
+@font-face {
+    font-family: 'cloister_blacklight';
+    src: url('cloisterblack-webfont.eot');
+    src: url('cloisterblack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('cloisterblack-webfont.woff') format('woff'),
+         url('cloisterblack-webfont.ttf') format('truetype'),
+         url('cloisterblack-webfont.svg#cloister_blacklight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'underwood_championregular';
+    src: url('underwood_champion-webfont.eot');
+    src: url('underwood_champion-webfont.eot?#iefix') format('embedded-opentype'),
+         url('underwood_champion-webfont.woff') format('woff'),
+         url('underwood_champion-webfont.ttf') format('truetype'),
+         url('underwood_champion-webfont.svg#underwood_championregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 ul{
 	list-style: none;
 }
@@ -368,7 +392,6 @@ h2{
 }
 
 #critiques_container{
-	height:300px;
 	border-radius:5px;
 	background-color:whitesmoke;
 	padding:10px;
@@ -430,3 +453,47 @@ h2{
 	float:left;
 	margin-right:10px;
 }
+
+#dispatches_head{
+	background-color:whitesmoke;
+	border-radius:10px;
+	height:150px;
+	h1{
+		font-family: 'cloister_blacklight';
+		color:black;
+		font-size:50px;
+	}
+	p,h2,h3{
+		font-family: 'underwood_championregular';
+		color:black;
+	}
+}
+
+#dispatch_logo{
+	float:left;
+	width:150px;
+}
+
+#dispatch_title{
+	position:relative;
+	width:770px;
+	left:20px;
+}
+
+#dispatch_desc{
+	position:relative;
+	float:right;
+	top:-50px;
+	text-align:center;
+	color:$dark_green;
+}
+
+#dispatches_subhead{
+	height:50px;
+	background-color:green;
+}
+
+#dispatch_title{
+	text-align:center;
+}
+

@@ -1,6 +1,6 @@
 class CritiquesController < ApplicationController
   def index
-    
+		@critiques = Critique.all
   end
 
   def new

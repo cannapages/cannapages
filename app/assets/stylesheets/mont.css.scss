@@ -262,11 +262,24 @@ h2{
 .home_btns_bottom{
 	float:left;
 	margin-top:20px;
+	
+	img{
+		position: relative;
+		top: -95px;
+		left: 10px;
+	}
 }
 
 .bottom_text{
-	position:absolute;
-	float:right;
+	position: relative;
+	left: 135px;
+	top: 25px;
+}
+
+.bottom_text_mid{
+	position: relative;
+	left: 170px;
+	top: 25px;
 }
 
 #harvestheader{
@@ -283,37 +296,24 @@ h2{
 	padding:20px;
 }
 
-.forum_list{
-	width:607px;
-	height:50px;
-	border-bottom:1px solid gray;
-	border-right:1px solid gray;
-	position:relative;
-	
-	h2{
-		position:relative;
-		left:40px;
-		top:-40px;
-	}
-	p{
-		position:relative;
-		left:40px;
-		top:-40px;
-	}
+.fcol1{
+		width:20px;
 }
 
-.forum_info{
-	float:right;
-	width:303px;
-	height:50px;
-	position:relative;
-	top:-50px;
-	left:10px;
-	background-color:rgba(225,228,242,.8);
-	
-	h2{
-		padding:5px;
-	}
+.fcol2{
+	width:650px;
+}
+
+.fcol3{
+	width:150px;
+}
+
+.fcol4{
+	width:65px;
+}
+
+.fcol5{
+	width:65px;
 }
 
 #view_page{

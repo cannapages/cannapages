@@ -11,11 +11,11 @@
 			%th Last Post
 			%th Threads
 			%th Posts
-		- 10.times do |x|
+		- @forums.each do |forum|
 			%tr
 				%td.fcol1
 					= image_tag "leaf-logo-sm.png"
-				%td.fcol2 I'm a forum <br/> Forum Description
+				%td.fcol2= ("#{forum.name} <br/>Forum Description").html_safe
 				%td.fcol3 Latest Post
 				%td.fcol4 2532
 				%td.fcol5 17562

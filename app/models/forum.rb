@@ -4,21 +4,10 @@ class Forum
   field :about, type: String
   field :views, type: Integer
   
-  embeds_many :threads
+  embeds_many :forum_threads
   before_save :initialize_analytics
   
-  def initialize_anylitics
+  def initialize_analytics
 		self.views = 0
 	end
-
-	class << self
-		def search( query )
-			inject([]) do |forum,result|
-				result + threads.inject([]) do |thread,result|
-					(thread.posts.where( title: (%r[#{query}]i) ).to_a + thread.posts.where( content: (%r[#{query}]i) ).to_a).uniq!
-				end
-			end
-		end
-	end
-
 end

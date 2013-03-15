@@ -1,4 +1,4 @@
-$(document).ready( function() {
+$(window).bind( "load", function() {
 	var user_location = $('user_location')
 	var user_lat = parseFloat(user_location.data('lat'))
 	var user_lng = parseFloat(user_location.data('lng'))

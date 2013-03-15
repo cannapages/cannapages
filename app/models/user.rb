@@ -33,6 +33,7 @@ class User
 
 	#Relationships
 	has_many :reviews
+	has_one :listing
 
 	#Validations
   validates_presence_of :encrypted_password

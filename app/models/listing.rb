@@ -65,6 +65,9 @@ class Listing
 	field :sunday_special, type: String
 	field :weekly_special, type: String
 
+	#Relations
+	belongs_to :user	
+
 	#Virtual Attributes
 	attr_accessor :distance
 

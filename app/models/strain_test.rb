@@ -9,6 +9,7 @@ class StrainTest
   field :cbd, type: Float
   field :cbn, type: Float
   field :total_cannabinoids, type: Float
+	field :slug, type: String
 
 	has_mongoid_attached_file :image, :styles => { thumb: "70x70#", medium: "320x320#" }
 
@@ -22,7 +23,25 @@ class StrainTest
 	belongs_to :strain
 
 	before_validation :ensure_dominance
-	before_save :derive_names
+	before_create :generate_slug
+	before_save :derive_names, :update_pie_chart
+
+	def chart_url
+		"/charts/strain-tests/#{slug}.png"
+	end
+
+	def generate_slug
+		self.slug = (strain_name.downcase.gsub(" ","-") + "-" + 
+		business_name.downcase.gsub(" ","-") + "-" + Date.today.strftime("%D").gsub("/","-")).gsub("'",'-').gsub('"','-')
+	end
+
+	def update_pie_chart
+		R.eval "png(file='#{Rails.root}/public/charts/strain-tests/#{slug}.png')"
+		R.eval "slices <- c(#{total_cannabinoids}, #{100 - total_cannabinoids})"
+		R.eval 'lbls <- c("Cannabinoids","Other")'
+		R.eval 'pie(slices, labels = lbls, main="Cannabinoids vs Non Cannabinoids")'
+		R.eval "dev.off()"
+	end
 
 	def derive_names
 		unless listing.nil? or business_name

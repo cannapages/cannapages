@@ -11,16 +11,18 @@ C41::Application.routes.draw do
 	put "/listings/:id/admin" => "listings#admin_update", as: :admin_update_listing
 	get "/listings/admin_new" => "listings#admin_new", as: :admin_new_listing
 	post "/listings/admin" => "listings#admin_create", as: :admin_create_listing
-	resources :listings
+	get "/listings/edit" => "listings#edit", as: :business_edit_listing
+	resources :listings, except: [:edit]
+
 	resources :articles
 	resources :critiques
 	resources :strains
+	resources :strain_tests
 	
 	get "rss_feeds/admin_index" => "rss_feeds#admin_index", as: :rss_feeds_admin_index
 	resources :rss_feeds
 	resources :forums
 	resources :roachy_tips
 	
-	get 'test_views/home_page' => "test_views#home_page"
 	get 'home/backends' => "home#backends"
 end

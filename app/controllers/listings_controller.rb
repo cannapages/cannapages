@@ -12,10 +12,12 @@ class ListingsController < ApplicationController
   end
 
   def new
+		@listing = Listing.new
     render layout: "business_backend"
   end
 
   def edit
+		@listing = @current_user.listing
     render layout: "business_backend"
   end
   

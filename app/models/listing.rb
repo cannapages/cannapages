@@ -65,6 +65,9 @@ class Listing
 	field :sunday_special, type: String
 	field :weekly_special, type: String
 
+	#Virtual Attributes
+	attr_accessor :distance
+
 	#Indexes
 	index(
   	{ loc: Mongo::GEO2D },
@@ -72,11 +75,17 @@ class Listing
 	)
 
 	#Scopes
-	scope :near, ->(location, distance) do
-		where(:loc => {"$near" => location , '$maxDistance' => distance.fdiv(69.172)}).limit(0)
+	scope :near, ->(location,distance) do
+		where(:loc => {"$near" => location , '$maxDistance' => distance.fdiv(69.172)})
 	end
-	scope :featured, ->(num) do
-		where( featured: true ).order_by( featured_shows: :desc ).limit(num)
+	scope :near_with_max, ->(location, distance) do
+		geo_near( location ).spherical
+	end
+	scope :alt_near, ->(location) do
+		geo_near( location ).spherical
+	end
+	scope :featured, ->(limit) do
+		where( featured: true ).order_by( featured_shows: :desc ).limit(limit)
 	end
 
 	#Validations
@@ -92,6 +101,10 @@ class Listing
 	#Callbacks
 	before_save :initialize_anylitics, :format_phone, :update_lat_lng?, :ensure_http
 	before_create :initialize_dependencies
+
+	def update_distance( from )
+		self.distance = DistanceHelper.distance_between_objects( from, self )
+	end
 
 	def initialize_dependencies
 		create_listing_review unless listing_review

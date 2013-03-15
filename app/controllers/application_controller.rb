@@ -12,16 +12,19 @@ class ApplicationController < ActionController::Base
 	end
 
 	def update_user_location
-		if session[:user_location].nil? and params[:user_location].nil?
-			@user_location = UserLocation.new_from_ip( request.remote_ip )
-		elsif session[:user_location].nil? and params[:user_location]
-			@user_location = UserLocation.new_from_location( params[:user_location] )
-		elsif session[:user_location] and params[:user_location] != session[:user_location]
-			@user_location = UserLocation.new_from_location( params[:user_location] )
-		elsif session[:user_location] and params[:user_location] == session[:user_location]
-			return
+		if session[:user_location]
+			if params[:user_location] and params[:user_location] != session[:user_location]
+				@user_location = UserLocation.new_from_location( params[:user_location] )
+			end
+		else
+			if params[:user_location]
+				@user_location = UserLocation.new_from_location( params[:user_location] )
+			else
+				@user_location = UserLocation.new_from_ip( request.remote_ip )
+			end
 		end
-		session[:user_location] == @user_location
+		@user_location ||= session[:user_location]
+		session[:user_location] = @user_location
 	end
-
+				
 end

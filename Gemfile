@@ -17,6 +17,7 @@ gem 'jquery-turbolinks'
 gem 'blueprint-rails'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'feedzirra'
+gem "html_truncator"
 group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'

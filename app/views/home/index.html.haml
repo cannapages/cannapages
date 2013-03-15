@@ -27,9 +27,10 @@
 		#featured_listings_container
 			- @featured_listings.each do |listing|
 				.featured_listing
-					= image_tag "/assets/marker-icon.png"
-					%h4= listing.name
-					%p= listing.weekly_special
+					= image_tag "/assets/featured-marker-icon.png", class: :icon_left
+					%h4= truncate(listing.name, length: 31)
+					%p.distance= ("<span>Distance:</span> #{listing.distance.round(2)}").html_safe
+					%p.special= best_special_for_home_page( listing )
 .span-24#home_slider
 	%h2 Current Cannabis Specials for user_location
 	%h1 THERE WILL BE A SLIDER HERE

@@ -27,4 +27,8 @@
 		%user_location{"data-lat" => @user_location.lat, "data-lng" => @user_location.lng}
 		- if @listings
 			- @listings.each do |listing|
-				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name}
+				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name, "data-featured" => "false"}
+		- if @featured_listings
+			- @featured_listings.each do |listing|
+				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name, "data-featured" => "true"}
+			

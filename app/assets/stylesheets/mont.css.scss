@@ -370,6 +370,7 @@ h2{
 	height:300px;
 	border-radius:5px;
 	background-color:whitesmoke;
+	padding:10px;
 }
 
 .crit_results{
@@ -398,4 +399,33 @@ h2{
 	position:relative;
 	top:-125px;
 	left:140px;
+}
+
+#crit_text{
+	
+	p{
+		margin-bottom:10px;
+	}
+}
+
+#crit_comments{
+	
+	#table_head{
+		height:50px;
+	}
+	tr{
+		height:150px;
+	}
+	.col1{
+		width:150px;
+	}
+	.col2{
+		
+	}
+}
+
+#strain_image{
+	width:310px;
+	float:left;
+	margin-right:10px;
 }

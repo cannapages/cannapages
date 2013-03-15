@@ -19,6 +19,7 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem 'feedzirra'
 gem "html_truncator"
 gem 'rinruby'
+gem 'tinymce-rails'
 group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'

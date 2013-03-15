@@ -11,6 +11,8 @@ class Critique
 	embeds_many :comments
 	belongs_to :listing
 	belongs_to :user
+	belongs_to :strain_test
+	belongs_to :strain
   has_mongoid_attached_file :critique_image, :styles => { :large => "300x300#", :small => "150x150#" }
 
 	before_save :initialize_anylitics, :remove_unwanted_html_tags

@@ -15,6 +15,7 @@ class Strain
   field :total_cannabinoids, type: Float
 
 	has_many :strain_tests
+	has_many :critiques
 
 	# validates_inclusion_of :dominance, allow_nil: false, in: STRAIN_DOMINANCE_ARRAY
 	# validate :sum_of_percentages_makes_sense

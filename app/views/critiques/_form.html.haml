@@ -1,4 +1,11 @@
 = simple_form_for @critique do |f|
-  = f.input :title
-  = f.input :content
-  = f.button :submit
+	= f.input :title
+	.edditor
+		= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
+	= f.input :critique_image
+	= f.association :listing, collection: @listings
+	= f.association :strain_test, collection: @strain_tests, label_method: :slug
+	= f.association :strain, collection: @strains, hint: "Use only if thier is no strain test"
+	= f.button :submit
+
+= tinymce

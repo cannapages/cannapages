@@ -1,5 +1,6 @@
 class CritiquesController < ApplicationController
   def index
+    
   end
   
   def create

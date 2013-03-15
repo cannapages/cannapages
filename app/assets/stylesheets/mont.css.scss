@@ -360,3 +360,37 @@ h2{
 	left:200px;
 	bottom:355px;
 }
+
+#critiques_container{
+	height:300px;
+	border-radius:5px;
+	background-color:whitesmoke;
+}
+
+.crit_results{
+	width: 490px;
+	height: 130px;
+	float: left;
+	border-radius: 5px;
+	border-bottom: 1px solid;
+	margin:5px;
+	background-color:rgba(0,99,160,0.5);
+}
+
+.crit_graph{
+	width: 200px;
+	height: 130px;
+	float: right;
+	margin: 5px;
+	border-radius: 5px;
+}
+
+.crit_pic{
+	margin:5px;
+}
+
+.crit_info{
+	position:relative;
+	top:-125px;
+	left:140px;
+}

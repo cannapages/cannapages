@@ -1,12 +1,28 @@
-.span12first#critlogo
-    = image_tag "critlogo-header.png", id: "crit-top"
-.span12last#critslide
-    = image_tag "crit-mock.png", id: "crit-top"
-.span10first#crit-leftslide
-    = image_tag "critiqued-dispensary-title.png", id: "crit-leftitle"
-        = image_tag "critiqued-dispensary-title.png", id: "crit-leftmock"
-            %p hi
-.span10last#crit-rightslide
-    = image_tag "critiqued-dispensary-title.png", id: "crit-rightitle"
-        = image_tag "critiqued-dispensary-title.png", id: "crit-rightmock"
-            %p hi
+#top
+.span-18.first#critiques_container
+	- 10.times do |x|
+		.crit_results
+			.crit_pic
+				= image_tag "http://placehold.it/120x120"
+			.crit_info
+				%ul
+					%li
+						%h2 Strain Name
+					%li
+						%p Dispensary
+					%li
+						%p THC 26%
+					%li
+						%p CBD 
+					%li
+						%p CBN
+		.crit_graph{id: x+1}
+			
+			
+	
+%test{name: 'AK47', dispensary: 'bobs grow house', 		cbn: 5, cbd: 7, thc: 20.2, total: 32}
+%test{name:'g13', 	dispensary: 'Jims herbs', 			cbn: 2, cbd: 3, thc: 18.7, total: 25}
+%test{name:'blue', 	dispensary: 'wellness center', 		cbn: 1, cbd: 4, thc: 19.4, total: 24}
+%test{name:'green', dispensary: 'get high', 			cbn: 6, cbd: 5, thc: 23.0, total: 34}
+%test{name:'chronic', dispensary: 'hippie shack', 		cbn: 3, cbd: 6, thc: 27.5, total: 36}
+

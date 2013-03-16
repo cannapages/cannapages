@@ -64,6 +64,22 @@ $bold_red: #E02020;
 	}
 }
 
-
-
-
+.crit_results {
+	min-height: 205px;
+	position: relative;
+	.crit_pic {
+		img {
+			width: 120px;
+		}
+	}
+	.crit_exerpt {
+		display: block;
+		position: absolute;
+		top: 130px;
+		left: 27px;
+		width: 450px;
+	}
+}
+.small_strain_test_chart {
+	width: 205px;
+}

@@ -1,22 +1,29 @@
 #top
 .span-18.first#critiques_container
-	- 10.times do |x|
+	- @critiques.each do |critique|
 		.crit_results
 			.crit_pic
-				= image_tag "http://placehold.it/120x120"
+				= image_tag critique.critique_image(:small)
 			.crit_info
 				%ul
 					%li
-						%h2 Strain Name
-					%li
-						%p Dispensary
-					%li
-						%p THC 26%
-					%li
-						%p CBD 
-					%li
-						%p CBN
-		.crit_graph{id: x+1}
+						%h2= critique.index_title
+					- if critique.listing
+						%li
+							%p= "From #{critique.listing.name}"
+					- if critique.strain_test
+						%li
+							%p= "THC: #{critique.strain_test.thc}"
+						%li
+							%p= "CBD: #{critique.strain_test.cbd}"
+						%li
+							%p= "CBN: #{critique.strain_test.cbn}"
+						%li
+							%p= "Total Cannabinoids: #{critique.strain_test.total_cannabinoids}"
+			.crit_exerpt
+				= raw critique.exerpt
+		.crit_graph
+			= image_tag critique.strain_test.chart_url, class: :small_strain_test_chart if critique.strain_test
 			
 			
 	

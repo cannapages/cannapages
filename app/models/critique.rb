@@ -25,6 +25,19 @@ class Critique
 		self.content = Sanitize.clean( content, Sanitize::Config::RELAXED)
 	end
 
+	def index_title
+		parts = title.split("from")
+		if parts.size > 1
+			parts.first.strip
+		else
+			title[0..10] + "..."
+		end
+	end
+
+	def exerpt
+		HTML_Truncator.truncate(content, 30)
+	end
+
 	class << self
 		def search( query )
 			(where( title: (%r[#{query}]i) ).to_a + where( content: (%r[#{query}]i) ).to_a).uniq!

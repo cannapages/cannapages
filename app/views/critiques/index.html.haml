@@ -1,29 +1,32 @@
 #top
 .span-18.first#critiques_container
 	- @critiques.each do |critique|
-		.crit_results
-			.crit_pic
-				= image_tag critique.critique_image(:small)
-			.crit_info
-				%ul
-					%li
-						%h2= critique.index_title
-					- if critique.listing
+		= link_to critique do
+			.crit_results
+				.crit_pic
+					= image_tag critique.critique_image(:small)
+				.crit_info
+					%ul
 						%li
-							%p= "From #{critique.listing.name}"
-					- if critique.strain_test
-						%li
-							%p= "THC: #{critique.strain_test.thc}"
-						%li
-							%p= "CBD: #{critique.strain_test.cbd}"
-						%li
-							%p= "CBN: #{critique.strain_test.cbn}"
-						%li
-							%p= "Total Cannabinoids: #{critique.strain_test.total_cannabinoids}"
-			.crit_exerpt
-				= raw critique.exerpt
-		.crit_graph
-			= image_tag critique.strain_test.chart_url, class: :small_strain_test_chart if critique.strain_test
+							%h2= critique.index_title
+						- if critique.listing
+							%li
+								%p= "From #{critique.listing.name}"
+						- if critique.strain_test
+							%li
+								%p= "THC: #{critique.strain_test.thc}"
+							%li
+								%p= "CBD: #{critique.strain_test.cbd}"
+							%li
+								%p= "CBN: #{critique.strain_test.cbn}"
+							%li
+								%p= "Total Cannabinoids: #{critique.strain_test.total_cannabinoids}"
+				.crit_exerpt
+					= raw critique.exerpt
+		- strain_test = critique.strain_test
+		- if strain_test
+			.crit_graph
+				= image_tag strain_test.chart_url, class: :small_strain_test_chart
 			
 			
 	

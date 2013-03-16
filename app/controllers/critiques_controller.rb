@@ -32,8 +32,10 @@ class CritiquesController < ApplicationController
   end
 
   def show
-    @strain_test = StrainTest.first
-    @strain = @strain_test.strain
+		@critique = Critique.where( slug: params[:id] ).first
+		@listing = @critique.listing
+    @strain_test = @critique.strain_test
+		@strain = @critique.strain
   end
 
 

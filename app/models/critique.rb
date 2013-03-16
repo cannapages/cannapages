@@ -7,15 +7,20 @@ class Critique
   field :content, type: String
   field :views, type: Integer
   field :likes, type: Integer
+	field :slug, type: String
 
-	embeds_many :comments
+	has_many :comments
 	belongs_to :listing
 	belongs_to :user
 	belongs_to :strain_test
 	belongs_to :strain
   has_mongoid_attached_file :critique_image, :styles => { :large => "300x300#", :small => "150x150#" }
 
-	before_save :initialize_anylitics, :remove_unwanted_html_tags
+	before_save :initialize_anylitics, :remove_unwanted_html_tags, :update_slug
+
+	def update_slug
+		self.slug = title.downcase.gsub(" ","-")
+	end
 
 	def initialize_anylitics
 		self.views, self.likes = 0,0
@@ -36,6 +41,10 @@ class Critique
 
 	def exerpt
 		HTML_Truncator.truncate(content, 30)
+	end
+
+	def to_param
+		slug
 	end
 
 	class << self

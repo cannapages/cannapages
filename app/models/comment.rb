@@ -5,8 +5,5 @@ class Comment
   field :user_name, type: String
   field :user_email, type: String
 	field :user_id, type: String
-	embedded_in :listing
-	embedded_in :article
-	embedded_in :critique
-	embedded_in :strain
+	belongs_to :critique
 end

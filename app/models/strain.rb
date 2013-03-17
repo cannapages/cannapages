@@ -7,6 +7,7 @@ class Strain
 	field :flowering_time, type: String
 	field :bio, type: String
 	field :genetics, type: String
+	field :slug, type: String
 
 	#Scientific
   field :thc, type: Float
@@ -23,6 +24,16 @@ class Strain
 	# validates :thc, :inclusion => {:in => 0.0..100.0}
 	# validates :cbd, :inclusion => {:in => 0.0..100.0}
 	# validates :cbn, :inclusion => {:in => 0.0..100.0}
+
+	before_save :update_slug
+
+	def update_slug
+		self.slug = name.gsub(" ","-").downcase
+	end
+
+	def to_param
+		slug
+	end
 
 	def ensure_dominance
 		self.dominance ||= "Hybrid"

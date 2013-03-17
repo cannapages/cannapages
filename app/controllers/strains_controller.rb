@@ -1,5 +1,6 @@
 class StrainsController < ApplicationController
   def index
+		@strain = Strain.all
   end
   
   def create
@@ -9,6 +10,7 @@ class StrainsController < ApplicationController
   end
 
   def show
+		@strain = Strain.where( slug: params[:id] ).first
   end
 
   def new

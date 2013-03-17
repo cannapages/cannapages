@@ -1,4 +1,5 @@
 $dark_green: #046414;
+$light_green: #278808;
 $dark_blue: #2020E0;
 $light_grey: #C8C8C8;
 $bold_red: #E02020;
@@ -205,3 +206,52 @@ form {
 		}
 	}
 }
+
+.strain_show_left {
+	#image_widget {
+		position: relative;
+		width: 400px;
+		height: 350px;
+		img.fieldguide-logo {
+			position: absolute;
+			top: -32px;
+			left: 0px;
+		}
+		.large_holder {
+			position: absolute;
+			top: 14px;
+			left: 25px;
+			border: 1px solid $light_green;
+			width: 300px;
+			height: 300px;
+			background-color: white;
+		}
+		.small_holder_contianer {
+			position: absolute;
+			top: 275px;
+			left: 42px;
+			.small_holger {
+				float: left;
+				margin-right: 10px;
+				height: 75px;
+				width:75px;
+				border: 1px solid $light_green;
+				background: white;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

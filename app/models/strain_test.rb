@@ -21,6 +21,7 @@ class StrainTest
 
 	belongs_to :listing
 	belongs_to :strain
+	belongs_to :critique
 
 	before_validation :ensure_dominance
 	before_create :generate_slug

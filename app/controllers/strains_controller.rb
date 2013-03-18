@@ -11,6 +11,7 @@ class StrainsController < ApplicationController
 
   def show
 		@strain = Strain.where( slug: params[:id] ).first
+		@strain_tests = @strain.strain_tests.to_a
   end
 
   def new

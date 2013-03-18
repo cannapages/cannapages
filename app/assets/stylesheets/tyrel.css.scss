@@ -1,6 +1,7 @@
 $dark_green: #046414;
 $light_green: #278808;
 $dark_blue: #2020E0;
+$light_blue: #B8D8B8;
 $light_grey: #C8C8C8;
 $bold_red: #E02020;
 
@@ -128,7 +129,10 @@ a {
 		padding: 0px;
 		margin: 0px;
 		list-style: none;
+		position: relative;
+		top: -8px;
 		li {
+			height: 25px;
 			&:hover {
 				background-color: rgba(4,100,2,.5);
 			}
@@ -149,6 +153,7 @@ a {
 .back_content {
 	padding: 10px;
 	width: 730px;
+	top: -455px;
 	background: -moz-linear-gradient(top,  rgba(215,229,219,1) 0%, rgba(215,229,219,0.1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(215,229,219,1)), color-stop(100%,rgba(215,229,219,0.1))); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  rgba(215,229,219,1) 0%,rgba(215,229,219,0.1) 100%); /* Chrome10+,Safari5.1+ */
@@ -209,9 +214,11 @@ form {
 
 .strain_show_left {
 	#image_widget {
+		float: left;
 		position: relative;
 		width: 400px;
 		height: 350px;
+		margin-bottom: 50px;
 		img.fieldguide-logo {
 			position: absolute;
 			top: -32px;
@@ -221,37 +228,68 @@ form {
 			position: absolute;
 			top: 14px;
 			left: 25px;
-			border: 1px solid $light_green;
-			width: 300px;
-			height: 300px;
+			border: 5px solid $dark_green;
+			width: 320px;
+			height: 320px;
 			background-color: white;
 		}
 		.small_holder_contianer {
 			position: absolute;
-			top: 275px;
+			top: 305px;
 			left: 42px;
-			.small_holger {
+			.small_holder {
 				float: left;
 				margin-right: 10px;
-				height: 75px;
-				width:75px;
-				border: 1px solid $light_green;
+				margin-bottom: 10px;
+				height: 70px;
+				width:70px;
+				border: 3px solid $dark_green;
 				background: white;
+				&:hover {
+					cursor: hand;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	#strain_main_info {
+		float: left;
+		width: 230px;
+		h3 {
+			font-size: 17px;
+			color: black;
+		}
+		p {
+			span {
+				font-weight: bold;
+			}
+		}
+	}
+	#strain_critiques_index {
+		clear: both;
+		.critique {
+			border: 1px solid $light_blue;
+			padding: 10px;
+			&.light_blue {
+				background: $light_blue;
+			}
+			img {
+				float: left;
+				position: relative;
+				left: -7px;
+				top: -7px;
+			}
+			p.title {
+				font-weight: bold;
+			}
+			p.read_more {
+				a {
+					font-weight: bold;
+					position: relative;
+					left: 434px;
+				}
 			}
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

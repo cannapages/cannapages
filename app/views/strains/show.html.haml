@@ -2,9 +2,26 @@
 	.span-16.strain_show_left.first
 		#image_widget
 			.large_holder
+				= image_tag @strain_tests.first.image(:medium) unless @strain_tests.empty?
 			= image_tag "/assets/fieldguide-logo.png", class: "fieldguide-logo"
 			.small_holder_contianer
-				- 2.times do
-					.small_holger
+				- @strain_tests.each do |st|
+					.small_holder
+						= image_tag st.image(:thumb), "data-src" => st.image(:medium)
+		#strain_main_info
+			%h3= @strain.name
+			%p= ("<span>Genetics:</span> #{@strain.genetics}").html_safe
+			%p= ("<span>Flowering Time:</span> #{@strain.flowering_time}").html_safe
+			%p= ("<span>Dominance:</span> #{@strain.dominance}").html_safe
+			%p= ("<span>Bio:</span> #{@strain.bio}").html_safe
+		#strain_critiques_index
+			- @strain_tests.each_with_index do |st,i|
+				- critique = st.critique
+					- if critique
+					.critique{class: (((i % 2) == 0) ? "light_blue" : "plain")}
+						= image_tag "critiques-thumb.png"
+						%p.title= critique.listing.name
+						%p= raw critique.exerpt
+						%p.read_more= link_to "Read More", critique
 	.span-8.last
 		%p= @strain.name

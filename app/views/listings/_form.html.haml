@@ -4,7 +4,7 @@
 	= f.input :phone
 	= f.input :street_address
 	= f.input :city
-	= f.input :state
+	= f.input :state, collection: LEGAL_STATE_ARRAY
 	= f.input :zip
 	= f.input :website, :required => false
 	= f.input :twitter, :required => false

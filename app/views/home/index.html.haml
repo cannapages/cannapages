@@ -1,17 +1,18 @@
 .span-24.first
 	%h1#main_home_heading	Welcome to Cannapages
 	#home_page_featured
-		= image_tag "home_page_featured.png"
-		#fieldguide
-			%ul.fieldguidehome
-				%li
-					%p= ("<span class='first'>Strain:</span> #{@strain.name}").html_safe
-				%li
-					%p= ("<span class='first'>Lineage:</span> #{@strain.origins}").html_safe
-				%li
-					%p= ("<span class='first'>Dominance:</span> #{@strain.dominance}").html_safe
-				%li
-					%p= ("<span class='first'>Notes:</span> #{@strain.bio_exerpt}").html_safe
+		= link_to @strain do
+			= image_tag "home_page_featured.png"
+			#fieldguide
+				%ul.fieldguidehome
+					%li
+						%p= ("<span class='first'>Strain:</span> #{@strain.name}").html_safe
+					%li
+						%p= ("<span class='first'>Lineage:</span> #{@strain.origins}").html_safe
+					%li
+						%p= ("<span class='first'>Dominance:</span> #{@strain.dominance}").html_safe
+					%li
+						%p= ("<span class='first'>Notes:</span> #{@strain.bio_exerpt}").html_safe
 	.span-11#home_text
 		%h2	Explore the largest collection of cannabis dispensaries and "kind" comapnies in the world
 		%br
@@ -19,7 +20,7 @@
 	
 .span-24#homefeatured
 	= image_tag "aarow-logo.png", id: "aarowlogo"
-	%h2#maptext Featured Dispensaries by user_location
+	%h2#maptext= "All listings near #{@user_location.max_info_string}"
 	= link_to "change location", '#', id: "location_change"
 	.span-11.first
 		#map

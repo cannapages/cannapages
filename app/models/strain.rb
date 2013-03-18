@@ -28,7 +28,7 @@ class Strain
 	before_save :update_slug
 
 	def update_slug
-		self.slug = name.gsub(" ","-").downcase
+		self.slug = name.gsub(" ","-").downcase.gsub("#", '')
 	end
 
 	def to_param

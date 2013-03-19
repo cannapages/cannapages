@@ -9,6 +9,10 @@ class ListingsController < ApplicationController
   end
 
   def show
+		view = params[:intent]
+		view ||= "canna-wisdom"
+		@listing = Listing.where( slug: params[:id] ).first
+		render view, layout: "listing_show"
   end
 
   def new

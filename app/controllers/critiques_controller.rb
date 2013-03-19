@@ -1,6 +1,17 @@
 class CritiquesController < ApplicationController
   def index
-		@critiques = Critique.all
+		if params[:listing]
+			listing = Listing.where( slug: params[:listing] ).first
+			@critiques = listing.critiques
+			if @critiques.size == 1
+				@critique = @critiques.first
+				render "show"
+			end
+		elsif params[:q]
+			@critiques = Critique.all
+		else
+			@critiques = Critique.all
+		end
   end
 
   def new

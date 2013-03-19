@@ -8,6 +8,7 @@ class Listing
 	#Fields
 	#Info
   field :name, type: String
+	field :slug, type: String
 	field :about, type: String
   field :phone, type: String
   field :street_address, type: String
@@ -30,6 +31,7 @@ class Listing
 	#Account
 	field :featured, type: Boolean
 	field :featured_expiration, type: Date
+	field :creamocrop, type: Boolean
 	#Anylitics
 	field :shows, type: Integer
 	field :clicks, type: Integer
@@ -67,6 +69,7 @@ class Listing
 
 	#Relations
 	belongs_to :user	
+	has_many :critiques
 
 	#Virtual Attributes
 	attr_accessor :distance
@@ -102,8 +105,16 @@ class Listing
 	embeds_many :comments
 
 	#Callbacks
-	before_save :initialize_anylitics, :format_phone, :update_lat_lng?, :ensure_http
-	before_create :initialize_dependencies
+	before_save :format_phone, :update_lat_lng?, :ensure_http, :update_slug
+	before_create :initialize_dependencies, :initialize_anylitics
+
+	def to_param
+		slug
+	end
+
+	def update_slug
+		self.slug = name.downcase.gsub(" ","-")
+	end
 
 	def update_distance( from )
 		self.distance = DistanceHelper.distance_between_objects( from, self )
@@ -117,7 +128,7 @@ class Listing
 	end
 
 	def initialize_anylitics
-		self.shows, self.clicks, self.featured_shows, self.featured_clicks, self.num_of_reviews = 0,0,0,0,0
+		self.shows, self.clicks, self.featured_shows, self.featured_clicks, self.num_of_reviews, self.creamocrop = 0,0,0,0,0,false
 	end
 
 	def format_phone
@@ -152,7 +163,7 @@ class Listing
 	#Custome getters and setters
 	def rating
 		rating = read_attribute(:rating)
-		rating == -1? :notrated : rating
+		rating || 0
 	end
 
 	#Helpers

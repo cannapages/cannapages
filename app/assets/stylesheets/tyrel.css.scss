@@ -4,6 +4,7 @@ $dark_blue: #2020E0;
 $light_blue: #B8D8B8;
 $light_grey: #C8C8C8;
 $bold_red: #E02020;
+$transparrent_green: rgba(4,100,20,.5);
 
 #main_home_heading {
 	z-index: 99;
@@ -36,9 +37,16 @@ $bold_red: #E02020;
 
 #map {
 	height: 290px;
+	border: 1px solid black;
 }
 
 #homefeatured {
+	background-image: url('/assets/cp-tiles.jpg');
+	backgroud-repeat: no-repeat;
+	.header {
+		position: relative;
+		top: -10px;
+	}
 	.featured_listing {
 		min-height: 65px;
 		h4 {
@@ -290,6 +298,115 @@ form {
 				}
 			}
 		}
+	}
+}
+
+.listing_show_container {
+	position: relative;
+	top: -242px;
+	#listing_show_map {
+		height: 300px;
+		width: 950px;
+	}
+	#logo {
+		position: absolute;
+		top: 27px;
+		left: 42px;
+		border: 1px solid $dark_green;
+		z-index: 99;
+		height: 250px;
+	}
+	#creamocrop {
+		position: absolute;
+		top: 214px;
+		left: -17px;
+		width: 142px;
+		z-index: 99;
+	}
+	.listing_info {
+		width: 235px;
+		height: 230px;
+		position: absolute;
+		top: 37px;
+		left: 333px;
+		.name {
+			font-weight: bold;
+			font-size: 16px;
+			margin-bottom: 5px;
+		}
+		.rating_container {
+			position: relative;
+			top: 10px;
+			.rating_star {
+				float: left;
+			}
+		}
+		.extra_links {
+			display: block;
+			width: 300px;
+			clear: both;
+			margin-top: 42px;
+			a {
+				float: left;
+				margin-right: 15px;
+			}
+		}
+	}
+	.listing_icons {
+		clear: both;
+		position: relative;
+		top: 33px;
+		left: -10px;
+		a {
+			float: left;
+		}
+	}
+	.info_background {
+		position: absolute;
+		top: 27px;
+		left: 42px;
+		background: rgba(255,255,255,.9);
+		border: 1px solid black;
+		width: 530px;
+		height: 250px;
+	}
+}
+
+.listing_show_content {
+	margin-top: 10px;
+	border-top: 1px solid $dark_green;
+	border-left: 1px solid $dark_green;
+	padding: 20px;
+	width: 924px;
+	.show_nav {
+		width: 150px;
+		float: left;
+		a {
+			color: $dark_green;
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: bold;
+			padding: 1px;
+			display: block;
+			width: 90%;
+			&:hover {
+				background-color: $transparrent_green;
+			}
+			&.active {
+				background-color: $dark_green;
+				color: white;
+				&:hover {
+					background-color: $dark_green;
+				}
+			}
+			&.cannasaver {
+				color: $bold_red;
+			}
+		}
+	}
+	.show_content {
+		width: 770px;
+		float: left;
 	}
 }
 

@@ -1,0 +1,61 @@
+!!! XML
+!!!
+%html
+	%head
+		%title CannaPages
+		= javascript_include_tag :application
+		= csrf_meta_tag
+		= stylesheet_link_tag :application
+		-# /[if lt IE 8]
+		-# = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+		
+	%body
+		- if params[:controller] == "home"
+			= render 'shared/mainheader'
+		- else
+			= render 'shared/altheader'
+		.container.listing_show_container
+			- if notice
+				%p.notice= notice
+			- if alert
+				%p.error= alert
+			.listing-show-header.span-24
+				#listing_show_map
+				= image_tag @listing.logo(:large), id: :logo
+				= image_tag "/assets/creamocrop.png", id: :creamocrop if @listing.creamocrop
+				.info_background
+				.listing_info
+					%p.name= @listing.name
+					%p.address= @listing.full_address
+					%p.phone= @listing.formated_phone
+					= render partial: "shared/rating", locals: {stars: @listing.rating.round}
+					.extra_links
+						= directions_to( @listing.full_address )
+						= link_to "Rate Business", "#"
+					= render partial: "shared/listing_icons", locals: {listing: @listing}
+			.listing_show_content.span-24
+				.show_nav
+					= link_to "#", class: :active do
+						%li CannaWisdom
+					= link_to "#" do
+						%li Menu
+					= link_to "#" do
+						%li Media
+					= link_to "#", class: "cannasaver" do
+						%li CannaSaver
+					= link_to "#" do
+						%li Rate Business
+					= link_to "#" do
+						%li Direction
+					.business_hours
+						%h3 Business Hours
+						%ul
+							%li.lb= "Monday
+				.show_content
+					= yield
+					= yield :scripts
+
+		-# XHTML Section
+		%user_location{"data-lat" => @user_location.lat, "data-lng" => @user_location.lng}
+		%listing{"data-lat" => @listing.lat, "data-lng" => @listing.lng, "data-name" => @listing.name}
+			

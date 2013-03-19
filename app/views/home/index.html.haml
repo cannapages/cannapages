@@ -19,9 +19,10 @@
 		%h3	Chceck out the Cannapages Field Guide for everything you'll need to make the most informed choice on the strain variety for you.
 	
 .span-24#homefeatured
-	= image_tag "aarow-logo.png", id: "aarowlogo"
-	%h2#maptext= "All listings near #{@user_location.max_info_string}"
-	= link_to "change location", '#', id: "location_change"
+	.header
+		= image_tag "aarow-logo.png", id: "aarowlogo"
+		%h2#maptext= "All listings near #{@user_location.max_info_string}"
+		= link_to "change location", '#', id: "location_change"
 	.span-11.first
 		#map
 	.span-11.last
@@ -29,7 +30,8 @@
 			- @featured_listings.each do |listing|
 				.featured_listing
 					= image_tag "/assets/featured-marker-icon.png", class: :icon_left
-					%h4= truncate(listing.name, length: 31)
+					= link_to listing do
+						%h4= truncate(listing.name, length: 31)
 					%p.distance= ("<span>Distance:</span> #{listing.distance.round(2)}").html_safe
 					%p.special= best_special_for_home_page( listing )
 .span-24#home_slider

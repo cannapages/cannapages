@@ -1,0 +1,4 @@
+.listing_icons
+	- unless @listing.critiques.empty?
+		= link_to "/critiques?listing=#{@listing.slug}" do
+			= image_tag "critique-icon-small.png", class: "listing-icon"

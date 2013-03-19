@@ -1,8 +1,10 @@
 #top
 .span-18.first#critique_container
 	= image_tag @critique.critique_image, id: "strain_image"
-	%h2= ("Business: <span>#{@listing.name}</span>").html_safe if @listing
-	%h2= ("Product: <span>#{@strain_test.strain_name}</span>").html_safe if @strain_test
+	= link_to @listing do
+		%h2= ("Business: <span>#{@listing.name}</span>").html_safe if @listing
+	= link_to @strain do
+		%h2= ("Product: <span>#{@strain_test.strain_name}</span>").html_safe if @strain_test
 	#crit_text
 		= raw @critique.content
 	- if @strain_test

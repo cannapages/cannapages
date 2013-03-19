@@ -2,6 +2,7 @@ $dark_green: #046414;
 $light_green: #278808;
 $dark_blue: #2020E0;
 $light_blue: #B8D8B8;
+$grey_blue: #EBF3EC;
 $light_grey: #C8C8C8;
 $bold_red: #E02020;
 $transparrent_green: rgba(4,100,20,.5);
@@ -133,6 +134,9 @@ a {
 #back_nav {
 	width: 200px;
 	padding-top: 124px;
+	a {
+		text-decoration: none;
+	}
 	ul {
 		padding: 0px;
 		margin: 0px;
@@ -143,6 +147,9 @@ a {
 			height: 25px;
 			&:hover {
 				background-color: rgba(4,100,2,.5);
+			}
+			&.bottom_of_section {
+				border-bottom: 3px solid black;
 			}
 			p {
 				position: relative;
@@ -161,7 +168,7 @@ a {
 .back_content {
 	padding: 10px;
 	width: 730px;
-	top: -455px;
+	top: -426px;
 	background: -moz-linear-gradient(top,  rgba(215,229,219,1) 0%, rgba(215,229,219,0.1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(215,229,219,1)), color-stop(100%,rgba(215,229,219,0.1))); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  rgba(215,229,219,1) 0%,rgba(215,229,219,0.1) 100%); /* Chrome10+,Safari5.1+ */
@@ -379,7 +386,7 @@ form {
 	padding: 20px;
 	width: 924px;
 	.show_nav {
-		width: 150px;
+		width: 170px;
 		float: left;
 		a {
 			color: $dark_green;
@@ -392,6 +399,9 @@ form {
 			&:hover {
 				background-color: $transparrent_green;
 			}
+			&.cannasaver {
+				color: $bold_red;
+			}
 			&.active {
 				background-color: $dark_green;
 				color: white;
@@ -399,14 +409,64 @@ form {
 					background-color: $dark_green;
 				}
 			}
-			&.cannasaver {
-				color: $bold_red;
+		}
+
+		.business_hours {
+			h3 {
+				color: black;
+				font-size: 27px;
+				margin-top: 25px;
+				margin-bottom: 5px;
+			}
+			ul {
+				padding: 0;
+				li.lb {
+					background-color: $grey_blue;
+				}
 			}
 		}
 	}
 	.show_content {
-		width: 770px;
+		width: 750px;
 		float: left;
+		.half-box {
+			margin-right: 10px;
+			margin-bottom: 10px;
+			width: 350px;
+			float: left;
+			padding: 5px;
+			background-color: $grey_blue;
+			min-height: 100px;
+			p {
+				font-size: 14px;
+				width: 320px;
+			}
+			&.green {
+				h2 {
+					color: $dark_green;
+				}
+			}
+			&.red {
+				h2 {
+					color: $bold_red;
+				}
+			}
+		}
+		.full-box {
+			width: 730px;
+			float: left;
+			background-color: $grey_blue;
+			clear: both;
+			margin-bottom: 10px;
+		}
 	}
 }
 
+.login_info {
+	color: white;
+	float: right;
+	margin-right: 25px;
+	position: relative;
+	top: 5px;
+	font-size: 14px;
+}

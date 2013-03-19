@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-	before_filter :update_user_location
+	before_filter :update_user_location, :get_current_user
 
 	def authenticate_for_permision( privilage )
 		require_user( privilage ) || redirect_to( root_path, notice: "Sory you don't have the permisions to acsess this page" )
@@ -26,5 +26,12 @@ class ApplicationController < ActionController::Base
 		@user_location ||= session[:user_location]
 		session[:user_location] = @user_location
 	end
-				
+
+	def get_current_user
+		@current_user = User.find(session["warden.user.user.key"][1])
+		unless @current_user.class == User or @current_user.class == NilClass
+			@current_user = @current_user.first
+		end
+	end
+
 end

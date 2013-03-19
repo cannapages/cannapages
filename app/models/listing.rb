@@ -58,6 +58,7 @@ class Listing
 	field :sunday_start, type: Date
 	field :sunday_end, type: Date
 	#Specials
+	field :first_timers, type: String
 	field :monday_special, type: String
 	field :tuesday_special, type: String
 	field :wednesday_special, type: String

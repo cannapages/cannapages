@@ -35,13 +35,13 @@
 					= render partial: "shared/listing_icons", locals: {listing: @listing}
 			.listing_show_content.span-24
 				.show_nav
-					= link_to "#", class: :active do
+					= link_to listing_path(@listing, intent: "cannawisdom"), class: listing_link_active?("cannawisdom") do
 						%li CannaWisdom
-					= link_to "#" do
+					= link_to listing_path(@listing, intent: "menu"), class: listing_link_active?("menu") do
 						%li Menu
-					= link_to "#" do
+					= link_to listing_path(@listing, intent: "media"), class: listing_link_active?("media") do
 						%li Media
-					= link_to "#", class: "cannasaver" do
+					= link_to listing_path(@listing, intent: "cannasaver"), class: listing_link_active?("cannasaver","cannasaver") do
 						%li CannaSaver
 					= link_to "#" do
 						%li Rate Business
@@ -50,7 +50,13 @@
 					.business_hours
 						%h3 Business Hours
 						%ul
-							%li.lb= "Monday
+							%li.lb= "Monday #{@listing.monday_start.strftime("%l:%M")} - #{@listing.monday_start.strftime("%l:%M")}"
+							%li= "Tuesday #{@listing.tuesday_start.strftime("%l:%M")} - #{@listing.tuesday_start.strftime("%l:%M")}"
+							%li.lb= "Wednesday #{@listing.wednesday_start.strftime("%l:%M")} - #{@listing.wednesday_start.strftime("%l:%M")}"
+							%li= "Thursday #{@listing.thursday_start.strftime("%l:%M")} - #{@listing.thursday_start.strftime("%l:%M")}"
+							%li.lb= "Friday #{@listing.friday_start.strftime("%l:%M")} - #{@listing.friday_start.strftime("%l:%M")}"
+							%li= "Saturday #{@listing.saturday_start.strftime("%l:%M")} - #{@listing.saturday_start.strftime("%l:%M")}"
+							%li.lb= "Sunday #{@listing.sunday_start.strftime("%l:%M")} - #{@listing.sunday_start.strftime("%l:%M")}"
 				.show_content
 					= yield
 					= yield :scripts

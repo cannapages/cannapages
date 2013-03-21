@@ -3,6 +3,7 @@ class Listing
   include Mongoid::Document
 	include Mongoid::Timestamps
 	include Mongoid::Paperclip
+	include Mongoid::MultiParameterAttributes
 	has_mongoid_attached_file :logo, :styles => { thumb: "75x75#", medium: "150x150#", large: "250x250#" }
 
 	#Fields

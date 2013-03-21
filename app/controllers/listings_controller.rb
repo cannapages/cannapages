@@ -56,7 +56,6 @@ class ListingsController < ApplicationController
   end
   
   def admin_update
-		format_time_params("listing")
 		@listing = Listing.find_by( slug: params[:id] )
 		if @listing.update_attributes( params[:listing] )
 			redirect_to listings_admin_index_path
@@ -73,4 +72,6 @@ class ListingsController < ApplicationController
 			render "admin_new"
 		end
   end
+
+
 end

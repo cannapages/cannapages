@@ -1,11 +1,11 @@
 development: &defaults
   sessions:
     default: &default_session
-      database: C41_development
-      # username: 
-      # password: 
+      database: cannapages
+      username: development
+      password: abc123
       hosts:
-        - localhost
+        - linus.mongohq.com:10042
       options:
   options:
     allow_dynamic_fields: false

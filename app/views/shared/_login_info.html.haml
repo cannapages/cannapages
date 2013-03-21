@@ -1,5 +1,5 @@
 .login_info
 	- if @current_user
-		%p= ("Logged in as #{@current_user.user_name} | #{backend_link} | #{link_to destroy_user_session_path}").html_safe
+		%p= ("Logged in as #{@current_user.user_name} | #{backend_link} | #{link_to "Sign Out", custom_logout_path}").html_safe
 	- else
-		%p= ("Sign up | Login").html_safe
+		%p= ("#{link_to "Sign up", new_user_registration_path} | #{link_to "Login", new_user_session_path}").html_safe

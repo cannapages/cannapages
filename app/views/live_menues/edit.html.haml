@@ -1,0 +1,25 @@
+%h3#show_product_form Click Here To Add A New Product
+%hr
+= render "products/form"
+
+%br
+
+%h3 Current Menu
+%hr
+%table
+	%tr
+		%td.bold Product Name
+		%td.bold In Stock?
+		%td.bold Set as
+		%td.bold Edit
+		%td.bold Remove
+		%td.bold Current Image
+	- @products.each do |product|
+		%tr
+			%td= product.strain.name
+			%td= product.in_stock ? "Yes" : "No"
+			%td= product.in_stock ? (link_to("Out of stock", set_product_as_out_of_stock_path(product))) : (link_to("In stock",set_product_as_in_stock_path(product)))
+			%td= link_to "Edit", live_menu_edit_path(product_id: product.id)
+			%td= link_to "Remove", product, :confirm => 'Are you sure?', :method => :delete
+			%td= image_tag product.best_image_tag, class: :product_image
+	

@@ -1,0 +1,14 @@
+= link_to "Create New Strain", "#"
+
+%table
+	%tr
+		%td.bold Name
+		%td.bold Dominance
+		%td.bold Edit
+		%td.bold Remove
+	- @strains.each do |strain|
+		%tr
+			%td= strain.name
+			%td= strain.dominance
+			%td= link_to "edit", "#"
+			%td= link_to "remove", strain, method: :delete, confirm: "Are you sure?"

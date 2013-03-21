@@ -1,6 +1,13 @@
 class StrainsController < ApplicationController
+	before_filter :require_admin, except: [:index,:show]
+
+	def admin_index
+		@strains = Strain.all.order_by(name: :asc).to_a
+		render layout: "admin_backend"
+	end
+
   def index
-		@strain = Strain.all
+		@strains = Strain.all.order_by(name: :asc).to_a
   end
   
   def create

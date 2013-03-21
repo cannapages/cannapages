@@ -1,2 +1,16 @@
-%h1 Listings#admin_index
-%p Find me in app/views/listings/admin_index.html.haml
+= link_to "Create New Listing", "#"
+
+%table
+	%tr
+		%td.bold Name
+		%td.bold Phone Number
+		%td.bold Address
+		%td.bold Edit
+		%td.bold Remove
+	- @listings.each do |listing|
+		%tr
+			%td= link_to listing.name, listing, target: "_blank"
+			%td= listing.formated_phone
+			%td= listing.full_address
+			%td= link_to "edit", admin_edit_listing_path( listing )
+			%td= link_to "remove", admin_destroy_listing_path( listing ), method: :delete, confirm: "Are you sure?"

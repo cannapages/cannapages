@@ -168,7 +168,7 @@ a {
 .back_content {
 	padding: 10px;
 	width: 730px;
-	top: -426px;
+	top: -456px;
 	background: -moz-linear-gradient(top,  rgba(215,229,219,1) 0%, rgba(215,229,219,0.1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(215,229,219,1)), color-stop(100%,rgba(215,229,219,0.1))); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  rgba(215,229,219,1) 0%,rgba(215,229,219,0.1) 100%); /* Chrome10+,Safari5.1+ */
@@ -200,6 +200,8 @@ form {
 	img {
 		float: left;
 		margin-right: 17px;
+		position: relative;
+		top: 10px;
 	}
 	a {
 		float: right;
@@ -469,4 +471,83 @@ form {
 	position: relative;
 	top: 5px;
 	font-size: 14px;
+	a {
+		color: white;
+	}
+}
+
+#roachy-container {
+	position: relative;
+	#roachy {
+		position: relative;
+		background-color: white;
+		border: 1px solid $dark_green;
+		width: 730px;
+		height: 200px;
+		overflow-y: auto;
+		img {
+			float: left;
+		}
+		ul {
+			&.roachy-active {
+				display: block;
+			}
+			&.roachy-inactive {
+				display: none;
+			}
+		}
+		h3 {
+			color: black;
+			font-size: 42px;
+			margin-bottom: 10px;
+		}
+	}
+	#roachy-links {
+		position: absolute;
+		top: 180px;
+		left: 485px;
+		li {
+			float: left;
+			background-color: $dark_green;
+			color: white;
+			padding: 10px;
+			&:hover {
+				background-color: $light_green;
+				cursor: hand;
+				cursor: pointer;
+			}
+		}
+	}
+	#roachy-index {
+		li {
+			&:hover {
+				cursor: hand;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+#btob_add {
+	margin-top: 40px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.product_image {
+	width: 150px;
+}
+
+form#new_product {
+	display: none;
+}
+
+#show_product_form {
+	&:hover {
+		cursor: hand;
+		cursor: pointer;
+	}
+
 }

@@ -1,5 +1,6 @@
 class RoachyTipsController < ApplicationController
   def index
+		@lessons = RoachyTip.all
     render layout: "business_backend"
   end
   

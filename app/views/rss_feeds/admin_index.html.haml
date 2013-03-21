@@ -1,2 +1,16 @@
-%h1 RssFeeds#admin_index
-%p Find me in app/views/rss_feeds/admin_index.html.haml
+= link_to "Create New Feed", "#"
+
+%table
+	%tr
+		%td.bold Name
+		%td.bold Articles Fetched
+		%td.bold Failurs
+		%td.bold Edit
+		%td.bold Remove
+	- @feeds.each do |feed|
+		%tr
+			%td= feed.name
+			%td= feed.articles_fetched
+			%td= feed.failures
+			%td= link_to "edit", "#"
+			%td= link_to "remove", rss_feed_path(feed), method: :delete, confirm: "Are you sure?"

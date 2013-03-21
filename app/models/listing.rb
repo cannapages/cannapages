@@ -43,26 +43,27 @@ class Listing
 	#Relations
 	field :live_menu_id, type: String
 	#Business Hours
-	field :monday_start, type: Date
-	field :monday_end, type: Date
-	field :tuesday_start, type: Date
-	field :tuesday_end, type: Date
-	field :wednesday_start, type: Date
-	field :wednesday_end, type: Date
-	field :thursday_start, type: Date
-	field :thursday_end, type: Date
-	field :friday_start, type: Date
-	field :friday_end, type: Date
-	field :saturday_start, type: Date
-	field :saturday_end, type: Date
-	field :sunday_start, type: Date
-	field :sunday_end, type: Date
+	field :monday_start, type: Time
+	field :monday_end, type: Time
+	field :tuesday_start, type: Time
+	field :tuesday_end, type: Time
+	field :wednesday_start, type: Time
+	field :wednesday_end, type: Time
+	field :thursday_start, type: Time
+	field :thursday_end, type: Time
+	field :friday_start, type: Time
+	field :friday_end, type: Time
+	field :saturday_start, type: Time
+	field :saturday_end, type: Time
+	field :sunday_start, type: Time
+	field :sunday_end, type: Time
 	#Specials
 	field :first_timers, type: String
 	field :monday_special, type: String
 	field :tuesday_special, type: String
 	field :wednesday_special, type: String
 	field :thurday_special, type: String
+	field :thursday_special, type: String
 	field :friday_special, type: String
 	field :saturday_special, type: String
 	field :sunday_special, type: String

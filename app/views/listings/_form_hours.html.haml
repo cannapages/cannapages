@@ -1,0 +1,17 @@
+= simple_form_for @listing do |f|
+	= f.input :monday_start, as: :time
+	= f.input :monday_end, as: :time
+	= f.input :tuesday_start, as: :time
+	= f.input :tuesday_end, as: :time
+	= f.input :wednesday_start, as: :time
+	= f.input :wednesday_end, as: :time
+	= f.input :thursday_start, as: :time
+	= f.input :thursday_end, as: :time
+	= f.input :friday_start, as: :time
+	= f.input :friday_end, as: :time
+	= f.input :saturday_start, as: :time
+	= f.input :saturday_end, as: :time
+	= f.input :sunday_start, as: :time
+	= f.input :sunday_end, as: :time
+
+	= f.button :submit

@@ -9,4 +9,5 @@ class Hash
   def remove(*keys)
     self.dup.remove!(*keys)
   end
+
 end

@@ -1,0 +1,2 @@
+module LiveMenuesHelper
+end

@@ -1,0 +1,28 @@
+<div id="roachy-container">
+	<div id="roachy">
+		<%= image_tag "roachy.png" %>
+		<% inactive = false %>
+		<% index_val = 0 %>
+		<% @lessons.each do |lesson| %>
+			<ul id="roachy-lesson-<%= index_val %>" class="roachy-lesson roachy-<%= inactive ? "in" : "" %>active">
+			<% inactive = true %>
+				<h3>Tip of the day: <%= lesson.title %></h3>
+				<p><%= raw lesson.content %></p>
+			</ul>
+			<% index_val += 1 %>
+		<% end %>
+		<ul id="roachy-index" class="roachy-lesson roachy-inactive">
+			<li><h3>Select a subject</h3></li>
+			<% index_val = 0 %>
+			<% @lessons.each do |lesson| %>
+				<li id="roachy-index-link-<%= index_val + 1 %>" class="roachy-index-link"><%= lesson.title %></li>
+				<% index_val += 1 %>
+			<% end %>
+		</ul>
+	</div>
+	<ul id="roachy-links">
+		<li id="roachy-btn-previous">Previous</li>
+		<li id="roachy-btn-next">Next</li>
+		<li id="roachy-btn-index">List Subjects</li>
+	</ul>
+</div>

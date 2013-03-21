@@ -16,18 +16,18 @@ $(window).bind( "load", function() {
 		mainIcon = L.icon({
 				iconUrl: '/assets/marker-icon.png',
 				// shadowUrl: 'leaf-shadow.png',
-				iconSize:     [29, 38]
+				iconSize:     [29, 38],
 				// shadowSize:   [50, 64]
-				// iconAnchor:   [22, 94]
+				iconAnchor:   [13, 34]
 				// shadowAnchor: [4, 62]
 				// popupAnchor:  [-3, -76]
 		})
 		featuredIcon = L.icon({
 				iconUrl: '/assets/featured-marker-icon.png',
 				// shadowUrl: 'leaf-shadow.png',
-				iconSize:     [42, 56]
+				iconSize:     [42, 56],
 				// shadowSize:   [50, 64]
-				// iconAnchor:   [22, 94]
+				iconAnchor:   [17, 51]
 				// shadowAnchor: [4, 62]
 				// popupAnchor:  [-3, -76]
 		})

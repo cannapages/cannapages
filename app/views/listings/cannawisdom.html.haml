@@ -18,6 +18,7 @@
 	.half-box.red
 		%h2= "#{today} Special"
 		%p= @listing.send(message)
+- if @listing.weekly_special
 	.half-box.red
 		%h2= "Weekly Special"
 		%p= @listing.weekly_special

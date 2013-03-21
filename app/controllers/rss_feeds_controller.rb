@@ -1,5 +1,9 @@
 class RssFeedsController < ApplicationController
-  def index
+	before_filter :require_admin
+
+  def admin_index
+		@feeds = Feed.all.to_a
+		render layout: "admin_backend"
   end
   
   def create
@@ -20,6 +24,4 @@ class RssFeedsController < ApplicationController
   def destroy
   end
   
-  def admin_index
-  end
 end

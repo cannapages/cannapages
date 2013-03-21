@@ -2,10 +2,10 @@ development: &defaults
   sessions:
     default: &default_session
       database: C41_development
-      username: bob
-      password: cannascore420
+      # username: 
+      # password: 
       hosts:
-        - cannapages.com
+        - localhost
       options:
   options:
     allow_dynamic_fields: false

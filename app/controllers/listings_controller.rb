@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+	before_filter :require_admin, only: [:admin_index, :admin_edit, :admin_new, :admin_update, :admin_create, :admin_destroy ]
+	before_filter :require_business, only: [ :edit, :new, :update, :create, :destroy ]
+
   def index
   end
   
@@ -21,26 +24,53 @@ class ListingsController < ApplicationController
   end
 
   def edit
-		@listing = @current_user.listing
+		@listing = @current_user.listings.first
+		@form_name = "form"
+		@form_name += "_#{params[:intent]}" if params[:intent]
     render layout: "business_backend"
   end
   
-  def destroy
-    render layout: "business_backend"
+	def destroy
+		current_user.listings.find( params[:id] ).destroy
+		redirect_to roachy_tips_path
+	end
+
+  def admin_destroy
+		Listing.where( slug: params[:id] ).first.destroy
+		redirect_to listings_admin_index_path
   end
 
   def admin_index
+		@listings = Listing.all.order_by( name: :asc ).to_a
+		render layout: "admin_backend"
   end
 
   def admin_edit
+		@listing = Listing.where( slug: params[:id] ).first
+		render layout: "admin_backend"
   end
 
   def admin_new
+		@listing = Listing.new
+		render layout: "admin_backend"
   end
   
   def admin_update
+		format_time_params("listing")
+		@listing = Listing.find_by( slug: params[:id] )
+		if @listing.update_attributes( params[:listing] )
+			redirect_to listings_admin_index_path
+		else
+			render "admin_edit"
+		end
   end
   
   def admin_create
+		@listing = Listing.new(params[:listing])
+		if @listing.save
+			redirect_to listings_admin_index_path
+		else
+			render "admin_new"
+		end
   end
 end

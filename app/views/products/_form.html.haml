@@ -1,0 +1,9 @@
+= simple_form_for @product do |f|
+	= f.association :strain, collection: Strain.all.order_by(name: :asc), label: "Choose a strain to link to in our wiki"
+	= f.input :product_image
+	= f.input :price_ounce, label: "Price per ounce"
+	= f.input :price_1_2, label: "Price per half ounce"
+	= f.input :price_1_4, label: "Price per quarter ounce"
+	= f.input :price_1_8, label: "Price per eighth ounce"
+	= f.input :price_1_16, label: "Price per gram"
+	= f.button :submit

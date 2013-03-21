@@ -1,26 +1,31 @@
+- @listing ||= @current_user.listings.first
 .span-24
 	.back_top
-		= image_tag "http://placehold.it/100x100"
-		%h2 Company/User Name
-		= link_to '#' do
+		= image_tag @listing.logo(:thumb)
+		%h2= @listing.name
+		= link_to @listing do
 			#view_page
 				%span View Page
 .container
 	#back_nav
 		%ul
-			= link_to '#' do
+			= link_to roachy_tips_path do
 				%li
 					= image_tag "backend-homelogo.png"
 					%p Dashboard Home
-			= link_to '#' do
+			= link_to business_edit_listing_path do
 				%li
 					= image_tag "backend-companyinfo.png"
 					%p Company Info
-			= link_to '#' do
+			= link_to business_edit_listing_path( intent: :hours ) do
+				%li
+					= image_tag "backend-companyinfo.png"
+					%p Hours Of Operation
+			= link_to business_edit_listing_path( intent: :specials ) do
 				%li
 					= image_tag "backend-dollarlog.png"
 					%p Daily/Weekly Specials
-			= link_to '#' do
+			= link_to live_menu_edit_path do
 				%li
 					= image_tag "backend-shopmenu.png"
 					%p Shop Menu

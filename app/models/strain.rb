@@ -3,6 +3,7 @@ class Strain
 	include Mongoid::Timestamps
   field :name, type: String
   field :dominance, type: String
+  field :menu_type, type: String
 	field :origins, type: String
 	field :flowering_time, type: String
 	field :bio, type: String
@@ -17,6 +18,7 @@ class Strain
 
 	has_many :strain_tests
 	has_many :critiques
+	has_many :products
 
 	# validates_inclusion_of :dominance, allow_nil: false, in: STRAIN_DOMINANCE_ARRAY
 	# validate :sum_of_percentages_makes_sense
@@ -45,7 +47,7 @@ class Strain
 
 	def bio_exerpt
 		chars = bio.length
-		(chars > 100) ? (bio[0..97] + "...") : bio
+		(chars > 70) ? (bio[0..67] + "...") : bio
 	end
 
 	scope :one_randome, Proc.new { limit(-1).skip( Random.rand(Strain.count) ) }

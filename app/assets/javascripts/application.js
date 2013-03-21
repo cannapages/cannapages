@@ -15,6 +15,7 @@
 //= require main
 //= require leaflet.js
 //= require my_leaflet.js
+//= require roachy
 //= require tinymce-jquery
 //= jquery-turbolinks
 //= turbolinks

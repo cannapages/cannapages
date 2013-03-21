@@ -1,2 +1,42 @@
-%h1 Listings#admin_edit
-%p Find me in app/views/listings/admin_edit.html.haml
+= simple_form_for @listing, url: admin_update_listing_path do |f|
+	= f.input :name
+	= f.input :phone
+	= f.input :street_address
+	= f.input :city
+	= f.input :state, collection: LEGAL_STATE_ARRAY
+	= f.input :zip
+	= f.input :logo
+	= f.input :about, :as => :text
+	= f.input :website, :required => false
+	= f.input :twitter, :required => false
+	= f.input :facebook, :required => false
+	= f.input :category, :collection => LISTING_CATEGORY_ARRAY
+	= f.input :match_coupons, :collection => YESNO
+	= f.input :glass_sale, :collection =>YESNO
+	= f.input :whole_sale, :collection =>YESNO
+	
+	= f.input :monday_special
+	= f.input :tuesday_special
+	= f.input :wednesday_special
+	= f.input :thursday_special
+	= f.input :friday_special
+	= f.input :saturday_special
+	= f.input :sunday_special
+	= f.input :weekly_special
+
+	= f.input :monday_start, as: :time
+	= f.input :monday_end, as: :time
+	= f.input :tuesday_start, as: :time
+	= f.input :tuesday_end, as: :time
+	= f.input :wednesday_start, as: :time
+	= f.input :wednesday_end, as: :time
+	= f.input :thursday_start, as: :time
+	= f.input :thursday_end, as: :time
+	= f.input :friday_start, as: :time
+	= f.input :friday_end, as: :time
+	= f.input :saturday_start, as: :time
+	= f.input :saturday_end, as: :time
+	= f.input :sunday_start, as: :time
+	= f.input :sunday_end, as: :time
+
+	= f.button :submit

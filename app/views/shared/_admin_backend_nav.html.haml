@@ -1,39 +1,45 @@
 .span-24
 	.back_top
-		= image_tag "http://placehold.it/100x100"
-		%h1 Company/User Name
+		%h1 Cannapages Administration Panel
 .container
 	#back_nav
 		%ul
 			%li
-				= link_to '#' do
+				= link_to listings_admin_index_path do
 					= image_tag "backend-homelogo.png"
-					%p Dashboard Home
+					%p Listings
 			%li
-				= link_to '#' do
+				= link_to critiques_admin_index_path do
 					= image_tag "backend-companyinfo.png"
-					%p Company Info
+					%p Critiques
 			%li
-				= link_to '#' do
+				= link_to articles_admin_index_path do
 					= image_tag "backend-dollarlog.png"
-					%p Daily/Weekly Specials
+					%p Articles
 			%li
-				= link_to '#' do
+				= link_to volumes_admin_index_path do
+					= image_tag "backend-dollarlog.png"
+					%p Volumes
+			%li
+				= link_to rss_feeds_admin_index_path do
 					= image_tag "backend-shopmenu.png"
-					%p Shop Menu
+					%p RSS Feeds
 			%li
-				= link_to '#' do
+				= link_to strains_admin_index_path do
 					= image_tag "backend-photoalbum.png"
-					%p Photo Menu
+					%p Strains
 			%li
 				= link_to '#' do
 					= image_tag "backend-managecomments.png"
-					%p Manage Comments
+					%p Users
 			%li
 				= link_to '#' do
 					= image_tag "backend-post-thread.png"
 					%p Post Thread in Forum
-			%li.back_nav_border
+			= link_to '#' do
+				%li.bottom_of_section
+					= image_tag "backend-post-thread.png"
+					%p Post Thread in Forum
 			%li
 				= link_to '#' do
 					%p Create Banner Ad

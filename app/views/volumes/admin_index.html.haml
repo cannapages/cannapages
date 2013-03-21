@@ -1,0 +1,14 @@
+= link_to "Create New Volume", "#"
+
+%table
+	%tr
+		%td.bold Volume Number
+		%td.bold Live
+		%td.bold Edit
+		%td.bold Remove
+	- @volumes.each do |volume|
+		%tr
+			%td= volume.volume_number
+			%td= volume.live ? "yes" : "no"
+			%td= link_to "edit", "#"
+			%td= link_to "remove", volume, method: :delete, confirm: "Are you sure?"

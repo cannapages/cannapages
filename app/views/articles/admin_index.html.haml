@@ -1,0 +1,18 @@
+= link_to "Create New Article", "#"
+
+%table
+	%tr
+		%td.bold Title
+		%td.bold Published Date
+		%td.bold Last Updated
+		%td.bold Views
+		%td.bold Edit
+		%td.bold Remove
+	- @articles.each do |article|
+		%tr
+			%td= article.title
+			%td= article.created_at
+			%td= article.updated_at
+			%td= article.views
+			%td= link_to "edit", "#"
+			%td= link_to "remove", article, method: :delete, confirm: "Are you sure?"

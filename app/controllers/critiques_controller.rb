@@ -1,10 +1,20 @@
 class CritiquesController < ApplicationController
+
+	before_filter :require_admin, except: [:index, :show]
+
+	def admin_index
+		@critiques = Critique.all.order_by( updated_at: :asc ).to_a
+		render layout: "admin_backend"
+	end
+
   def index
 		if params[:listing]
-			listing = Listing.where( slug: params[:listing] ).first
-			@critiques = listing.critiques
+			@listing = Listing.where( slug: params[:listing] ).first
+			@critiques = @listing.critiques
 			if @critiques.size == 1
 				@critique = @critiques.first
+				@strain_test = @critique.strain_test
+				@strain = @critique.strain
 				render "show"
 			end
 		elsif params[:q]

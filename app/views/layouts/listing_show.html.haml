@@ -45,18 +45,18 @@
 						%li CannaSaver
 					= link_to "#" do
 						%li Rate Business
-					= link_to "#" do
-						%li Direction
+					=	link_to "http://maps.google.com/maps?q=#{@listing.full_address}", target: "_blank" do
+						%li Directions
 					.business_hours
 						%h3 Business Hours
 						%ul
-							%li.lb= "Monday #{@listing.monday_start.strftime("%l:%M")} - #{@listing.monday_start.strftime("%l:%M")}"
-							%li= "Tuesday #{@listing.tuesday_start.strftime("%l:%M")} - #{@listing.tuesday_start.strftime("%l:%M")}"
-							%li.lb= "Wednesday #{@listing.wednesday_start.strftime("%l:%M")} - #{@listing.wednesday_start.strftime("%l:%M")}"
-							%li= "Thursday #{@listing.thursday_start.strftime("%l:%M")} - #{@listing.thursday_start.strftime("%l:%M")}"
-							%li.lb= "Friday #{@listing.friday_start.strftime("%l:%M")} - #{@listing.friday_start.strftime("%l:%M")}"
-							%li= "Saturday #{@listing.saturday_start.strftime("%l:%M")} - #{@listing.saturday_start.strftime("%l:%M")}"
-							%li.lb= "Sunday #{@listing.sunday_start.strftime("%l:%M")} - #{@listing.sunday_start.strftime("%l:%M")}"
+							%li.lb= "Monday #{(@listing.monday_start and @listing.monday_start.strftime("%l:%M")) or "Not set"} - #{(@listing.monday_end and @listing.monday_end.strftime("%l:%M")) or "Not set"}"
+							%li= "Tuesday #{(@listing.tuesday_start and @listing.tuesday_start.strftime("%l:%M")) or "Not set"} - #{(@listing.tuesday_end and @listing.tuesday_end.strftime("%l:%M")) or "Not set"}"
+							%li.lb= "Wednesday #{(@listing.wednesday_start and @listing.wednesday_start.strftime("%l:%M")) or "Not set"} - #{(@listing.wednesday_end and @listing.wednesday_end.strftime("%l:%M")) or "Not set"}"
+							%li= "Thursday #{(@listing.thursday_start and @listing.thursday_start.strftime("%l:%M")) or "Not set"} - #{(@listing.thursday_end and @listing.thursday_end.strftime("%l:%M")) or "Not set"}"
+							%li.lb= "Friday #{(@listing.friday_start and @listing.friday_start.strftime("%l:%M")) or "Not set"} - #{(@listing.friday_end and @listing.friday_end.strftime("%l:%M")) or "Not set"}"
+							%li= "Saturday #{(@listing.saturday_start and @listing.saturday_start.strftime("%l:%M")) or "Not set"} - #{(@listing.saturday_end and @listing.saturday_end.strftime("%l:%M")) or "Not set"}"
+							%li.lb= "Sunday #{(@listing.sunday_start and @listing.sunday_start.strftime("%l:%M")) or "Not set"} - #{(@listing.sunday_end and @listing.sunday_end.strftime("%l:%M")) or "Not set"}"
 				.show_content
 					= yield
 					= yield :scripts

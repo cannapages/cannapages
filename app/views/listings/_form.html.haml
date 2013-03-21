@@ -1,11 +1,12 @@
 = simple_form_for @listing do |f|
 	= f.input :name
-	= f.input :about, :as => :text
 	= f.input :phone
 	= f.input :street_address
 	= f.input :city
 	= f.input :state, collection: LEGAL_STATE_ARRAY
 	= f.input :zip
+	= f.input :logo
+	= f.input :about, :as => :text
 	= f.input :website, :required => false
 	= f.input :twitter, :required => false
 	= f.input :facebook, :required => false

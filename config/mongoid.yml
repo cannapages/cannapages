@@ -1,11 +1,11 @@
 development: &defaults
   sessions:
     default: &default_session
-      database: cannapages
-      username: development
-      password: abc123
+      database: C41_development
+      username: bob
+      password: cannascore420
       hosts:
-        - linus.mongohq.com:10042
+        - cannapages.com
       options:
   options:
     allow_dynamic_fields: false

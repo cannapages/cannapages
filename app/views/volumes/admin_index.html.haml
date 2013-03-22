@@ -10,5 +10,5 @@
 		%tr
 			%td= volume.volume_number
 			%td= volume.live ? "yes" : "no"
-			%td= link_to "edit", "#"
+			%td= link_to "edit", edit_volume_path( volume )
 			%td= link_to "remove", volume, method: :delete, confirm: "Are you sure?"

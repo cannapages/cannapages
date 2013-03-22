@@ -18,9 +18,10 @@
 	.span-24#dispatches_articles
 		.span-7.first#column_1
 			- @articles.first(5).each do |article|
-				%h2.article_title= ("#{article.title}").html_safe
-				%h3= ("#{article.author}").html_safe
-				%p= ("#{article.content}").html_safe
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe
 		.span-10#column_2
 			#featured_article
 				%center
@@ -28,11 +29,13 @@
 					= image_tag ('http://placehold.it/350x350')
 					%p= @articles.first.content.html_safe
 			- @articles.last(5).each do |article|
-				%h2.article_title= ("#{article.title}").html_safe
-				%h3= ("#{article.author}").html_safe
-				%p= ("#{article.content}").html_safe
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe
 		.span-7#column_3.last
 			- @articles.first(5).each do |article|
-				%h2.article_title= ("#{article.title}").html_safe
-				%h3= ("#{article.author}").html_safe
-				%p= ("#{article.content}").html_safe
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe

@@ -490,10 +490,14 @@ h2{
 		font-family: 'cloister_blacklight';
 		color:black;
 		font-size:50px;
+		padding-bottom:10px;
 	}
 }
 
 #column_1{
+	border-right:1px solid;
+	margin-right:-6px;
+	padding-right:5px;
 	
 	img{
 		max-width:270px;
@@ -501,6 +505,7 @@ h2{
 }
 
 #column_2{
+	margin-left:10px;
 	
 	img{
 		max-width:350px;
@@ -508,10 +513,17 @@ h2{
 }
 
 #column_3{
+	border-left:1px solid;
+	margin-left:-6px;
+	padding-left:5px;
 	
 	img{
 		max-width:270px;
 	}
+}
+
+.article{
+	border-bottom:1px solid;
 }
 
 .article_title{

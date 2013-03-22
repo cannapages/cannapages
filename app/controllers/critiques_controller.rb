@@ -67,6 +67,8 @@ class CritiquesController < ApplicationController
   end
   
   def destroy
+		Critique.find_by( slug: params[:id] ).destroy
+		redirect_to critiques_admin_index_path
   end
 
 	private

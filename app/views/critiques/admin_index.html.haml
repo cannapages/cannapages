@@ -1,4 +1,4 @@
-= link_to "Create New Critique", "#"
+= link_to "Create New Critique", new_critique_path
 
 %table
 	%tr
@@ -10,7 +10,7 @@
 		%td.bold Remove
 	- @critiques.each do |critique|
 		%tr
-			%td= critique.title
+			%td= link_to critique.title, critique, target: "_blank"
 			%td= critique.created_at
 			%td= critique.updated_at
 			%td= critique.views

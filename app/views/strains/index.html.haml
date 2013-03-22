@@ -1,2 +1,25 @@
-%h1 Strains#index
-%p Find me in app/views/strains/index.html.haml
+#top
+.span-18.first.strain_container
+	.ribbon-wrapper
+		.ribbon-front
+			%h2 Field Guide
+		.ribbon-edge-topleft
+		.ribbon-edge-topright
+		.ribbon-edge-bottomleft
+		.ribbon-edge-bottomright
+		.ribbon-back-left
+		.ribbon-back-right
+	#field_results
+		- @strains.first(10).each do |strain|
+			.result
+				= image_tag "field-guide-footerlogo.png"
+				%h2= ("#{strain.name}")
+				%h3= "#{strain.dominance}"
+				%p.bio= "#{truncate strain.bio, length: 150}"
+				.mapit
+					%h2= link_to "Map It!", "#"
+				.rating
+					%ul
+						- 5.times do |x|
+							%li
+								= image_tag "rating-on.png"

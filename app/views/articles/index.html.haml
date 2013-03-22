@@ -16,12 +16,26 @@
 		.span-8.last
 			%p.floatright Denver, CO
 	.span-24#dispatches_articles
-		.span-8.first#column_1
-			- 10.times do |article|
-				%p an an article
-
-		.span-8#column_2
-			%h1 second column
-		.span-8#column_3.last
-			%h1 third column
-	
+		.span-7.first#column_1
+			- @articles.first(5).each do |article|
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe
+		.span-10#column_2
+			#featured_article
+				%center
+					%h1 I'm so very high right now
+					= image_tag ('http://placehold.it/350x350')
+					%p= @articles.first.content.html_safe
+			- @articles.last(5).each do |article|
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe
+		.span-7#column_3.last
+			- @articles.first(5).each do |article|
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe

@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 	end
 
   def index
-		@articles = Article.all.sort_by( created_at: :desc ).to_a
+		@articles = Article.all.order_by( created_at: :desc ).to_a
   end
   
   def create

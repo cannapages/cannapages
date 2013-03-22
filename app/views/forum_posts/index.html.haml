@@ -1,2 +1,16 @@
-%h1 Forum_posts#index
-%p Find me in app/views/forum_posts/index.html.haml
+#top
+.span-12.first#header
+	= image_tag "harvest_header.png", id: "harvestheader"
+.span-10.prepend-2.last
+	= image_tag "http://placehold.it/300x150"
+.span-24.forum_container
+	%table.post_table
+		- 10.times do |x|
+			%tr
+				%td.user
+					%h2 user name
+					= image_tag "http://placehold.it/100x100"
+					%p no. of posts
+					%p join date
+				%td.post
+					%p This is a test post of the forum_posts stuff

@@ -538,14 +538,38 @@ h2{
 	}
 	.result{
 		width: 490px;
-		height: 200px;
+		height: 150px;
 		float: left;
 		border-radius: 5px;
 		border-bottom: 1px solid;
 		margin:5px;
+		padding:10px;
 		background-color:rgba(0,99,160,0.5);
 		img{
 			float:left;
+			padding-right:10px;
+		}
+		
+		.bio{
+			width:300px;
+		}
+		
+		.mapit{
+			position:relative;
+			top:-100px;
+			height:50px;
+			width:100px;
+			float:right;
+		}
+		
+		ul{
+			position:relative;
+			left:330px;
+			top:-40px;
+		}
+		
+		.rating{
+			display:inline;
 		}
 	}
 }

@@ -12,7 +12,14 @@
 	#field_results
 		- @strains.first(10).each do |strain|
 			.result
-				= image_tag "http://placehold.it/150x150"
+				= image_tag "field-guide-footerlogo.png"
 				%h2= ("#{strain.name}")
-				%p= "#{strain.dominance}"
-				%p= "#{truncate strain.bio, length: 150}"
+				%h3= "#{strain.dominance}"
+				%p.bio= "#{truncate strain.bio, length: 150}"
+				.mapit
+					%h2= link_to "Map It!", "#"
+				.rating
+					%ul
+						- 5.times do |x|
+							%li
+								= image_tag "rating-on.png"

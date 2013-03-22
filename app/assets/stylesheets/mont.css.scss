@@ -4,6 +4,10 @@ $dark_green: #046414;
 	clear:left;
 }
 
+.floatright{
+	float:right;
+}
+
 body {
 	h1{
 		font-family:'gothic821_cn_btregular';
@@ -456,8 +460,6 @@ h2{
 
 #dispatches_head{
 	background-color:whitesmoke;
-	border-radius:10px;
-	height:150px;
 	h1{
 		font-family: 'cloister_blacklight';
 		color:black;
@@ -469,31 +471,16 @@ h2{
 	}
 }
 
-#dispatch_logo{
-	float:left;
-	width:150px;
-}
-
-#dispatch_title{
-	position:relative;
-	width:770px;
-	left:20px;
-}
-
-#dispatch_desc{
-	position:relative;
-	float:right;
-	top:-50px;
-	text-align:center;
-	color:$dark_green;
+#dispatches{
+	p,h2,h3{
+		font-family: 'underwood_championregular';
+		color:black;
+	}
 }
 
 #dispatches_subhead{
-	height:50px;
-	background-color:green;
+	background-color:whitesmoke;
+	border-top:1px solid;
+	border-bottom:1px solid;
+	padding-top:15px;
 }
-
-#dispatch_title{
-	text-align:center;
-}
-

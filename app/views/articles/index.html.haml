@@ -1,11 +1,26 @@
 #top
-.span-24#dispatches_head
-	#dispatch_logo
-		=image_tag "dispatches_logo.png"
-	#dispatch_title
-		%h1 Dispatches from the Highlands
-	#dispatch_desc
-		%p Read articles from contributing authors and staff writers on what’s going on in the world of Cannabis
-.span24#dispatches_subhead
-	%p What in the world is happening to this page?
+#dispatches
+	.span-24#dispatches_head
+		.span-4.first#dispatch_logo
+			=image_tag "dispatches_logo.png"
+		.span-16#dispatch_title
+			%h1 Dispatches from the Highlands
+		.span-4.last#dispatch_desc
+			%p Read articles from contributing authors and staff writers on what’s going on in the world of Cannabis
+	.span-24#dispatches_subhead
+		.span-8.first
+			%p vol.1 issue.1 
+		.span-8
+			%center
+				%h3 today's date
+		.span-8.last
+			%p.floatright Denver, CO
+	.span-24#dispatches_articles
+		.span-8.first#column_1
+			- 10.times do |article|
+				
+		.span-8#column_2
+			%h1 second column
+		.span-8#column_3.last
+			%h1 third column
 	

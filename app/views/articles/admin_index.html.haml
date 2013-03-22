@@ -1,4 +1,4 @@
-= link_to "Create New Article", "#"
+= link_to "Create New Article", new_article_path
 
 %table
 	%tr
@@ -14,5 +14,5 @@
 			%td= article.created_at
 			%td= article.updated_at
 			%td= article.views
-			%td= link_to "edit", "#"
+			%td= link_to "edit", edit_article_path(article)
 			%td= link_to "remove", article, method: :delete, confirm: "Are you sure?"

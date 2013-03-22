@@ -1,4 +1,4 @@
-= simple_form_for @listing, url: admin_create_listing_path do |f|
+= simple_form_for @listing, url: {form_action} do |f|
 	= f.input :name
 	= f.input :phone
 	= f.input :street_address

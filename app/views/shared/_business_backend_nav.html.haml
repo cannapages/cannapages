@@ -13,15 +13,15 @@
 				%li
 					= image_tag "backend-homelogo.png"
 					%p Dashboard Home
-			= link_to business_edit_listing_path do
+			= link_to edit_listing_path @listing do
 				%li
 					= image_tag "backend-companyinfo.png"
 					%p Company Info
-			= link_to business_edit_listing_path( intent: :hours ) do
+			= link_to edit_listing_path( @listing, intent: :hours ) do
 				%li
 					= image_tag "backend-companyinfo.png"
 					%p Hours Of Operation
-			= link_to business_edit_listing_path( intent: :specials ) do
+			= link_to edit_listing_path( @listing, intent: :specials ) do
 				%li
 					= image_tag "backend-dollarlog.png"
 					%p Daily/Weekly Specials
@@ -29,7 +29,7 @@
 				%li
 					= image_tag "backend-shopmenu.png"
 					%p Shop Menu
-			= link_to '#' do
+			= link_to new_photo_upload_path do
 				%li
 					= image_tag "backend-photoalbum.png"
 					%p Photo Menu

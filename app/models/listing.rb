@@ -73,6 +73,7 @@ class Listing
 	#Relations
 	belongs_to :user	
 	has_many :critiques
+	has_many :photo_uploads
 
 	#Virtual Attributes
 	attr_accessor :distance

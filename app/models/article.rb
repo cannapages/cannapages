@@ -2,6 +2,7 @@ class Article
   include Mongoid::Document
 	include Mongoid::Timestamps
   field :title, type: String
+	field :slug, type: String
 	field :url, type: String
 	field :author, type: String
   field :content, type: String
@@ -9,11 +10,20 @@ class Article
   field :categories, type: String
   field :views, type: Integer
   field :likes, type: Integer
+	field :cannapages_exclusive, type: Boolean
 
 	validates_uniqueness_of :url
 
 	before_create :initialize_anylitics
-	before_save :remove_unwanted_html_tags
+	before_save :remove_unwanted_html_tags, :update_slug
+
+	def to_param
+		slug
+	end
+
+	def update_slug
+		self.slug = title.downcase.gsub(" ","-")
+	end
 
 	def initialize_anylitics
 		self.views, self.likes = 0,0

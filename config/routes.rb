@@ -9,9 +9,9 @@ C41::Application.routes.draw do
 
 	#Business Controlled Resources
 	get "/listings/admin_index" => "listings#admin_index", as: :listings_admin_index
+	get "/listings/admin_new" => "listings#admin_new", as: :admin_new_listing
 	get "/listings/:id/admin_edit" => "listings#admin_edit", as: :admin_edit_listing
 	put "/listings/:id/admin" => "listings#admin_update", as: :admin_update_listing
-	get "/listings/admin_new" => "listings#admin_new", as: :admin_new_listing
 	post "/listings/admin" => "listings#admin_create", as: :admin_create_listing
 	delete "/listings/:id/admin" => "listings#admin_destroy", as: :admin_destroy_listing
 	resources :listings
@@ -20,7 +20,7 @@ C41::Application.routes.draw do
 	get "/products/:id/set_as_in_stock" => "products#set_as_in_stock", as: :set_product_as_in_stock
 	get "/products/:id/set_as_out_of_stock" => "products#set_as_out_of_stock", as: :set_product_as_out_of_stock
 	resources :products, only: [:create, :update, :destroy]
-
+	resources :photo_uploads
 	#Admin Controlled Resource
 	get "/articles/admin_index" => "articles#admin_index", as: :articles_admin_index
 	resources :articles

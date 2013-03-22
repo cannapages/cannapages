@@ -484,3 +484,36 @@ h2{
 	border-bottom:1px solid;
 	padding-top:15px;
 }
+
+#featured_article{
+	h1{
+		font-family: 'cloister_blacklight';
+		color:black;
+		font-size:50px;
+	}
+}
+
+#column_1{
+	
+	img{
+		max-width:270px;
+	}
+}
+
+#column_2{
+	
+	img{
+		max-width:350px;
+	}
+}
+
+#column_3{
+	
+	img{
+		max-width:270px;
+	}
+}
+
+.article_title{
+	margin-bottom:15px;
+}

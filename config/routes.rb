@@ -25,7 +25,8 @@ C41::Application.routes.draw do
 	get "/articles/admin_index" => "articles#admin_index", as: :articles_admin_index
 	resources :articles
 	get "/volumes/admin_index" => "volumes#admin_index", as: :volumes_admin_index
-	resources :volumes
+	get "/volumes/create" => "volumes#create", as: :create_volume
+	resources :volumes, except: [:create]
 	get "/critiques/admin_index" => "critiques#admin_index", as: :critiques_admin_index
 	resources :critiques
 	get "/strains/admin_index" => "strains#admin_index", as: :strains_admin_index

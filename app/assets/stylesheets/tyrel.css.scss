@@ -178,6 +178,23 @@ a {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e5db', endColorstr='#1ad7e5db',GradientType=0 ); /* IE6-9 */
 }
 
+.admin_back_content {
+	background-color:#D7E5DB;
+	position:relative;
+	left:200px;
+	bottom:355px;
+	padding: 10px;
+	width: 730px;
+	top: -486px;
+	background: -moz-linear-gradient(top,  rgba(215,229,219,1) 0%, rgba(215,229,219,0.1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(215,229,219,1)), color-stop(100%,rgba(215,229,219,0.1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(215,229,219,1) 0%,rgba(215,229,219,0.1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(215,229,219,1) 0%,rgba(215,229,219,0.1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(215,229,219,1) 0%,rgba(215,229,219,0.1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(215,229,219,1) 0%,rgba(215,229,219,0.1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e5db', endColorstr='#1ad7e5db',GradientType=0 ); /* IE6-9 */
+}
+
 form {
 	label {
 		display: block;

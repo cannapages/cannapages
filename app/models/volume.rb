@@ -11,6 +11,22 @@ class Volume
   has_mongoid_attached_file :volume_image, :styles => { :large => "300x300#", :small => "150x150#" }
 
 	before_create :set_volume_number
+	before_destroy :refresh_volume_numbers
+
+	def refresh_volume_numbers
+		counter = 1
+		Volume.all.order_by( created_at: :asc ).each do |volume|
+			unless volume.id == self.id
+				volume.volume_number = counter
+				volume.save
+				counter += 1
+			end
+		end
+	end
+
+	def to_param
+		volume_number
+	end
 
 	def add_to_column(	col_num, element )
 		eval("self.column#{col_num} ||= []")

@@ -1,8 +1,63 @@
-%h3= "Volume #{volume_number}"
+%h3= "Volume #{@volume.volume_number}"
+
+.featured_volume_panel
+	%p= "add featured article and photo #{@max_array_size}"
+
 %table
 	%tr
-		%td Column One
-		%td Column Two
-		%td Column Three
+		%td.bold Column One
+		%td.bold move
+		%td.bold remove
+		%td.bold Column Two
+		%td.bold move
+		%td.bold remove
+		%td.bold Column Three
+		%td.bold move
+		%td.bold remove
+	- @max_array_size.times do |i|
+		%tr
+			%td
+				- if @three_col_array[0][i]
+					= @three_col_array[0][i].title
+			%td
+				- if @three_col_array[0][i]
+					= link_to "Up", volumes_move_element_path( @volume.volume_number, 1, i, -1 ) unless i == 0
+					= link_to "Down", volumes_move_element_path( @volume.volume_number, 1, i, 1 ) unless i == @three_col_array[0].size - 1
+			%td
+				- if @three_col_array[0][i]
+					= link_to "[x]", volumes_remove_element_path( @volume.volume_number, 1, i ), method: :delete, confirm: "Are you sure?" 
+			%td
+				- if @three_col_array[1][i]
+					= @three_col_array[1][i].title
+			%td
+				- if @three_col_array[1][i]
+					= link_to "Up", volumes_move_element_path( @volume.volume_number, 2, i, -1 ) unless i == 0
+					= link_to "Down", volumes_move_element_path( @volume.volume_number, 2, i, 1 ) unless i == @three_col_array[1].size - 1
+			%td
+				- if @three_col_array[1][i]
+					= link_to "[x]", volumes_remove_element_path( @volume.volume_number, 2, i ), method: :delete, confirm: "Are you sure?" 
+			%td
+				- if @three_col_array[2][i]
+					= @three_col_array[2][i].title
+			%td
+				- if @three_col_array[2][i]
+					= link_to "Up", volumes_move_element_path( @volume.volume_number, 3, i, -1 ) unless i == 0
+					= link_to "Down", volumes_move_element_path( @volume.volume_number, 3, i, 1 ) unless i == @three_col_array[2].size - 1
+			%td		
+				- if @three_col_array[2][i]
+					= link_to "[x]", volumes_remove_element_path( @volume.volume_number, 3, i ), method: :delete, confirm: "Are you sure?"
 
-		
+	%tr
+		%td Add to column
+		%td
+		%td
+		%td Add to column
+		%td
+		%td
+		%td Add to column
+		%td
+		%td
+
+
+
+ 

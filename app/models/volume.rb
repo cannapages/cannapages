@@ -33,6 +33,16 @@ class Volume
 		eval("self.column#{col_num} += [{slug: '#{element.slug}', element_class: '#{element.class}'}]")
 	end
 
+	def remove_from_column(	col_num, index )
+		eval("self.column#{col_num} ||= []")
+		eval("self.column#{col_num} -= [self.column#{col_num}[#{index}]]")
+	end
+
+	def move_element( col_num, index, delta )
+		eval("self.column#{col_num} ||= []")
+		eval("self.column#{col_num}.move_element(#{index},#{delta})")
+	end
+
 	def get_3_col_array
 		self.column1 ||= []
 		self.column2 ||= []

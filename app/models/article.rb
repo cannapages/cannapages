@@ -30,7 +30,7 @@ class Article
 	end
 
 	def update_slug
-		self.slug = title.downcase.gsub(" ","-")
+		self.slug = title.downcase.gsub(" ","-").gsub(",","").gsub("$","").gsub("?","")
 	end
 
 	def initialize_anylitics

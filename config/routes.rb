@@ -26,6 +26,7 @@ C41::Application.routes.draw do
 	resources :articles
 	get "/volumes/admin_index" => "volumes#admin_index", as: :volumes_admin_index
 	get "/volumes/move_element/:id/:col_num/:index/:delta" => "volumes#move_element", as: :volumes_move_element
+	get "/volumes/add_articles/:id/:article1_slug/:article2_slug/:article3_slug" => "volumes#add_articles", as: :volumes_add_articles
 	delete "/volumes/remove_element/:id/:col_num/:index" => "volumes#remove_element", as: :volumes_remove_element
 	get "/volumes/create" => "volumes#create", as: :create_volume
 	resources :volumes, except: [:create]

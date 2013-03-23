@@ -1,7 +1,5 @@
 %h3= "Volume #{@volume.volume_number}"
-
-.featured_volume_panel
-	%p= "add featured article and photo #{@max_array_size}"
+%h4= "The first article in column 2 will be the headline article"
 
 %table
 	%tr
@@ -47,17 +45,27 @@
 				- if @three_col_array[2][i]
 					= link_to "[x]", volumes_remove_element_path( @volume.volume_number, 3, i ), method: :delete, confirm: "Are you sure?"
 
+%hr
+%h3= link_to "Add articles to volume", "/volumes/add_articles/#{@volume.volume_number}/nil/nil/nil", id: "add_articles_to_volume_link"
+%table
 	%tr
-		%td Add to column
+		%td.bold Add to column one
 		%td
+			%select#add_article_to_col1
+				%option{slug: 'nil'} No article selected
+				- @articles.each do |article|
+					%option{slug: article.slug}= article.title
+	%tr
+		%td.bold Add to column two
 		%td
-		%td Add to column
+			%select#add_article_to_col2
+				%option{slug: 'nil'} No article selected
+				- @articles.each do |article|
+					%option{slug: article.slug}= article.title
+	%tr
+		%td.bold Add to column three
 		%td
-		%td
-		%td Add to column
-		%td
-		%td
-
-
-
- 
+			%select#add_article_to_col3
+				%option{slug: 'nil'} No article selected
+				- @articles.each do |article|
+					%option{slug: article.slug}= article.title

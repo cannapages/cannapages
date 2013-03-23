@@ -8,6 +8,7 @@ class VolumesController < ApplicationController
 
 	def edit
 		@volume = Volume.find_by( volume_number: params[:id] )
+		@articles = Article.all.order_by(title: :asc).to_a
 		@three_col_array = @volume.get_3_col_array
 		@max_array_size = 0
 		@three_col_array.map do |e|
@@ -22,7 +23,7 @@ class VolumesController < ApplicationController
 		if @volume.save
 			redirect_to edit_volume_path @volume
 		else
-			render "edit"
+			render "edit", layout: "admin_backend"
 		end
 	end
 
@@ -38,6 +39,24 @@ class VolumesController < ApplicationController
 		@volume.remove_from_column( params[:col_num], params[:index] )
 		@volume.save
 		redirect_to edit_volume_path @volume
+	end
+
+	def add_articles
+		@volume = Volume.find_by(volume_number: params[:id])
+		unless params[:article1_slug] == "nil"
+			@article1 = Article.find_by( slug: params[:article1_slug] )
+			@volume.add_to_column(1,@article1)
+		end
+		unless params[:article2_slug] == "nil"
+			@article2 = Article.find_by( slug: params[:article1_slug] )
+			@volume.add_to_column(2,@article2)
+		end
+		unless params[:article3_slug] == "nil"
+			@article3 = Article.find_by( slug: params[:article3_slug] )
+			@volume.add_to_column(3,@article3)
+		end
+		@volume.save
+		redirect_to edit_volume_path(@volume)
 	end
 
 	def create

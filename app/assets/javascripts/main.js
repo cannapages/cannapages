@@ -51,5 +51,30 @@ $(document).ready( function() {
 		}
 	})
 })
+$(document).ready( function() {
+	function update_article_add_url( col_num, slug ) {
+		link = $("#add_articles_to_volume_link")
+		parts = link.attr('href').split("/")
+		index = 3 + col_num
+		parts[index] = slug
+		alert( slug )
+		new_link = parts.join("/")
+		link.attr('href',new_link)
+	}
 
-
+	$("#add_article_to_col1").change( function() {
+		selection = $(this).find(":selected")
+		slug = selection.attr('slug')
+		update_article_add_url( 1, slug )
+	})
+	$("#add_article_to_col2").change( function() {
+		selection = $(this).find(":selected")
+		slug = selection.attr('slug')
+		update_article_add_url( 2, slug )
+	})
+	$("#add_article_to_col3").change( function() {
+		selection = $(this).find(":selected")
+		slug = selection.attr('slug')
+		update_article_add_url( 3, slug )
+	})
+})

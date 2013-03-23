@@ -27,7 +27,7 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
 	def failure
-		redirect_to "http://www.facebook.com"
+		redirect_to "http://www.cannapages.com", notice: "Sorry something went wrong while comunicating with facebook"
 	end
 
 end

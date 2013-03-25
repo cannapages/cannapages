@@ -17,7 +17,7 @@ class Article
 	validates_uniqueness_of :url
 
 	before_create :initialize_anylitics, :add_image_if_possible
-	before_save :remove_unwanted_html_tags, :update_slug
+	before_save :remove_unwanted_html_tags, :update_slug, :find_and_remove_footer
 
 	def to_param
 		slug
@@ -29,8 +29,17 @@ class Article
 		self.article_image = open(image_url) if image_url
 	end
 
+	def find_and_remove_footer
+		doc = Nokogiri::HTML(content)
+		while (doc.css('a') and doc.css('a').last.attributes["href"].value =~ /feedburner/)
+			doc.css('a').last.remove
+			puts "1 tier executed"
+		end
+		self.content = doc.to_s
+	end
+
 	def update_slug
-		self.slug = title.downcase.gsub(" ","-").gsub(",","").gsub("$","").gsub("?","")
+		self.slug = title.downcase.gsub(/\W/,'')
 	end
 
 	def initialize_anylitics

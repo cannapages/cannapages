@@ -54,18 +54,18 @@
 			%select#add_article_to_col1
 				%option{slug: 'nil'} No article selected
 				- @articles.each do |article|
-					%option{slug: article.slug}= article.title
+					%option{slug: article.slug}= "#{article.title} - #{article.content.size}"
 	%tr
 		%td.bold Add to column two
 		%td
 			%select#add_article_to_col2
 				%option{slug: 'nil'} No article selected
 				- @articles.each do |article|
-					%option{slug: article.slug}= article.title
+					%option{slug: article.slug}= "#{article.title} - #{article.content.size}"
 	%tr
 		%td.bold Add to column three
 		%td
 			%select#add_article_to_col3
 				%option{slug: 'nil'} No article selected
 				- @articles.each do |article|
-					%option{slug: article.slug}= article.title
+					%option{slug: article.slug}= "#{article.title} - #{article.content.size}"

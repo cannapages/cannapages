@@ -15,17 +15,17 @@
 		= image_tag "/assets/navbar2.png", id: "navimage"
 		.container#navlinks
 			.span-11.prepend-11
-				%ul
+				%ul.front_end_nav
 					%li
-						= link_to "#" do
+						= link_to strains_path do
 							= image_tag "/assets/field-logo.png"
-						= link_to "#" do
+						= link_to volumes_path do
 							= image_tag "/assets/news-icon.png"
-						= link_to "#" do
+						= link_to critiques_path do
 							= image_tag "/assets/critiques-icon.png"
 						= link_to "#" do
 							= image_tag "/assets/members-icon.png"
-						= link_to "#" do
+						= link_to forums_path do
 							= image_tag "/assets/forum-icon.png"
 						= link_to "#" do
 							= image_tag "/assets/saver-icon.png"

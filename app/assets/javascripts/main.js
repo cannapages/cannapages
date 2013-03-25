@@ -57,7 +57,6 @@ $(document).ready( function() {
 		parts = link.attr('href').split("/")
 		index = 3 + col_num
 		parts[index] = slug
-		alert( slug )
 		new_link = parts.join("/")
 		link.attr('href',new_link)
 	}

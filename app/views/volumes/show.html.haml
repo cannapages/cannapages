@@ -1,0 +1,42 @@
+#top
+#dispatches
+	.span-24#dispatches_head
+		.span-4.first#dispatch_logo
+			=image_tag "dispatches_logo.png"
+		.span-16#dispatch_title
+			%h1 Dispatches from the Highlands
+		.span-4.last#dispatch_desc
+			%p Read articles from contributing authors and staff writers on what’s going on in the world of Cannabis
+	.span-24#dispatches_subhead
+		.span-8.first
+			%p= "volume #{@volume.volume_number}"
+		.span-8
+			%center
+				%h3= @volume.created_at.strftime("%B %d, %Y")
+		.span-8.last
+			%p.floatright Denver, CO
+	.span-24#dispatches_articles
+		.span-7.first#column_1
+			- @three_col_array.first.each do |article|
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe
+		.span-10#column_2
+			- @featured_article = @three_col_array[1].shift
+			#featured_article
+				%center
+					%h1= @featured_article.title
+					= image_tag @featured_article.article_image(:large), class: :featured
+					%p= @featured_article.content.html_safe
+			- @three_col_array[1].each do |article|
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe
+		.span-7#column_3.last
+			- @three_col_array[2].each do |article|
+				.article
+					%h2.article_title= ("#{article.title}").html_safe
+					%h3= ("#{article.author}").html_safe
+					%p= ("#{article.content}").html_safe

@@ -1,6 +1,17 @@
 class VolumesController < ApplicationController
 	before_filter :require_admin, except: [:index, :show]
 
+	def index
+		@volume = Volume.last
+		@three_col_array = @volume.get_3_col_array
+		render "show"
+	end
+
+	def show
+		@volume = Volume.find_by( volume_number: params[:id] )
+		@three_col_array = @volume.get_3_col_array
+	end
+
 	def admin_index
 		@volumes = Volume.all.order_by( volume_number: :asc ).to_a
 		render layout: "admin_backend"
@@ -65,7 +76,7 @@ class VolumesController < ApplicationController
 	end
 
 	def destroy
-		@volume = Volume.find_by( volume_number: params[:id] )
+		Volume.find_by( volume_number: params[:id] ).destroy
 		redirect_to volumes_admin_index_path
 	end
 end

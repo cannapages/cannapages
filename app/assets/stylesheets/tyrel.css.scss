@@ -568,3 +568,21 @@ form#new_product {
 	}
 
 }
+
+#dispatches_articles {
+	img {
+		float: left;
+		clear: both;
+		padding: 12px;
+		max-width: 142px;
+		height: auto;
+	}
+	#featured_article {
+		img.featured {
+			display: block;
+			margin: auto;
+			float: none;
+			max-width: 350px;
+		}
+	}
+}

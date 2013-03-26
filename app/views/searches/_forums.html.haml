@@ -1,0 +1,3 @@
+= simple_form_for Search.new, html: {class: "search"}, action: forums_path do |f|
+	= f.input :query, label: false, placeholder: "Post title, text, author etc", input_html: {class:"alttopsearch full"}
+	= f.submit "", id: "altsearch_icon"

@@ -586,3 +586,164 @@ form#new_product {
 		}
 	}
 }
+
+#altsearch_icon {
+	background-image: url('/assets/search_icon.png');
+	background-repeat: no-repeat;
+	background-color: transparent;
+	width: 85px;
+	height: 32px;
+	border: none;
+}
+
+
+ul.front_end_nav {
+	position: relative;
+	left: 50px;
+}
+
+ul.alt_front_end_nav {
+	position: relative;
+	left: 72px;
+	a {
+		text-decoration: none;
+	}
+}
+
+#altnavlinks {
+	height: 65px;
+}
+
+.alt_search_container {
+	height: 52px;
+	position: relative;
+	top: 17px;
+}
+
+#altsearchform {
+	form.search {
+		.full {
+			width: 370px;
+		}
+		.half {
+			width: 152px;
+		}
+	}
+}
+
+#search_form2 {
+	width: 690px;
+	form.search {
+		.half {
+			width: 242px;
+		}
+	}
+	#near {
+		font-weight: bold;
+		font-size: 15px;
+		margin-top: 10px;
+	}
+}
+
+#dispatches_articles {
+	background-color: whitesmoke;
+}
+
+.listing-index {
+	min-height: 170px;
+	border: 1px solid #F0F0F0;
+	padding-top: 18px;
+	padding-left: 12px;
+	position: relative;
+	background-color: white;
+	&.featured {
+		background-color: #F0E0E1;
+		min-height: 280px;
+		.listing_info_left {
+			width: 410px;
+			font-size: 14px;
+			.left {
+				width: 380px;
+			}
+			.bug {
+				position: relative;
+				top: 7px;
+			}
+			h5 {
+				font-size: 25px;
+			}
+		}
+	}
+	&.light_blue {
+		background-color: #EFF2F7;
+	}
+	.logo {
+		float: left;
+		margin-right: 10px;
+		border: 2px solid black;
+		padding: 2px;
+	}
+	.listing_info_left {
+		float: left;
+		width: 282px;
+		margin-right: 10px;
+		.bug {
+			float: left;
+			margin-right: 7px;
+		}
+		.left {
+			width: 252px;
+			float: left;
+		}
+		h5 {
+			font-size: 15px;
+			margin: 0;
+		}
+	}
+	.listing_info_right {
+		float: left;
+		width: 225px;
+	}
+	.daily {
+		position: relative;
+		top: 20px;
+		left: 1px;
+		-moz-transform: rotate(2deg);
+		-webkit-transform: rotate(2deg);
+		-o-transform: rotate(2deg);
+		-ms-transform: rotate(2deg);
+		width: 232px;
+		height: 80px;
+		background-color: #FA4A4A;
+		img {
+			position: absolute;
+			top: -14px;
+			left: 0px;
+		}
+		h4 {
+			font-size: 14pt;
+			font-weight: bolder;
+			position: absolute;
+			top: 2px;
+			left: 36px;
+		}
+		p {
+			position: absolute;
+			top: 27px;
+			left: 5px;
+			color: white;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

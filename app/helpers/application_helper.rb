@@ -13,4 +13,14 @@ module ApplicationHelper
 		end
 		link_to "Backend", target_path
 	end
+
+	def derived_search_form
+		form_partial_name = case params[:controller]
+			when "volumes"
+				"articles"
+			else
+				params[:controller]
+		end
+		render "searches/#{form_partial_name}"
+	end
 end

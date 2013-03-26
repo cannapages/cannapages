@@ -13,6 +13,7 @@ C41::Application.routes.draw do
 	get "/listings/:id/admin_edit" => "listings#admin_edit", as: :admin_edit_listing
 	put "/listings/:id/admin" => "listings#admin_update", as: :admin_update_listing
 	post "/listings/admin" => "listings#admin_create", as: :admin_create_listing
+	post "/listings/search" => "listings#index", as: :listings_search
 	delete "/listings/:id/admin" => "listings#admin_destroy", as: :admin_destroy_listing
 	resources :listings
 

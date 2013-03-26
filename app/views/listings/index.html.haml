@@ -1,2 +1,28 @@
-%h1 Listings#index
-%p Find me in app/views/listings/index.html.haml
+#top
+.span-18
+	.listing-index.featured
+		= link_to @featured_listing do
+			= image_tag @featured_listing.logo(:large), class: "logo"
+		.listing_info_left
+			= image_tag "listingbug.png", class: "bug"
+			.left
+				%h5= link_to @featured_listing.name, @featured_listing
+				%p= "Category: #{@featured_listing.category}"
+				%p= "#{@featured_listing.distance.round(2)} miles from #{@user_location.max_info_string}" if @featured_listing.distance
+				%p= @featured_listing.full_address
+				.daily
+					= image_tag "tack.png"
+					%h4= ("#{Date.today.strftime("%A")} Special!").capitalize
+					%p= best_special_for_listing( @featured_listing )
+	- @listings.each_with_index do |listing, index|
+		.listing-index{class: (index % 2 == 0) ? "light_blue" : ""}
+			= link_to listing do
+				= image_tag listing.logo(:medium), class: "logo"
+			.listing_info_left
+				= image_tag "listingbug.png", class: "bug"
+				.left
+					%h5= link_to "#{index + 1}. #{listing.name}", listing
+					%p= "Category: #{listing.category}"
+					%p= "#{listing.distance.round(2)} miles from #{@user_location.max_info_string}" if listing.distance
+			.listing_info_right
+				%p= listing.full_address

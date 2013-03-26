@@ -2,27 +2,26 @@
 	= render "shared/login_info"
 #head2_container
 	.container
-		.span-12
-			= image_tag "logotop-75-75.png", id: "altlogotop" if params[:controller] == "listings"
-			= image_tag "field-logo.png", id: "altlogotop" if params[:controller] == "strains"
-			= image_tag "news-icon.png", id: "altlogotop" if params[:controller] == "volumes"
+		.span-12.alt_search_container
+			= image_tag "listings-icon.png", id: "altlogotop" if params[:controller] == "listings"
+			= image_tag "field-icon.png", id: "altlogotop" if params[:controller] == "strains"
+			= image_tag "news-icon.png", id: "altlogotop" if params[:controller] == "volumes" or params[:controller] == "articles"
 			= image_tag "critiques-icon.png", id: "altlogotop" if params[:controller] == "critiques"
 			= image_tag "members-icon.png", id: "altlogotop" if params[:controller] == "?"
 			= image_tag "forum-icon.png", id: "altlogotop" if params[:controller] == "forums"
 			= image_tag "saver-icon.png", id: "altlogotop" if params[:controller] == "?"
 			#altsearchform
-				= simple_form_for Search.new, action:"/" do |f|
-					= f.input :query, label: false, placeholder: "Query", input_html: {class:"alttopsearch"}
-					%p#near near
-					= f.input :user_location, label: false, placeholder: "UserLocation", input_html: {class:"alttopsearch"}
-				= image_tag "search_icon.png", id: "altsearch_icon"
+				= derived_search_form
 		.span-12.last#altnavlinks
-			%ul.front_end_nav
+			%ul.alt_front_end_nav
 				%li
+					- unless params[:controller] == "listings"
+						= link_to listings_path do
+							= image_tag "/assets/listings-icon.png"
 					- unless params[:controller] == "strains"
 						= link_to strains_path do
-							= image_tag "/assets/field-logo.png"
-					- unless params[:controller] == "volumes"
+							= image_tag "/assets/field-icon.png"
+					- unless params[:controller] == "volumes" or params[:controller] == "articles"
 						= link_to volumes_path do
 							= image_tag "/assets/news-icon.png"
 					- unless params[:controller] == "critiques"

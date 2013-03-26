@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/cannapages/mongoid-pagination.git
+  revision: 3e6d0afffb5012d55a8412d336c0ce4e24f39ef4
+  specs:
+    mongoid-pagination (0.2.0)
+      activesupport
+      mongoid
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -133,8 +141,8 @@ GEM
       tzinfo (~> 0.3.22)
     mongoid-paperclip (0.0.8)
       paperclip (>= 2.3.6)
-    moped (1.4.3)
-    multi_json (1.6.1)
+    moped (1.4.4)
+    multi_json (1.7.2)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
     nokogiri (1.5.6)
@@ -246,6 +254,7 @@ DEPENDENCIES
   launchy
   mongo
   mongoid
+  mongoid-pagination!
   mongoid-paperclip
   omniauth
   omniauth-facebook

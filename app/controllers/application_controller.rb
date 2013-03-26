@@ -21,12 +21,12 @@ class ApplicationController < ActionController::Base
 
 	def update_user_location
 		if session[:user_location]
-			if params[:user_location] and params[:user_location] != session[:user_location]
-				@user_location = UserLocation.new_from_location( params[:user_location] )
+			if params["search"] and params["search"]["user_location"] and not params["search"]["user_location"].empty? and (params["search"]["user_location"] != session[:user_location])
+				@user_location = UserLocation.new_from_location( params["search"]["user_location"] )
 			end
 		else
-			if params[:user_location]
-				@user_location = UserLocation.new_from_location( params[:user_location] )
+			if params["search"] and params["search"]["user_locatio"]
+				@user_location = UserLocation.new_from_location( params["search"]["user_location"] )
 			else
 				@user_location = UserLocation.new_from_ip( request.remote_ip )
 			end

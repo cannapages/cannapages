@@ -6,26 +6,22 @@
 		.span-24
 			= image_tag "main_logo.png", id: "logotop"
 			#search_form2
-				= simple_form_for Search.new, action:"/" do |f|
-					= f.input :query, label: false, placeholder: "Query", input_html: {class:"topsearch"}
-					%p#near near
-					= f.input :user_location, label: false, placeholder: "UserLocation", input_html: {class:"topsearch"}
-				= image_tag "search_icon.png", id: "search_icon"
+				= render "searches/home_listings"
 	#navbar
 		= image_tag "/assets/navbar2.png", id: "navimage"
 		.container#navlinks
 			.span-11.prepend-11
-				%ul
+				%ul.front_end_nav
 					%li
-						= link_to "#" do
+						= link_to strains_path do
 							= image_tag "/assets/field-logo.png"
-						= link_to "#" do
+						= link_to volumes_path do
 							= image_tag "/assets/news-icon.png"
-						= link_to "#" do
+						= link_to critiques_path do
 							= image_tag "/assets/critiques-icon.png"
 						= link_to "#" do
 							= image_tag "/assets/members-icon.png"
-						= link_to "#" do
+						= link_to forums_path do
 							= image_tag "/assets/forum-icon.png"
 						= link_to "#" do
 							= image_tag "/assets/saver-icon.png"

@@ -1,0 +1,5 @@
+= simple_form_for Search.new, html: {class: "search"}, url: listings_search_path do |f|
+	= f.input :query, label: false, placeholder: "Name, category etc", input_html: {class:"alttopsearch half"}
+	%p#near.bold near
+	= f.input :user_location, label: false, placeholder: "Where are you from?", input_html: {class:"alttopsearch half"}
+	= f.submit "", id: "altsearch_icon"

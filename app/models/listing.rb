@@ -4,6 +4,7 @@ class Listing
 	include Mongoid::Timestamps
 	include Mongoid::Paperclip
 	include Mongoid::MultiParameterAttributes
+	include Mongoid::Pagination
 	has_mongoid_attached_file :logo, :styles => { thumb: "75x75#", medium: "150x150#", large: "250x250#" }
 
 	#Fields
@@ -117,7 +118,7 @@ class Listing
 	end
 
 	def update_slug
-		self.slug = name.downcase.gsub(" ","-")
+		self.slug = name.downcase.gsub(" ","-") + "-" + Time.now.to_i.to_s
 	end
 
 	def update_distance( from )

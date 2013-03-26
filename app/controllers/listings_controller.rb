@@ -3,6 +3,19 @@ class ListingsController < ApplicationController
 	before_filter :require_business, only: [ :edit, :new, :update, :create, :destroy ]
 
   def index
+		params[:page_num] ||= 1
+		@max_pages = Listing.num_pages_for
+
+		@listings = Listing.paginate( page: params[:page_num] ).geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
+		@listings.each do |l|
+			l.update_distance(@user_location)
+		end
+
+		@featured_listings = Listing.paginate( page: params[:page_num] ).featured(5).geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
+		@featured_listings.each do |l|
+			l.update_distance(@user_location)
+		end
+		@featured_listing = @featured_listings.first
   end
   
   def create

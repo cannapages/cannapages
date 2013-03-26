@@ -75,6 +75,13 @@ body {
 
 ul{
 	list-style: none;
+	&.front_end_nav {
+		li {
+			a {
+				text-decoration: none;
+			}
+		}
+	}
 }
 
 li{

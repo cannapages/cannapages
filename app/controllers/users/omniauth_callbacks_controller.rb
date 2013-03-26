@@ -16,7 +16,6 @@ class Users::OmniauthCallbacksController < ApplicationController
     # You need to implement the method below in your model (e.g. app/models/user.rb)
     @user = User.find_oauth(request.env["omniauth.auth"], current_user)
 		
-		debugger
     if @user.persisted?
 			flash[:notice] = "Sucsessfully created account you are now logged in"
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
@@ -27,7 +26,7 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
 	def failure
-		redirect_to "http://www.facebook.com"
+		redirect_to "http://www.cannapages.com", notice: "Sorry something went wrong while comunicating with facebook"
 	end
 
 end

@@ -1,27 +1,28 @@
-# development: &defaults
-#   sessions:
-#     default: &default_session
-#       database: C41_development
-#       username: bob
-#       password: cannascore420
-#       hosts:
-#         - cannapages.com
-#       options:
-#   options:
-#     allow_dynamic_fields: false
-#     preload_models: true
-#     raise_not_found_error: false
 development: &defaults
   sessions:
     default: &default_session
       database: C41_development
+      username: bob
+      password: cannascore420
       hosts:
-        - localhost
+        - cannapages.com
       options:
   options:
     allow_dynamic_fields: false
     preload_models: true
     raise_not_found_error: false
+
+# development: &defaults
+#   sessions:
+#     default: &default_session
+#       database: C41_development
+#       hosts:
+#         - localhost
+#       options:
+#   options:
+#     allow_dynamic_fields: false
+#     preload_models: true
+#     raise_not_found_error: false
 
 test:
   <<: *defaults

@@ -39,9 +39,6 @@ class Listing
 	field :clicks, type: Integer
 	field :featured_shows, type: Integer
 	field :featured_clicks, type: Integer
-	#Ratings
-	field :rating, type: Float
-	field :num_of_reviews, type: Integer
 	#Relations
 	field :live_menu_id, type: String
 	#Business Hours
@@ -150,7 +147,7 @@ class Listing
 		location_object = YahooHelper.get_location_data( self.full_address )
 		lng = location_object["longitude"]
 		lat = location_object["latitude"]
-		self.loc = [lat.to_f,lng.to_f]
+		self.loc = [lng.to_f,lat.to_f]
 		self.lng = lng
 		self.lat = lat
 	end
@@ -163,12 +160,6 @@ class Listing
 				end
 			end
 		end
-	end
-
-	#Custome getters and setters
-	def rating
-		rating = read_attribute(:rating)
-		rating || 0
 	end
 
 	#Helpers

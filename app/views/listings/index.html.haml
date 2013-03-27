@@ -1,5 +1,5 @@
 #top
-.span-18
+.span-18.first
 	.listing-index.featured
 		= link_to @featured_listing do
 			= image_tag @featured_listing.logo(:large), class: "logo"
@@ -25,4 +25,9 @@
 					%p= "Category: #{listing.category}"
 					%p= "#{listing.distance.round(2)} miles from #{@user_location.max_info_string}" if listing.distance
 			.listing_info_right
+				= render partial: "shared/rating", locals: {stars: listing.listing_review.average_rating}
 				%p= listing.full_address
+.span-6.last
+	- @ads.each do |ad|
+		= link_to ad.href do
+			= image_tag ad.ad_image

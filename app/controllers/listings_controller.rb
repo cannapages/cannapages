@@ -6,16 +6,24 @@ class ListingsController < ApplicationController
 		params[:page_num] ||= 1
 		@max_pages = Listing.num_pages_for
 
-		@listings = Listing.paginate( page: params[:page_num] ).geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
+		if params[:search] and params[:search][:query]
+			reg = %r[#{params[:search][:query]}]i
+			@listings = Listing.any_of(name: reg).any_of(categroy: reg).paginate( page: params[:page_num] )
+		else
+			@listings = Listing.paginate( page: params[:page_num] )
+		end
+		@listings = @listings.geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
 		@listings.each do |l|
 			l.update_distance(@user_location)
 		end
 
-		@featured_listings = Listing.paginate( page: params[:page_num] ).featured(5).geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
+		@featured_listings = Listing.featured(5).geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
 		@featured_listings.each do |l|
 			l.update_distance(@user_location)
 		end
 		@featured_listing = @featured_listings.first
+
+		@ads = Ad.any_of( ad_type: 'Banner Large').any_of( ad_type: 'Banner Small' ).to_a
   end
   
   def create

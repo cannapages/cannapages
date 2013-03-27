@@ -33,4 +33,6 @@ end
 group :assets do
   gem 'sass-rails' # if running rails 3.1 or greater
   gem 'compass-rails'
+  gem 'jquery-ui-rails'
+  gem 'jquery-modal-rails'
 end

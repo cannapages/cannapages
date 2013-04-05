@@ -1,5 +1,7 @@
 C41::Application.routes.draw do
 
+  get "419" => redirect("http://ezregister.com/events/6491/")
+  get "/420eve" => redirect("http://ezregister.com/events/6491/")
 
   get "cadets/home", as: :cadets_home
 
@@ -62,5 +64,11 @@ C41::Application.routes.draw do
 		end
 	end
 	resources :pipe_graves, except: [:show]
+
+  #Legacy routes
+  match "/:state/businesses/:uri_name" => "listings#index"
+  match "/:state/businesses/:uri_name/:action" => "listings#index"
+  #Universal fall back to root
+  match '*a', :to => 'home#index'
 
 end

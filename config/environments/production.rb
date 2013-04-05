@@ -16,6 +16,8 @@ C41::Application.configure do
 
   config.active_support.deprecation = :notify
 
+	config.assets.precompile += %w( map.css )
+
 	config.action_mailer.default_url_options = { :host => 'cannapages.com' }
 
   require 'jquery/modal/rails'

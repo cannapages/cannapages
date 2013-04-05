@@ -23,14 +23,14 @@ production:
       hosts:
         - localhost:27017
       database: C41_development
-			username: bob
-			password: cannascore420
+      username: bob
+      password: cannascore420
     replica_set:
       hosts:
         - localhost:27017
+        - localhost:27017
+        - localhost:27017
       database: C41_development
-			username: bob
-			password: cannascore420
       options:
         consistency: :eventual
         safe: true
@@ -38,10 +38,8 @@ production:
       hosts:
         - localhost:27017
       database: C41_development
-			username: bob
-			password: cannascore420
     another:
-      uri: mongodb://localhost:27017
+      uri: mongodb://bob:cannascore420@localhost:27017,localhost:27017/C41_development
   options:
     allow_dynamic_fields: false
     identity_map_enabled: true
@@ -52,4 +50,3 @@ production:
     skip_version_check: false
     use_activesupport_time_zone: false
     use_utc: true
-

@@ -18,4 +18,8 @@ C41::Application.configure do
 
 	config.action_mailer.default_url_options = { :host => 'cannapages.com' }
 
+  require 'jquery/modal/rails'
+  require 'jquery/modal/filters'
+  require 'jquery/modal/helpers'
+
 end

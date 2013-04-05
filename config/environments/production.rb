@@ -16,7 +16,6 @@ C41::Application.configure do
 
   config.active_support.deprecation = :notify
 
-	config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-	puts "WARNING: PLEASE UPDATE LINE 19 OF PRODUCTION.RB before launch"
+	config.action_mailer.default_url_options = { :host => 'cannapages.com' }
 
 end

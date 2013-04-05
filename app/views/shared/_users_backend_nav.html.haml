@@ -1,0 +1,56 @@
+.span-24
+	.back_top
+		= image_tag Gravatar.new(@current_user.email).image_url
+		%h2= @current_user.user_name
+		= link_to root_path do
+			#view_page
+				%span Home
+.container
+	#back_nav
+		%ul
+			= link_to users_edit_path(@current_user) do
+				%li
+					= image_tag "backend-homelogo.png"
+					%p Account
+			= link_to pipe_graves_path do
+				%li
+					= image_tag "backend-companyinfo.png"
+					%p Retire an old pipe
+			-# = link_to "#" do
+			-# 	%li
+			-# 		= image_tag "backend-companyinfo.png"
+			-# 		%p Forum
+			-# = link_to "#" do
+			-# 	%li
+			-# 		= image_tag "backend-dollarlog.png"
+			-# 		%p Comments
+			-# = link_to "#" do
+			-# 	%li
+			-# 		= image_tag "backend-shopmenu.png"
+			-# 		%p Wiki
+			-# = link_to '#' do
+			-# 	%li.bottom_of_section
+			-# 		= image_tag "backend-post-thread.png"
+			-# 		%p Post Thread in Forum
+			-# = link_to '#' do
+			-# 	%li
+			-# 		%p Create Banner Ad
+			-# = link_to '#' do
+			-# 	%li
+			-# 		%p Feature my Listing
+			-# = link_to '#' do
+			-# 	%li
+			-# 		%p CannaSaver Coupon
+			-# = link_to '#' do
+			-# 	%li
+			-# 		%p CannaVideo
+			-# = link_to '#' do
+			-# 	%li
+			-# 		%p Vanity Domain
+			-# = link_to '#' do
+			-# 	%li
+			-# 		%p ADILAS/CannaMerchant
+			-# = link_to '#' do
+			-# 	%li
+			-# 		%p Advertising Packages
+			-# 		

@@ -1,5 +1,5 @@
 .rating_container
-	- stars.times do
+	- stars.to_i.times do
 		= image_tag "rating-on.png", class: :rating_star
-	- (5 - stars).times do
+	- (5 - stars.to_i).times do
 		= image_tag "rating-off.png", class: :rating_star

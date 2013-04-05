@@ -13,4 +13,15 @@ module ListingsHelper
 		weekly_special = listing.weekly_special
 		daily_special or weekly_special
 	end
+	def setup_menu( listing )
+		products = listing.live_menu.products.to_a
+		hybrids = products.select{|p| p.strain.familly == "hybrid"}
+		indicas = products.select{|p| p.strain.familly == "indica"}
+		sativas = products.select{|p| p.strain.familly == "sativa"}
+		{
+			hybrids: hybrids,
+			indicas: indicas,
+			sativas: sativas
+		}
+	end
 end

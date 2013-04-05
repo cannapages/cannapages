@@ -2,7 +2,7 @@ class UserLocation
 
 	attr_accessor :lat, :lng, :city, :state, :zip_code, :street_address
 
-  def initialize(lat, lng, city, state, zip_code, street_address)
+  def initialize(lat = nil, lng = nil, city = nil, state = nil, zip_code = nil, street_address = nil)
     @lat, @lng, @city, @state, @zip_code, @street_address = 
 		lat, lng, city, state, zip_code, street_address
   end
@@ -19,7 +19,7 @@ class UserLocation
 	end
 
 	def self.new_from_yahoo_result( result )
-		self.new( result["latitude"].to_f, result["longitude"].to_f, result["city"], result["state"], result["uzip"], result["street"] )
+		self.new(result["latitude"].to_f, result["longitude"].to_f, result["city"], result["state"], result["uzip"], result["line1"])
 	end
 
 	def max_info_string

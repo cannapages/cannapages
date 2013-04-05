@@ -10,16 +10,18 @@
 		.ribbon-back-left
 		.ribbon-back-right
 	#field_results
-		- @strains.first(10).each do |strain|
-			.result
-				= image_tag "field-guide-footerlogo.png"
-				%h2= ("#{strain.name}")
-				%h3= "#{strain.dominance}"
-				%p.bio= "#{truncate strain.bio, length: 150}"
-				.mapit
-					%h2= link_to "Map It!", "#"
-				.rating
-					%ul
-						- 5.times do |x|
-							%li
-								= image_tag "rating-on.png"
+		- @strains.each do |strain|
+			= link_to strain do
+				.result
+					= image_tag "field-guide-footerlogo.png"
+					%h2= strain.name
+					%h3= "#{strain.dominance}"
+					%p.bio= "#{truncate strain.bio, length: 150}"
+					.strain_index_rating
+						= render partial: "shared/rating", locals: {stars: rand(5) + 1}
+.span-6.last
+	- @ads.each do |ad|
+		= link_to ad.href do
+			= image_tag ad.ad_image
+.span-24
+	= paginate @strains

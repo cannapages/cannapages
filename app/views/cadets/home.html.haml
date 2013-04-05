@@ -1,0 +1,16 @@
+#top
+.span-24#cadets_home
+	= link_to_modal( image_tag("cadetspage-logo.png"), new_user_registration_path, class: :cadets_sign_up ) unless @current_user
+	= cadets_backend_link if @current_user
+	.cadets_grave
+		.arrow_left
+		.arrow_right
+		- @pipe_graves.each_with_index do |pipe,index|
+			.grave{class: (index == 0 ? "" : "non-active"), index: index}
+				= image_tag pipe.pipe_grave_image(:large)
+				.pipe_info
+					%p.header= "Here lies #{pipe.name}"
+					%p= "Born #{pipe.born.strftime('%B %Y')}"
+					%p= "Died #{pipe.died.strftime('%B %Y')}"
+					%p= "Those that knew said, \"#{pipe.eulogy}\""
+		= image_tag "cadetspage-gravestone.png", class: :grave_stone

@@ -50,6 +50,10 @@ class Article
 		self.content = Sanitize.clean( content, Sanitize::Config::RELAXED)
 	end
 
+	def exerpt( words = 30 )
+		Sanitize.clean(HTML_Truncator.truncate(content, words), Sanitize::Config::BASIC)
+	end
+
 	class << self
 		def search( query )
 			(where( title: (%r[#{query}]i) ).to_a + where( content: (%r[#{query}]i) ).to_a).uniq!

@@ -39,8 +39,8 @@ class Critique
 		end
 	end
 
-	def exerpt
-		HTML_Truncator.truncate(content, 30)
+	def exerpt( words = 30 )
+		HTML_Truncator.truncate(content, words)
 	end
 
 	def to_param

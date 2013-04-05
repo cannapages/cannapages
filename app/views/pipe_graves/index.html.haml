@@ -1,0 +1,22 @@
+%h2 Welcome Cadet to the pipe grave yard
+%p For right now this backend section is here to allow you retire pipes of old. We are building a suite for you to controll your content and for you to take part in our wiki. For now most of the percs for having a user account exsist on the front. You can comment and rate listings as well as use our MMJ forum.
+%h3 Here is a list of all the pipes you have retired thus far
+
+= link_to_modal "Retire a new pipe", pipe_graves_new_path
+
+%table
+	%tr
+		%th Name
+		%th Edit
+		%th Remove
+	- @pipe_graves.each do |pipe|
+		%tr
+			%td= pipe.name
+			%td= link_to_modal "[x]", edit_pipe_grave_path(pipe)
+			%td= link_to( "[x]", pipe_grave_path(pipe), confirm: "Are you sure?", method: :delete )
+	- if @pipe_graves.empty?
+		%tr
+			%td You have not retired any pipes as of yet
+			%td
+			%td
+

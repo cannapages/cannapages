@@ -1,10 +1,18 @@
 class CritiquesController < ApplicationController
 
-	before_filter :require_admin, except: [:index, :show]
+	before_filter :require_admin, except: [:index, :show, :home]
 
 	def admin_index
 		@critiques = Critique.all.order_by( updated_at: :asc ).to_a
 		render layout: "admin_backend"
+	end
+
+	def home
+		@critiques = Critique.all.order_by(updated_at: :desc).limit(8).to_a
+		@latest = @critiques.first
+		@critiques -= [@latest]
+		@listings = Listing.all.to_a.select{|e| not e.critique_ids.empty?}
+		@strains = Strain.all.to_a.select{|e| not e.critique_ids.empty?}
 	end
 
   def index
@@ -17,8 +25,9 @@ class CritiquesController < ApplicationController
 				@strain = @critique.strain
 				render "show"
 			end
-		elsif params[:q]
-			@critiques = Critique.all
+		elsif params[:search] and params[:search][:query]
+			reg = %r[#{params[:search][:query]}]i
+			@critiques = Critique.any_of( title: reg ).any_of( content: reg ).to_a
 		else
 			@critiques = Critique.all
 		end

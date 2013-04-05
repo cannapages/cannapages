@@ -30,7 +30,7 @@ class VolumesController < ApplicationController
 
 	def update
 		@volume = Volume.find_by( volume_number: params[:id] )
-		@volume.add_to_column( params[:col_num], Article.find_by( slug: params[:article]) )
+		@volume.add_to_column( params[:col_num], Article.find_by( slug: params[:article1_slug]) )
 		if @volume.save
 			redirect_to edit_volume_path @volume
 		else
@@ -56,15 +56,15 @@ class VolumesController < ApplicationController
 		@volume = Volume.find_by(volume_number: params[:id])
 		unless params[:article1_slug] == "nil"
 			@article1 = Article.find_by( slug: params[:article1_slug] )
-			@volume.add_to_column(1,@article1)
+			@volume.add_to_column(1,@article1) if @article1
 		end
 		unless params[:article2_slug] == "nil"
-			@article2 = Article.find_by( slug: params[:article1_slug] )
-			@volume.add_to_column(2,@article2)
+			@article2 = Article.find_by( slug: params[:article2_slug] )
+			@volume.add_to_column(2,@article2) if @article2
 		end
 		unless params[:article3_slug] == "nil"
 			@article3 = Article.find_by( slug: params[:article3_slug] )
-			@volume.add_to_column(3,@article3)
+			@volume.add_to_column(3,@article3) if @article3
 		end
 		@volume.save
 		redirect_to edit_volume_path(@volume)

@@ -3,27 +3,25 @@ class ListingsController < ApplicationController
 	before_filter :require_business, only: [ :edit, :new, :update, :create, :destroy ]
 
   def index
-		params[:page_num] ||= 1
-		@max_pages = Listing.num_pages_for
-
+		@listings = Listing.limit(Listing.count)
 		if params[:search] and params[:search][:query]
 			reg = %r[#{params[:search][:query]}]i
-			@listings = Listing.any_of(name: reg).any_of(categroy: reg).paginate( page: params[:page_num] )
-		else
-			@listings = Listing.paginate( page: params[:page_num] )
+			@listings = @listings.any_of(name: reg).any_of(categroy: reg)
 		end
 		@listings = @listings.geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
+		@listings = Kaminari.paginate_array(@listings).page(params[:page]).per(25)
 		@listings.each do |l|
 			l.update_distance(@user_location)
 		end
-
-		@featured_listings = Listing.featured(5).geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
-		@featured_listings.each do |l|
-			l.update_distance(@user_location)
+		@featured_listings = Listing.where(featured: true).max_near( [@user_location.lng, @user_location.lat], 50 ).to_a
+		unless @featured_listings.empty?
+			@featured_listings.sort! {|x,y| x.featured_shows <=> y.featured_shows}
+			@featured_listing = @featured_listings.first
+			@featured_listing.featured_shows += 1
+			@featured_listing.save
 		end
-		@featured_listing = @featured_listings.first
-
-		@ads = Ad.any_of( ad_type: 'Banner Large').any_of( ad_type: 'Banner Small' ).to_a
+		@featured_listing ||= nil
+		@ads = side_banner_front_ads
   end
   
   def create

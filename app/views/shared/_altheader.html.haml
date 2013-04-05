@@ -1,21 +1,23 @@
 #black_bar
+	= link_to root_path do
+		%p.banner Cannapages.com 
 	= render "shared/login_info"
 #head2_container
 	.container
 		.span-12.alt_search_container
-			= image_tag "listings-icon.png", id: "altlogotop" if params[:controller] == "listings"
+			= image_tag "listings-icon.png", id: "altlogotop" if params[:controller] == "listings" or params[:controller] == "devise/registrations"
 			= image_tag "field-icon.png", id: "altlogotop" if params[:controller] == "strains"
 			= image_tag "news-icon.png", id: "altlogotop" if params[:controller] == "volumes" or params[:controller] == "articles"
 			= image_tag "critiques-icon.png", id: "altlogotop" if params[:controller] == "critiques"
-			= image_tag "members-icon.png", id: "altlogotop" if params[:controller] == "?"
-			= image_tag "forum-icon.png", id: "altlogotop" if params[:controller] == "forums"
+			= image_tag "members-icon.png", id: "altlogotop" if params[:controller] == "cadets"
+			= image_tag "forum-icon.png", id: "altlogotop" if params[:controller] == "forums" or params[:controller] == "forum_threads"
 			= image_tag "saver-icon.png", id: "altlogotop" if params[:controller] == "?"
 			#altsearchform
 				= derived_search_form
 		.span-12.last#altnavlinks
 			%ul.alt_front_end_nav
 				%li
-					- unless params[:controller] == "listings"
+					- unless params[:controller] == "listings" or params[:controller] == "devise/registrations"
 						= link_to listings_path do
 							= image_tag "/assets/listings-icon.png"
 					- unless params[:controller] == "strains"
@@ -25,15 +27,15 @@
 						= link_to volumes_path do
 							= image_tag "/assets/news-icon.png"
 					- unless params[:controller] == "critiques"
-						= link_to critiques_path do
+						= link_to critiques_home_path do
 							= image_tag "/assets/critiques-icon.png"
-					- unless params[:controller] == "?"
-						= link_to "#" do
+					- unless params[:controller] == "cadets"
+						= link_to cadets_home_path do
 							= image_tag "/assets/members-icon.png"
-					- unless params[:controller] == "forums"
+					- unless params[:controller] == "forums" or params[:controller] == "forum_threads"
 						= link_to forums_path do
 							= image_tag "/assets/forum-icon.png"
-					- unless params[:controller] == "?"
-						= link_to "#" do
-							= image_tag "/assets/saver-icon.png"
+					-# - unless params[:controller] == "?"
+					-# 	= link_to "#" do
+					-# 		= image_tag "/assets/saver-icon.png"
 #grad_bar

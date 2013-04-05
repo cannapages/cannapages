@@ -1,2 +1,1 @@
-%h1 Forum_threads#new
-%p Find me in app/views/forum_threads/new.html.haml
+= render partial: "form", locals: {url: "/forums/#{params[:forum_id]}/forum_threads" }

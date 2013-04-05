@@ -18,6 +18,7 @@
 //= require leaflet.js
 //= require my_leaflet.js
 //= require roachy
+//= require home_page_slider
 //= require tinymce-jquery
 //= jquery-turbolinks
 //= turbolinks

@@ -1,0 +1,7 @@
+= simple_form_for @pipe_grave do |f|
+	= f.input :name
+	= f.input :born, as: :date
+	= f.input :died, as: :date
+	= f.input :eulogy, as: :text
+	= f.input :pipe_grave_image, label: "Upload an image of the deseased"
+	= f.button :submit

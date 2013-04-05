@@ -9,6 +9,7 @@ class Strain
 	field :bio, type: String
 	field :genetics, type: String
 	field :slug, type: String
+	field :familly, type: String
 
 	#Scientific
   field :thc, type: Float
@@ -27,7 +28,21 @@ class Strain
 	# validates :cbd, :inclusion => {:in => 0.0..100.0}
 	# validates :cbn, :inclusion => {:in => 0.0..100.0}
 
-	before_save :update_slug
+	before_save :update_slug, :map_familly
+
+	def map_familly
+		mappings = {
+			"mostly indica" => :indica,
+			"sativa" => :sativa,
+			"ruderalis/indica/sativa" => :hybrid,
+			"indica" => :indica,
+			"indica/sativa" => :hybrid,
+			"mostly sativa" => :sativa,
+			"ruderalis/sativa" => :hybrid,
+			"ruderalis/indica" => :hybrid
+		}
+		self.familly = mappings[dominance]
+	end
 
 	def update_slug
 		self.slug = name.gsub(" ","-").downcase.gsub("#", '')
@@ -50,5 +65,11 @@ class Strain
 		(chars > 70) ? (bio[0..67] + "...") : bio
 	end
 
-	scope :one_randome, Proc.new { limit(-1).skip( Random.rand(Strain.count) ) }
+	scope :one_randome, Proc.new { limit(-1).skip( Random.rand(Strain.count) ) }\
+
+	def best_image
+		return strain_tests.first.image	unless strain_test_ids.empty?
+		"http://localhost:3000/assets/generic_flower_320.jpg"
+	end
+
 end

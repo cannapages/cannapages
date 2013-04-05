@@ -9,33 +9,20 @@
 			%p Read articles from contributing authors and staff writers on what’s going on in the world of Cannabis
 	.span-24#dispatches_subhead
 		.span-8.first
-			%p vol.1 issue.1 
+			%p Articles Search
 		.span-8
 			%center
-				%h3 today's date
+				%h3= Date.today.strftime("%B %d, %Y")
 		.span-8.last
-			%p.floatright Denver, CO
+			%p.floatright= @user_location.max_info_string
 	.span-24#dispatches_articles
-		.span-7.first#column_1
-			- @articles.first(5).each do |article|
-				.article
-					%h2.article_title= ("#{article.title}").html_safe
-					%h3= ("#{article.author}").html_safe
-					%p= ("#{article.content}").html_safe
-		.span-10#column_2
-			#featured_article
+		- @articles.each do |article|
+			#featured_article.article_index_entry
 				%center
-					%h1 I'm so very high right now
-					= image_tag ('http://placehold.it/350x350')
-					%p= @articles.first.content.html_safe
-			- @articles.last(5).each do |article|
-				.article
-					%h2.article_title= ("#{article.title}").html_safe
-					%h3= ("#{article.author}").html_safe
-					%p= ("#{article.content}").html_safe
-		.span-7#column_3.last
-			- @articles.first(5).each do |article|
-				.article
-					%h2.article_title= ("#{article.title}").html_safe
-					%h3= ("#{article.author}").html_safe
-					%p= ("#{article.content}").html_safe
+					%h1= link_to article.title, article
+					= image_tag article.article_image(:large) 
+					%p= article.exerpt(100).html_safe
+		- if @articles.empty?
+			%p= ("Sorry no articles found matching your critieria check out our latest #{link_to 'press release', volumes_path} for news ideas. Have a wonderfull day!").html_safe
+	.span-24
+		= paginate @articles

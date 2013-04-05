@@ -22,13 +22,13 @@
 			= yield
 			= yield :scripts
 			= stylesheet_link_tag "map"
-
+		= render "shared/footer"
 		-# XHTML Section
 		%user_location{"data-lat" => @user_location.lat, "data-lng" => @user_location.lng}
 		- if @listings
 			- @listings.each do |listing|
-				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name, "data-featured" => "false"}
+				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name, "data-featured" => "false", "data-phone" => listing.formated_phone, "data-address" => listing.full_address, "data-slug" => listing.slug}
 		- if @featured_listings
 			- @featured_listings.each do |listing|
-				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name, "data-featured" => "true"}
+				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name, "data-featured" => "true", "data-phone" => listing.formated_phone, "data-address" => listing.full_address, "data-slug" => listing.slug}
 			

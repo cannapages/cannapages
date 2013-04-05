@@ -2,7 +2,8 @@ source 'http://rubygems.org'
 gem 'rails'
 gem 'mongoid'
 gem 'mongo'
-gem 'mongoid-pagination', git: 'https://github.com/cannapages/mongoid-pagination.git'
+# gem 'mongoid-pagination', git: 'https://github.com/cannapages/mongoid-pagination.git'
+gem 'kaminari'
 gem 'bson_ext'
 gem 'placefinder', require: 'placefinder'
 gem 'devise'
@@ -21,6 +22,8 @@ gem 'feedzirra'
 gem "html_truncator"
 gem 'rinruby'
 gem 'tinymce-rails'
+gem 'gravatar-ultimate'
+gem 'geocoder'
 group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'
@@ -28,6 +31,12 @@ group :development, :test do
   gem 'faker'
   gem 'haml-rails'
 	gem 'debugger'
+end
+
+group :development do
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'meta_request'
 end
 
 group :assets do

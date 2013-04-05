@@ -1,3 +1,9 @@
-= simple_form_for @forum_post do |f|
-	= f.input :content
+= simple_form_for @forum_post, url: url do |f|
+	.edditor
+		= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 100
 	= f.button :submit
+
+= tinymce
+
+:css
+	.modal {width: 470px;}

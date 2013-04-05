@@ -1,0 +1,38 @@
+#footer
+	.footer-cat-background
+	#social
+		= link_to( image_tag( "fb-icon-footer.png" ), "https://www.facebook.com/cannapages" )
+		= link_to( image_tag( "twit-icon-footer.png" ), "https://twitter.com/Cannapages" )
+	#header_bar
+	%table
+		%tr.header
+			%td ABOUT
+			%td SITE DIRECTORY
+			%td CANNAPAGES FAMILY
+			%td IMPORTANT LINKS
+			%td SOCIAL MEDIA
+		%tr
+			%td= link_to "About Cannapages", "#"
+			%td= link_to "Listings Search Engine", listings_path
+			%td= link_to "ADILAS/CanaMerchant", "https://www.adilas.biz/"
+			%td= link_to "Business Resources", "#"
+			%td
+		%tr
+			%td= link_to "Contact Us", "#"
+			%td= link_to "News", volumes_path
+			%td= link_to "Cronic Magazine", "http://cronicmag.com/"
+			%td
+			%td
+		%tr
+			%td= link_to "Advertise with Us", "#"
+			%td= link_to "Exclusive Editorials", critiques_path
+			%td= link_to "Data Recovery", "http://www.thecomputerguru.biz/"
+			%td
+			%td
+		%tr
+			%td= link_to "Get A FREE Listing", "#"
+			%td
+			%td= link_to "Sigil Development", "http://sigildev.com"
+			%td
+			%td
+	%p#coppyright Cannapages.com, Copyright 2012. Member of the National Cannabis Press, and Feest Group Affiliate.

@@ -15,4 +15,8 @@ class PhotoUploadsController < ApplicationController
 			render "new"
 		end
 	end
+	def destroy
+		PhotoUpload.find( params[:id] ).destroy
+		redirect_to new_photo_upload_path
+	end
 end

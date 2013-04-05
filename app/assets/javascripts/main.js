@@ -6,6 +6,9 @@ $(document).ready(function() {
 			$('.large_holder').find('img').attr('src',new_image)
 		})
 	}
+	$("#location_change").click( function() {
+		$("#search_user_location").focus()
+	})
 })
 $(window).bind( "load", function() {
 	if($("#listing_show_map").size() > 0) {
@@ -75,5 +78,206 @@ $(document).ready( function() {
 		selection = $(this).find(":selected")
 		slug = selection.attr('slug')
 		update_article_add_url( 3, slug )
+	})
+})
+
+$(document).ready( function() {
+	var num_of_slides = $(".critiques_slider_top .slide").size()
+	var main_slider_current_index = 0
+	function slide_for_index(index) {
+		left_hand = ".critiques_slider_top .slide[index='"
+		middle = index
+		right_hand = "']"
+		search_string = left_hand + middle + right_hand
+		return $(search_string)
+	}
+	function remove_current() {
+		$(slide_for_index( main_slider_current_index )).hide("slow")
+	}
+	function add_currrent() {
+		$(slide_for_index( main_slider_current_index )).show("slow")
+	}
+	$(".critiques_slider_top .arrow_right").click( function() {
+		remove_current()
+		if( main_slider_current_index == num_of_slides - 1 ) {
+			main_slider_current_index = 0
+		} else {
+			main_slider_current_index += 1
+		}
+		add_currrent()
+	})
+	$(".critiques_slider_top .arrow_left").click( function() {
+		remove_current()
+		if( main_slider_current_index == 0 ) {
+			main_slider_current_index = num_of_slides - 1
+		} else {
+			main_slider_current_index -= 1
+		}
+		add_currrent()
+	})
+})
+
+$(document).ready( function() {
+	var num_of_slides = $(".critiques_slider2 .slide").size()
+	var current_index = 0
+	$(".critiques_slider .arrow_left").click( function() {
+		$(".critiques_slider .slide").each( function( element ) {
+			if( $(this).attr('current') == "true" ) {
+				if( current_index - 1 < 0 ) {
+					current_index = num_of_slides - 1
+				} else {
+					current_index -= 1
+				}
+				$(this).attr('current',"false")
+				$(this).hide("slow")
+			}
+		})
+		$(".critiques_slider .slide").each( function( element ) {
+			if($(this).attr('index') == current_index) {
+				$(this).attr('current',"true")
+				$(this).show("slow")
+			}
+		})
+	})
+	$(".critiques_slider .arrow_right").click( function() {
+		$(".critiques_slider .slide").each( function( element ) {
+			if( $(this).attr('current') == "true" ) {
+				if( current_index + 1 > num_of_slides - 1 ) {
+					current_index = 0
+				} else {
+					current_index += 1
+				}
+				$(this).attr('current',"false")
+				$(this).hide("slow")
+			}
+		})
+		$(".critiques_slider .slide").each( function( element ) {
+			if($(this).attr('index') == current_index) {
+				$(this).attr('current',"true")
+				$(this).show("slow")
+			}
+		})
+	})
+})
+
+$(document).ready( function() {
+	var num_of_slides = $(".slider_right_container .slider1 .green_thingy").size()
+	var current_index = 0
+	$(".slider_right_container .slider1 .arrow_left").click( function() {
+		$(".slider_right_container .slider1 .green_thingy").each( function( element ) {
+			if( $(this).attr('current') == "true" ) {
+				if( current_index - 1 < 0 ) {
+					current_index = num_of_slides - 1
+				} else {
+					current_index -= 1
+				}
+				$(this).attr('current',"false")
+				$(this).hide("slow")
+			}
+		})
+		$(".slider_right_container .slider1 .green_thingy").each( function( element ) {
+			if($(this).attr('index') == current_index) {
+				$(this).attr('current',"true")
+				$(this).show("slow")
+			}
+		})
+	})
+	$(".slider_right_container .slider1 .arrow_right").click( function() {
+		$(".slider_right_container .slider1 .green_thingy").each( function( element ) {
+			if( $(this).attr('current') == "true" ) {
+				if( current_index + 1 > num_of_slides - 1 ) {
+					current_index = 0
+				} else {
+					current_index += 1
+				}
+				$(this).attr('current',"false")
+				$(this).hide("slow")
+			}
+		})
+		$(".slider_right_container .slider1 .green_thingy").each( function( element ) {
+			if($(this).attr('index') == current_index) {
+				$(this).attr('current',"true")
+				$(this).show("slow")
+			}
+		})
+	})
+})
+
+$(document).ready( function() {
+	var num_of_slides = $(".slider_right_container .slider2 .green_thingy").size()
+	var current_index = 0
+	$(".slider_right_container .slider2 .arrow_left").click( function() {
+		$(".slider_right_container .slider2 .green_thingy").each( function( element ) {
+			if( $(this).attr('current') == "true" ) {
+				if( current_index - 1 < 0 ) {
+					current_index = num_of_slides - 1
+				} else {
+					current_index -= 1
+				}
+				$(this).attr('current',"false")
+				$(this).hide("slow")
+			}
+		})
+		$(".slider_right_container .slider2 .green_thingy").each( function( element ) {
+			if($(this).attr('index') == current_index) {
+				$(this).attr('current',"true")
+				$(this).show("slow")
+			}
+		})
+	})
+	$(".slider_right_container .slider2 .arrow_right").click( function() {
+		$(".slider_right_container .slider2 .green_thingy").each( function( element ) {
+			if( $(this).attr('current') == "true" ) {
+				if( current_index + 1 > num_of_slides - 1 ) {
+					current_index = 0
+				} else {
+					current_index += 1
+				}
+				$(this).attr('current',"false")
+				$(this).hide("slow")
+			}
+		})
+		$(".slider_right_container .slider2 .green_thingy").each( function( element ) {
+			if($(this).attr('index') == current_index) {
+				$(this).attr('current',"true")
+				$(this).show("slow")
+			}
+		})
+	})
+})
+
+$(document).ready( function() {
+	var num_of_slides = $(".cadets_grave .grave").size()
+	var main_slider_current_index = 0
+	function slide_for_index(index) {
+		left_hand = ".cadets_grave .grave[index='"
+		middle = index
+		right_hand = "']"
+		search_string = left_hand + middle + right_hand
+		return $(search_string)
+	}
+	function remove_current() {
+		$(slide_for_index( main_slider_current_index )).hide("slow")
+	}
+	function add_currrent() {
+		$(slide_for_index( main_slider_current_index )).show("slow")
+	}
+	$(".cadets_grave .arrow_right").click( function() {
+		remove_current()
+		if( main_slider_current_index == num_of_slides - 1 ) {
+			main_slider_current_index = 0
+		} else {
+			main_slider_current_index += 1
+		}
+		add_currrent()
+	})
+	$(".cadets_grave .arrow_left").click( function() {
+		remove_current()
+		if( main_slider_current_index == 0 ) {
+			main_slider_current_index = num_of_slides - 1
+		} else {
+			main_slider_current_index -= 1
+		}
+		add_currrent()
 	})
 })

@@ -15,8 +15,16 @@ class ApplicationController < ActionController::Base
 		require_user( "Business" )
 	end
 
-	def require_user( privilage )
-		current_user and current_user.roles.include? privilage
+	def require_user( privilage = "Basic" )
+		unless current_user and current_user.roles.include? privilage
+			redirect_to new_user_registration_path, notice: "You must be logged in to do that. If you don't have an account you can either create one with nothing but an email and password or log in with face book or twitter. We highly value your privacy and will only use your information to create a better experience."
+		end
+	end
+
+	def require_user_modal( privilage = "Basic" )
+		unless current_user and current_user.roles.include? privilage
+			redirect_to new_user_session_path, notice: "You must be logged in to do that. If you don't have an account you can either create one with nothing but an email and password or log in with face book or twitter. We highly value your privacy and will only use your information to create a better experience."
+		end
 	end
 
 	def update_user_location
@@ -25,7 +33,7 @@ class ApplicationController < ActionController::Base
 				@user_location = UserLocation.new_from_location( params["search"]["user_location"] )
 			end
 		else
-			if params["search"] and params["search"]["user_locatio"]
+			if params["search"] and params["search"]["user_location"]
 				@user_location = UserLocation.new_from_location( params["search"]["user_location"] )
 			else
 				@user_location = UserLocation.new_from_ip( request.remote_ip )
@@ -41,6 +49,10 @@ class ApplicationController < ActionController::Base
 		unless @current_user.class == User or @current_user.class == NilClass
 			@current_user = @current_user.first
 		end
+	end
+	
+	def side_banner_front_ads
+		@ads = Ad.any_of( ad_type: 'Banner Large').any_of( ad_type: 'Banner Small' ).to_a
 	end
 
 end

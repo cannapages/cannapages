@@ -14,6 +14,7 @@ class User
 	field :provider, type: String
 	field :uid, type: String
 	field :roles, type: Array
+	field :not_first_login, type: Boolean
  
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -35,6 +36,8 @@ class User
 	has_many :reviews
 	has_many :listings
 	has_many :ads
+	has_many :comments
+	has_many :pipe_graves
 
 	#Validations
   validates_presence_of :encrypted_password
@@ -57,7 +60,8 @@ class User
 													 provider:auth.provider,
 													 uid:auth.uid,
 													 email:auth.info.email,
-													 password:Devise.friendly_token[0,20]
+													 password:Devise.friendly_token[0,20],
+													 user_name: auth.info.nickname
 													 )
 		end
 		user

@@ -1,0 +1,13 @@
+= simple_form_for @current_user do |f|
+	= f.input :user_name
+	= f.submit "Change User Name"
+%hr
+= link_to "Change Profile Image", "https://signup.wordpress.com/signup/?oauth2_redirect=9ea7ea26cb7c9d9f5203ec56b37bc8e6%40https%3A%2F%2Fpublic-api.wordpress.com%2Foauth2%2Fauthorize%2F%3Fclient_id%3D1854%26response_type%3Dcode%26blog_id%3D0%26state%3D122853fbdadf2d377e50bbba1f993814265bdc104869e872197dd9ee0526f236%26redirect_uri%3Dhttps%253A%252F%252Fen.gravatar.com%252Fconnect%252F%253Faction%253Drequest_access_token%26jetpack-code%26jetpack-user-id%3D0%26action%3Doauth2-login&wpcom_connect=1&user_email=#{@current_user.email}"
+%p We use gravitar for our user avatars if you would like to change your avatar simply click the above link sign up and follow their instructions. You will notice your new avatar in many forums and services across the internet.
+%hr
+
+- unless @current_user.provider
+	= simple_form_for @current_user do |f|
+		= f.input :password
+		= f.input :password_confirmation
+		= f.submit "Change Password"

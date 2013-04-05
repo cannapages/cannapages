@@ -3,7 +3,7 @@ class ForumPost
   include Mongoid::Timestamps
   field :content, type: String
   
-  embedded_in :thread
+  belongs_to :forum_thread
   belongs_to :user
   before_save :remove_unwanted_html_tags
   

@@ -1,2 +1,32 @@
-%h1 Forums#show
-%p Find me in app/views/forums/show.html.haml
+#top
+.span-12.first#header
+	= image_tag "harvest_header.png", id: "harvestheader"
+.span-10.prepend-2.last
+	-# = image_tag "http://placehold.it/300x150", id: "harvestadd"
+.span-24.forum_container
+	%h2= ("#{link_to('Harvest Feed', forums_path)} > #{@forum.name}").html_safe
+	= link_to_modal new_forum_forum_thread_path(@forum) do
+		%h2.new_thread + New Thread
+	%table
+		%tr
+			%th 
+			%th Threads
+			%th Started By
+			%th Posts
+			%th Views
+		- @threads.each do |thread|
+			%tr
+				%td= image_tag "leaf-logo-sm.png"
+				- if thread.user == @current_user
+					%td= ("#{link_to( thread.title, forum_forum_thread_path( @forum, thread ) )} - #{link_to_modal('edit',edit_forum_forum_thread_path(@forum,thread))}").html_safe
+				- else
+					%td= link_to( thread.title, forum_forum_thread_path( @forum, thread ) )
+				%td= thread.user.user_name
+				%td= thread.forum_posts.count
+				%td= thread.views
+		- if @threads.empty?
+			%tr
+				%td
+				%td This forum has no threads as of yet. Be the first!
+				%td
+				%td

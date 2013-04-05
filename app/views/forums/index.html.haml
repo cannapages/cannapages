@@ -2,20 +2,20 @@
 .span-12.first#header
 	= image_tag "harvest_header.png", id: "harvestheader"
 .span-10.prepend-2.last
-	= image_tag "http://placehold.it/300x150"
+	-# = image_tag "http://placehold.it/300x150", id: "harvestadd"
 .span-24.forum_container
 	%table
 		%tr
 			%th &nbsp;
 			%th Forum
-			%th Last Post
+			%th Description
 			%th Threads
 			%th Posts
 		- @forums.each do |forum|
 			%tr
-				%td.fcol1
+				%td
 					= image_tag "leaf-logo-sm.png"
-				%td.fcol2= ("<h2>#{forum.name}</h2> #{forum.about}").html_safe
-				%td.fcol3 Latest Post
-				%td.fcol4 2532
-				%td.fcol5 17562
+				%td= ("<h2>#{ link_to forum.name, forum}</h2>").html_safe
+				%td= forum.about
+				%td= forum.num_of_threads
+				%td= forum.num_of_posts

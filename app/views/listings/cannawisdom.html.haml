@@ -1,9 +1,6 @@
 .half-box.green
 	%h2= "About #{@listing.name}:"
-	- if @listing.about
-		%p= @listing.about
-	- else
-		%p= "#{@listing.name} is a #{@listing.category.downcase} located in #{@listing.city}, #{@listing.state}"
+	%p= @listing.cannawisdom
 .half-box.green
 	%h2= "First Time Patients:"
 	- if @listing.first_timers
@@ -23,5 +20,12 @@
 		%h2= "Weekly Special"
 		%p= @listing.weekly_special
 
-.full-box
-	%p Comments go hear
+- @listing.comments.each do |comment|
+	.full-box.comment
+		= image_tag Gravatar.new(comment.user.email).image_url, class: :avatar
+		= render partial: "shared/rating", locals: {stars: comment.review.rating}
+		%span.user= comment.user.user_name
+		%p= comment.body
+		- if @current_user == comment.user
+			.edit= link_to_modal "edit", listing_review_edit_path( @listing, comment ) 
+			.remove= link_to( "remove", listing_review_destroy_path( @listing, comment ), confirm: "Are you sure?" )

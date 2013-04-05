@@ -1,0 +1,21 @@
+!!! XML
+!!!
+%html
+	%head
+		%title CannaPages
+		= javascript_include_tag :application
+		= csrf_meta_tag
+		= stylesheet_link_tag :application
+		-# /[if lt IE 8]
+		-# = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+
+		%body
+		#grad_bar
+			.container
+				- if notice
+					%p.notice= notice
+				- if alert
+					%p.error= alert
+				= render 'shared/users_backend_nav'
+				.span-24.back_content.cadets
+					= yield

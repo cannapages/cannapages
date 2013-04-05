@@ -4,13 +4,13 @@ class Listing
 	include Mongoid::Timestamps
 	include Mongoid::Paperclip
 	include Mongoid::MultiParameterAttributes
-	include Mongoid::Pagination
 	has_mongoid_attached_file :logo, :styles => { thumb: "75x75#", medium: "150x150#", large: "250x250#" }
 
 	#Fields
 	#Info
   field :name, type: String
 	field :slug, type: String
+	field :has_slug, type: Boolean
 	field :about, type: String
   field :phone, type: String
   field :street_address, type: String
@@ -72,6 +72,10 @@ class Listing
 	belongs_to :user	
 	has_many :critiques
 	has_many :photo_uploads
+	has_many :comments
+	has_one :listing_review, autobuild: true, autosave: true
+	has_one :live_menu, autobuild: true
+	has_many :strain_tests
 
 	#Virtual Attributes
 	attr_accessor :distance
@@ -83,7 +87,7 @@ class Listing
 	)
 
 	#Scopes
-	scope :near, ->(location,distance) do
+	scope :max_near, ->(location,distance) do
 		where(:loc => {"$near" => location , '$maxDistance' => distance.fdiv(69.172)})
 	end
 	scope :near_with_max, ->(location, distance) do
@@ -100,22 +104,83 @@ class Listing
 	validates_inclusion_of :state, allow_nil: false, in: LEGAL_STATE_ARRAY
 	validates_inclusion_of :category, allow_nil: false, in: LISTING_CATEGORY_ARRAY
 
-	#Relations
-	has_one :listing_review, autobuild: true, autosave: true
-	has_one :live_menu, autobuild: true
-	has_many :strain_tests
-	embeds_many :comments
 
 	#Callbacks
-	before_save :format_phone, :update_lat_lng?, :ensure_http, :update_slug
+	before_save :format_phone, :update_lat_lng?, :ensure_http, :update_slug?, :nulify_empty_values
 	before_create :initialize_dependencies, :initialize_anylitics
+
+	def has_media?
+		not photo_uploads.empty?
+	end
+
+	def has_menu?
+		live_menu.products.count > 0
+	end
+
+	def specials
+		{
+			weekly: weekly_special,
+			monday: monday_special,
+			tuesday: tuesday_special,
+			wednesday: wednesday_special,
+			thursday: thursday_special,
+			friday: friday_special,
+			saturday: saturday_special,
+			sunday: sunday_special
+		}
+	end
+
+	def best_special
+		day_name = Date.today.strftime("%A")
+		message = "#{day_name.downcase}_special"
+		daily = send(message)
+		if daily
+			return daily
+		elsif weekly_special
+			return weekly_special
+		else
+			return first_found_special
+		end
+	end
+
+	def first_found_special
+		specials_array = specials.select{|k,v| not v.nil? }
+		specials_array.first.last unless specials_array.empty?
+	end
+	
+	def has_specials?
+		specials.each do |key,value|
+			return true if value and not value.empty?
+		end
+		false
+	end
 
 	def to_param
 		slug
 	end
 
+	def nulify_empty_values
+			self.weekly_special = nil if self.weekly_special.empty?
+			self.monday_special = nil if self.monday_special.empty?
+			self.tuesday_special = nil if self.tuesday_special.empty?
+			self.wednesday_special = nil if self.wednesday_special.empty?
+			self.thursday_special = nil if self.thursday_special.empty?
+			self.friday_special = nil if self.friday_special.empty?
+			self.saturday_special = nil if self.saturday_special.empty?
+			self.sunday_special = nil if self.sunday_special.empty?
+	end
+
+	def update_slug?
+		update_slug unless has_slug
+	end
+
 	def update_slug
-		self.slug = name.downcase.gsub(" ","-") + "-" + Time.now.to_i.to_s
+		self.slug = name.downcase.gsub(" ","-")
+		same_slugs = Listing.where( slug: slug ).count
+		if same_slugs > 0
+			self.slug += "-#{(same_slugs + 1).to_s}"
+		end
+		self.has_slug = true
 	end
 
 	def update_distance( from )
@@ -144,9 +209,9 @@ class Listing
 	end
 
 	def update_lat_lng
-		location_object = YahooHelper.get_location_data( self.full_address )
-		lng = location_object["longitude"]
-		lat = location_object["latitude"]
+		location = UserLocation.new_from_location( self.full_address )
+		lng = location.lng
+		lat = location.lat
 		self.loc = [lng.to_f,lat.to_f]
 		self.lng = lng
 		self.lat = lat
@@ -168,7 +233,11 @@ class Listing
 	end
 
 	def formated_phone
-		"#{phone[0..2]}-#{phone[3..5]}-#{phone[5..9]}"
+		"#{phone[0..2]}-#{phone[3..5]}-#{phone[6..9]}"
+	end
+
+	def cannawisdom
+		about or "#{name} is a #{category.downcase} located in #{city}, #{state}"
 	end
 
 end

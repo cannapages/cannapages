@@ -1,2 +1,22 @@
-%h1 Articles#show
-%p Find me in app/views/articles/show.html.haml
+#top
+#dispatches
+	.span-24#dispatches_head
+		.span-4.first#dispatch_logo
+			=image_tag "dispatches_logo.png"
+		.span-16#dispatch_title
+			%h1 Dispatches from the Highlands
+		.span-4.last#dispatch_desc
+			%p Read articles from contributing authors and staff writers on what’s going on in the world of Cannabis
+	.span-24#dispatches_subhead
+		.span-8.first
+			%p Articles Show
+		.span-8
+			%center
+				%h3= Date.today.strftime("%B %d, %Y")
+		.span-8.last
+			%p.floatright= @user_location.max_info_string
+	.span-24#dispatches_articles
+		#featured_article.article_show
+			%center
+				%h1= @article.title
+				%p= @article.content.html_safe

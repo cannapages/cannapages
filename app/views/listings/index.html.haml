@@ -1,20 +1,32 @@
 #top
 .span-18.first
-	.listing-index.featured
-		= link_to @featured_listing do
-			= image_tag @featured_listing.logo(:large), class: "logo"
-		.listing_info_left
-			= image_tag "listingbug.png", class: "bug"
-			.left
-				%h5= link_to @featured_listing.name, @featured_listing
-				%p= "Category: #{@featured_listing.category}"
-				%p= "#{@featured_listing.distance.round(2)} miles from #{@user_location.max_info_string}" if @featured_listing.distance
-				%p= @featured_listing.full_address
-				.daily
-					= image_tag "tack.png"
-					%h4= ("#{Date.today.strftime("%A")} Special!").capitalize
-					%p= best_special_for_listing( @featured_listing )
+	.mapit Map It!
+	#map2
+	- if @featured_listing
+		.listing-index.featured
+			= link_to @featured_listing do
+				= image_tag @featured_listing.logo(:large), class: "logo"
+			.listing_info_left
+				= image_tag "listingbug.png", class: "bug"
+				.left
+					%h5= link_to @featured_listing.name, @featured_listing
+					%p= "Category: #{@featured_listing.category}"
+					%p= "#{@featured_listing.distance.round(2)} miles from #{@user_location.max_info_string}" if @featured_listing.distance
+					%p= @featured_listing.full_address
+					.daily
+						= image_tag "tack.png"
+						%h4= ("#{Date.today.strftime("%A")} Special!").capitalize
+						%p= best_special_for_listing( @featured_listing )
+					.featured_listing_icons
+						- unless @featured_listing.critiques.empty?
+							= link_to critiques_path( listing: @featured_listing.slug ) do
+								= image_tag "critique-icon-small.png"
+						- if @featured_listing.has_menu?
+							= link_to listing_path(@featured_listing, intent: "menu") do
+								= image_tag "critique-icon-small.png", class: "listing-icon"
 	- @listings.each_with_index do |listing, index|
+		- if listing.id == @featured_listing.id
+			- listing.reload
 		.listing-index{class: (index % 2 == 0) ? "light_blue" : ""}
 			= link_to listing do
 				= image_tag listing.logo(:medium), class: "logo"
@@ -27,7 +39,16 @@
 			.listing_info_right
 				= render partial: "shared/rating", locals: {stars: listing.listing_review.average_rating}
 				%p= listing.full_address
-.span-6.last
+			.listing_icons
+				- unless listing.critiques.empty?
+					= link_to critiques_path( listing: listing.slug ) do
+						= image_tag "critique-icon-small.png"
+				- if listing.has_menu?
+					= link_to listing_path(listing, intent: "menu") do
+						= image_tag "critique-icon-small.png", class: "listing-icon"
+.span-6.last.adds
 	- @ads.each do |ad|
 		= link_to ad.href do
 			= image_tag ad.ad_image
+.span-24
+	= paginate @listings

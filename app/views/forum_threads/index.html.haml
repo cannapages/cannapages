@@ -2,22 +2,29 @@
 .span-12.first#header
 	= image_tag "harvest_header.png", id: "harvestheader"
 .span-10.prepend-2.last
-	= image_tag "http://placehold.it/300x150"
+	-# = image_tag "http://placehold.it/300x150", id: "harvestadd"
 .span-24.forum_container
+	%h2= ("#{link_to('Harvest Feed', forums_path)} > #{@forum.name}").html_safe
 	%table
 		%tr
-			%th &nbsp;
-			%th Thread
-			%th Last Post
-			%th Replies
+			%th 
+			%th Threads
+			%th Started By
+			%th Posts
 			%th Views
-		- 10.times do |x|
-			%tr.frow
-				%td.col1
-					= image_tag "leaf-logo-sm.png"
-				%td.col2 
-					%h2 I'm a Thread<br/>
-					%p created by: user
-				%td.col3 Latest Post
-				%td.col4 50
-				%td.col5 17562
+		- @threads.each do |thread|
+			%tr
+				%td= image_tag "leaf-logo-sm.png"
+				- if thread.user == @current_user
+					%td= ("#{link_to( thread.title, forum_forum_thread_path( thread.forum, thread ) )} - #{link_to_modal('edit',edit_forum_forum_thread_path(thread.forum,thread))}").html_safe
+				- else
+					%td= link_to( thread.title, forum_forum_thread_path( thread.forum, thread ) )
+				%td= thread.user.user_name
+				%td= thread.forum_posts.count
+				%td= thread.views
+		- if @threads.empty?
+			%tr
+				%td
+				%td We are very sory however we could not find any posts from your criteria. Try broadining your search terms.
+				%td
+				%td

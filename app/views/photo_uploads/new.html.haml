@@ -1,4 +1,6 @@
+%h3 Click to remove
 - @listing.photo_uploads.each do |photo|
-	= image_tag photo.photo_upload(:thumb)
+	= link_to photo, confirm: "Are you sure?", method: :delete do
+		= image_tag photo.photo_upload(:thumb)
 
 = render "form"

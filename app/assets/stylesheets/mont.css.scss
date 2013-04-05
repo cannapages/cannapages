@@ -251,6 +251,9 @@ h2{
 #top{
 	margin-top:-250px;
 }
+#strain_top_show{
+	margin-top:-207px;
+}
 
 #home_page_featured{
 	float:right;
@@ -265,7 +268,7 @@ h2{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	border: 1px solid gray;
+	border: 1px solid #DBDBDB;
 	border-radius: 10px;
 	padding:20px;
 }
@@ -317,7 +320,11 @@ h2{
 }
 
 #harvestheader{
-	margin-top:-30px;
+}
+
+#harvestadd {
+	position: relative;
+	top: 27px;
 }
 
 .forum_container{
@@ -471,6 +478,8 @@ h2{
 		font-family: 'cloister_blacklight';
 		color:black;
 		font-size:50px;
+		position: relative;
+		top: 12px;
 	}
 	p,h2,h3{
 		font-family: 'underwood_championregular';
@@ -538,7 +547,7 @@ h2{
 }
 
 .strain_container{
-	background-color:whitesmoke;
+	background-color: rgba(245,245,245,.7);
 	
 	#field_results{
 		padding-top:30px;
@@ -561,7 +570,7 @@ h2{
 			width:300px;
 		}
 		
-		.mapit{
+		.mapitalt{
 			position:relative;
 			top:-100px;
 			height:50px;
@@ -592,12 +601,9 @@ h2{
 
  .ribbon-wrapper {
 	position: relative;
-	border-bottom: 0px solid #ccc;
-	border-top: 20px solid whitesmoke;
-	-moz-border-bottom-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
-	-webkit-border-bottom-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
-	-moz-border-top-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
-	-webkit-border-top-colors: rgba(0, 0, 0, 0.02) rgba(0, 0, 0, 0.04) rgba(0, 0, 0, 0.06) rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.10) rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.14) rgba(0, 0, 0, 0.16) rgba(0, 0, 0, 0.18) rgba(0, 0, 0, 0.20);
+	border-bottom: 0px solid rgba(245,245,245,0); 
+
+	border-top: 20px solid rgba(245,245,245,0);;
 
 	h2{
 		font-family: 'freehand575_btregular';

@@ -1,2 +1,71 @@
+- menu_hash = setup_menu( @listing )
 .menu-section
-
+	= image_tag "hybrid-header-menu.jpg"
+	- menu_hash[:hybrids].each do |product|
+		- strain = product.strain
+		.menu-item
+			= image_tag product.best_image_tag, class: :product_image
+			%p.name= truncate(product.strain.name, length: 15)
+			- if strain.strain_tests.count > 0
+				- strain_test = strain.strain_tests.first
+				.test_results
+					%p.thc_head THC
+					%p.thc_value= strain_test.thc
+					%p.cbd_head CBD
+					%p.cbd_value= strain_test.cbd
+					%p.cbn_head CBN
+					%p.cbn_value= strain_test.cbn
+			.price_chart
+				%span.dollar $
+				%p.price.gram= product.price_1_16
+				%p.price.eight= product.price_1_8
+				%p.price.quarter= product.price_1_4
+				%p.price.half= product.price_1_2
+				%p.price.ounce= product.price_ounce
+	= image_tag "indica-header-menu.jpg"
+	- menu_hash[:indicas].each do |product|
+		- strain = product.strain
+		.menu-item
+			= image_tag product.best_image_tag, class: :product_image
+			%p.name= truncate(product.strain.name, length: 15)
+			- if strain.strain_tests.count > 0
+				- strain_test = strain.strain_tests.first
+				.test_results
+					%p.thc_head THC
+					%p.thc_value= strain_test.thc
+					%p.cbd_head CBD
+					%p.cbd_value= strain_test.cbd
+					%p.cbn_head CBN
+					%p.cbn_value= strain_test.cbn
+			.price_chart
+				%span.dollar $
+				%p.price.gram= product.price_1_16
+				%p.price.eight= product.price_1_8
+				%p.price.quarter= product.price_1_4
+				%p.price.half= product.price_1_2
+				%p.price.ounce= product.price_ounce
+	= image_tag "sativa-header-menu.jpg"
+	- menu_hash[:sativas].each do |product|
+		- strain = product.strain
+		.menu-item
+			= image_tag product.best_image_tag, class: :product_image
+			%p.name= truncate(product.strain.name, length: 15)
+			- if strain.strain_tests.count > 0
+				- strain_test = strain.strain_tests.first
+				.test_results
+					%p.thc_head THC
+					%p.thc_value= strain_test.thc
+					%p.cbd_head CBD
+					%p.cbd_value= strain_test.cbd
+					%p.cbn_head CBN
+					%p.cbn_value= strain_test.cbn
+				.potency.meter
+					%p.label Potency
+					.inner{style: "width: #{(strain_test.total_cannabinoids.to_f / 30.0)*100}%"}
+			.price_chart
+				%span.dollar $
+				%p.price.gram= product.price_1_16
+				%p.price.eight= product.price_1_8
+				%p.price.quarter= product.price_1_4
+				%p.price.half= product.price_1_2
+				%p.price.ounce= product.price_ounce

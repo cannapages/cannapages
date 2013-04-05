@@ -44,3 +44,9 @@ class Array
   	return true
 	end
 end
+
+class NilClass
+	def empty?
+		true
+	end
+end

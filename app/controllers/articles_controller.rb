@@ -7,7 +7,13 @@ class ArticlesController < ApplicationController
 	end
 
   def index
-		@articles = Article.all.order_by( created_at: :desc ).to_a
+		if params[:search] and params[:search][:query]
+			reg = %r[#{params[:search][:query]}]i
+			@articles = Article.any_of( title: reg ).any_of( content: reg).any_of( categories: reg ).any_of( author: reg ).order_by( created_at: :decs ).to_a 
+		else
+			@articles = Article.all.order_by( created_at: :desc ).to_a
+		end
+		@articles = Kaminari.paginate_array(@articles).page(params[:page]).per(25)
   end
   
   def create

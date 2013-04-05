@@ -13,6 +13,7 @@
 		.span-8
 			%center
 				%h3= Date.today.strftime("%B %d, %Y")
+				%h3= DateTime.now.strftime("%Y-%m-%d")
 		.span-8.last
 			%p.floatright= @user_location.max_info_string
 	.span-24#dispatches_articles

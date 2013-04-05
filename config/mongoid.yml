@@ -5,7 +5,7 @@ production: &defaults
       username: bob
       password: cannascore420
       hosts:
-        - cannapages.com
+        - localhost
       options:
   options:
     allow_dynamic_fields: false

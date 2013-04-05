@@ -44,4 +44,5 @@ group :assets do
   gem 'compass-rails'
   gem 'jquery-ui-rails'
   gem 'jquery-modal-rails'
+	gem 'uglifier' 
 end

@@ -1,17 +1,3 @@
-production: &defaults
-  sessions:
-    default: &default_session
-      database: C41_development
-      username: bob
-      password: cannascore420
-      hosts:
-        - localhost
-      options:
-  options:
-    allow_dynamic_fields: false
-    preload_models: true
-    raise_not_found_error: false
-
 development: &defaults
   sessions:
     default: &default_session
@@ -31,39 +17,39 @@ test:
       <<: *default_session
       database: C41_test
 
-# production:
-#   sessions:
-#     default:
-#       hosts:
-#         - localhost:27017
-#       database: C41_development
-# 			username: bob
-# 			password: cannascore420
-#     replica_set:
-#       hosts:
-#         - localhost:27017
-#       database: C41_development
-# 			username: bob
-# 			password: cannascore420
-#       options:
-#         consistency: :eventual
-#         safe: true
-#     shard:
-#       hosts:
-#         - localhost:27017
-#       database: C41_development
-# 			username: bob
-# 			password: cannascore420
-#     another:
-#       uri: mongodb://localhost:27017
-#   options:
-#     allow_dynamic_fields: false
-#     identity_map_enabled: true
-#     include_root_in_json: true
-#     include_type_for_serialization: true
-#     scope_overwrite_exception: true
-#     raise_not_found_error: false
-#     skip_version_check: false
-#     use_activesupport_time_zone: false
-#     use_utc: true
-# 
+production:
+  sessions:
+    default:
+      hosts:
+        - localhost:27017
+      database: C41_development
+			username: bob
+			password: cannascore420
+    replica_set:
+      hosts:
+        - localhost:27017
+      database: C41_development
+			username: bob
+			password: cannascore420
+      options:
+        consistency: :eventual
+        safe: true
+    shard:
+      hosts:
+        - localhost:27017
+      database: C41_development
+			username: bob
+			password: cannascore420
+    another:
+      uri: mongodb://localhost:27017
+  options:
+    allow_dynamic_fields: false
+    identity_map_enabled: true
+    include_root_in_json: true
+    include_type_for_serialization: true
+    scope_overwrite_exception: true
+    raise_not_found_error: false
+    skip_version_check: false
+    use_activesupport_time_zone: false
+    use_utc: true
+

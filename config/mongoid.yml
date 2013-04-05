@@ -36,18 +36,24 @@ production:
     default:
       hosts:
         - localhost:27017
-      database: C41_production
+      database: C41_development
+			username: bob
+			password: cannascore420
     replica_set:
       hosts:
         - localhost:27017
-      database: aviation_production
+      database: C41_development
+			username: bob
+			password: cannascore420
       options:
         consistency: :eventual
         safe: true
     shard:
       hosts:
         - localhost:27017
-      database: aviation_production
+      database: C41_development
+			username: bob
+			password: cannascore420
     another:
       uri: mongodb://localhost:27017
   options:

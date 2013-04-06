@@ -25,6 +25,8 @@ gem 'rinruby'
 gem 'tinymce-rails'
 gem 'gravatar-ultimate'
 gem 'geocoder'
+gem 'god'
+gem 'monit'
 group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'

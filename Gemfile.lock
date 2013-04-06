@@ -100,7 +100,6 @@ GEM
       sax-machine (>= 0.0.12)
     fssm (0.2.10)
     geocoder (1.1.6)
-    god (0.13.2)
     gravatar-ultimate (1.0.3)
     haml (4.0.0)
       tilt
@@ -159,13 +158,11 @@ GEM
       tzinfo (~> 0.3.22)
     mongoid-paperclip (0.0.8)
       paperclip (>= 2.3.6)
-    monit (0.2.2)
-      activesupport (~> 3.2.2)
-      nokogiri (~> 1.5.2)
     moped (1.4.4)
     multi_json (1.7.2)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
+    newrelic_rpm (3.6.0.78)
     nokogiri (1.5.6)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -280,7 +277,6 @@ DEPENDENCIES
   faker
   feedzirra
   geocoder
-  god
   gravatar-ultimate
   haml
   haml-rails
@@ -295,7 +291,7 @@ DEPENDENCIES
   mongo
   mongoid
   mongoid-paperclip
-  monit
+  newrelic_rpm
   omniauth
   omniauth-facebook
   omniauth-twitter

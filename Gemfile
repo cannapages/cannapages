@@ -25,6 +25,7 @@ gem 'rinruby'
 gem 'tinymce-rails'
 gem 'gravatar-ultimate'
 gem 'geocoder'
+gem 'newrelic_rpm'
 group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'

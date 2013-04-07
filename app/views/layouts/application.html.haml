@@ -31,4 +31,13 @@
 		- if @featured_listings
 			- @featured_listings.each do |listing|
 				%listing{"data-lat" => listing.lat, "data-lng" => listing.lng, "data-name" => listing.name, "data-featured" => "true", "data-phone" => listing.formated_phone, "data-address" => listing.full_address, "data-slug" => listing.slug}
-			
+		:javascript
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-35836576-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();

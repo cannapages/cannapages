@@ -42,4 +42,18 @@ module ApplicationHelper
 		end
 		render "searches/#{form_partial_name}"
 	end
+
+	# def seo_title
+	# 	title = ""
+	# 	case params["controller"]
+	# 		when "home"
+	# 			"cannapages: marijuana dispensaries | marijuana reviews | best marijuana"
+	# 		when "listings"
+	# 			case params["action"]
+	# 				when "index", "search"
+	# 					"cannapages: best marijuana in the world | cannabis dispensaries"
+	# 		else
+	# 			"cannapages: marijuana dispensaries | marijuana reviews | best marijuana"
+	# 	end
+	# end
 end

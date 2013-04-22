@@ -65,6 +65,10 @@ class Strain
 		(chars > 70) ? (bio[0..67] + "...") : bio
 	end
 
+	def strain_name
+		name
+	end
+
 	scope :one_randome, Proc.new { limit(-1).skip( Random.rand(Strain.count) ) }\
 
 	def best_image

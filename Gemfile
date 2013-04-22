@@ -26,6 +26,7 @@ gem 'tinymce-rails'
 gem 'gravatar-ultimate'
 gem 'geocoder'
 gem 'newrelic_rpm'
+gem 'meta-tags', :require => 'meta_tags'
 group :development, :test do
   gem 'factory_girl_rails'
 	gem 'faker'

@@ -1,8 +1,6 @@
 = simple_form_for @strain do |f|
-	= f.input :strain_name
-	= f.input :dominance, :collection => STRAIN_DOMINANCE_ARRAY
-	= f.input :thc
-	= f.input :cbd
-	= f.input :cbn
-	= f.input :total_cannabinoids
+	= f.input :name
+	= f.input :genetics, hint: "List all predisesors with capitols and coma seperated for now like White Widow, Jedi Weed, etc.."
+	= f.input :flowering_time
+	= f.input :bio, as: :text
 	= f.button :submit

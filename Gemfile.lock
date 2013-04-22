@@ -145,6 +145,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.4.1)
+      actionpack
     meta_request (0.2.3)
       rack-contrib
       railties
@@ -287,6 +289,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   launchy
+  meta-tags
   meta_request
   mongo
   mongoid

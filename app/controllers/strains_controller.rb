@@ -23,9 +23,17 @@ class StrainsController < ApplicationController
   end
   
   def create
+		@strain = Strain.new( params[:strain] )
+		if @strain.save
+			render "new", notice: "The system was not able to create a strain with those paramiters"
+		else
+			redirect_to strains_admin_index_path, notice: "The system was not able to create a strain with those paramiters"
+		end
   end
   
   def update
+		Strain.find_by(slug: params[:id]).update_attributes( params[:strain] )
+		redirect_to strains_admin_index_path, notice: "Updated Strain"
   end
 
   def show
@@ -35,11 +43,18 @@ class StrainsController < ApplicationController
   end
 
   def new
+		@strain = Strain.new
+		render layout: "admin_backend"
   end
 
   def edit
+		@strain = Strain.find_by( slug: params[:id] )
+		render layout: "admin_backend"
   end
   
   def destroy
+		@strain = Strain.find_by( slug: params[:id] ).destroy
+		redirect_to strains_admin_index_path, notice: "Strain has been elemenitated sire! Muhhahaha"
   end
+
 end

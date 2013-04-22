@@ -8,11 +8,11 @@ class CritiquesController < ApplicationController
 	end
 
 	def home
-		@critiques = Critique.all.order_by(updated_at: :desc).limit(8).to_a
+		@critiques = Critique.order_by(updated_at: :desc).limit(8).to_a
 		@latest = @critiques.first
 		@critiques -= [@latest]
-		@listings = Listing.all.to_a.select{|e| not e.critique_ids.empty?}
-		@strains = Strain.all.to_a.select{|e| not e.critique_ids.empty?}
+		@listings = @critiques.inject([]){|r,v| r + [v.listing]}.select{|e| not e.nil?}.uniq
+		@strains = @critiques.inject([]){|r,v| r + [v.strain]}.select{|e| not e.nil?}.uniq
 	end
 
   def index
@@ -71,7 +71,7 @@ class CritiquesController < ApplicationController
 
   def edit
 		get_collection_data
-		@critique = Critique.find(params[:id])
+		@critique = Critique.find_by( slug: params[:id])
 		render layout: "admin_backend"
   end
   
@@ -83,8 +83,8 @@ class CritiquesController < ApplicationController
 	private
 
 	def get_collection_data
-		@listings = Listing.order_by( name: :asc ).all
-		@strain_tests =  StrainTest.order_by( slug: :asc ).all
-		@strains = Strain.order_by( name: :asc ).all
+		@listings = Listing.order_by( name: :asc ).all.to_a
+		@strain_tests =  StrainTest.order_by( slug: :asc ).all.to_a
+		@strains = Strain.order_by( name: :asc ).all.to_a
 	end
 end

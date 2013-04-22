@@ -12,7 +12,8 @@
 			= image_tag Gravatar.new( post.user.email ).image_url, class: :avatar
 			.inner_container
 				%p.user= post.user.user_name
-				%p= raw post.content
+				.content
+					%p= raw post.content
 				- if post.user == @current_user
 					%p.edit= link_to_modal "edit", edit_forum_forum_thread_forum_post_path( @forum, @thread, post )
 					%p.remove= link_to_modal("remove", forum_forum_thread_forum_post_path( @forum, @thread, post), method: :delete, confirm: "Are you sure?" ) unless index == 0

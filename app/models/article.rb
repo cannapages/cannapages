@@ -25,13 +25,13 @@ class Article
 
 	def add_image_if_possible
 		doc = Nokogiri::HTML(content)
-		image_url = doc.css('img').first.attributes["src"].value
+		image_url = doc.css('img').first.attributes["src"].value if doc.css('img').first
 		self.article_image = open(image_url) if image_url
 	end
 
 	def find_and_remove_footer
 		doc = Nokogiri::HTML(content)
-		while (doc.css('a') and doc.css('a').last.attributes["href"].value =~ /feedburner/)
+		while (doc.css('a').last and doc.css('a').last.attributes["href"].value =~ /feedburner/)
 			doc.css('a').last.remove
 			puts "1 tier executed"
 		end

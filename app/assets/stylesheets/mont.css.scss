@@ -134,7 +134,9 @@ h2{
 }
 
 #logotop{
-	position: relative;
+	position: absolute;
+	left: 0px;
+	top: 0px;
 	z-index:99;
 }
 
@@ -152,14 +154,18 @@ h2{
 
 #search_form2{
 	position:absolute;
-	top:15px;
-	left:310px;
+	top:52px;
+	left: 132px;
 	width:600px;
 	height:50px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 60px;
 	border-radius:10px;
+	border: 1px solid rgb(0,68,0);
+	-moz-box-shadow: 3px 3px 8px rgba(0,68,0,0.7);
+	-webkit-box-shadow: 3px 3px 8px rgba(0,68,0,0.7);
+	box-shadow: 3px 3px 8px rgba(0,68,0,0.7);
 	background-color: rgba(0,134,16,.8);
 }
 

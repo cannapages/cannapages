@@ -43,7 +43,7 @@ class CritiquesController < ApplicationController
 		@critique = Critique.new( params[:critique] )
 		@critique.strain ||= @critique.strain_test.strain if @critique.strain_test
 		if @critique.save
-			redirect_to new_critique_path
+			redirect_to critiques_admin_index_path
 		else
 			get_collection_data
 			render "new"
@@ -54,7 +54,7 @@ class CritiquesController < ApplicationController
 		@critique = Critique.find_by( slug: params[:id] )
 		@critique.strain ||= @critique.strain_test.strain
 		if @critique.update_attributes( params[:critique] )
-			redirect_to new_critique_path
+			redirect_to critiques_admin_index_path
 		else
 			get_collection_data
 			render "edit"

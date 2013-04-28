@@ -51,7 +51,7 @@ class CritiquesController < ApplicationController
   end
   
   def update
-		@critique = Critique.find( params[:id] )
+		@critique = Critique.find_by( slug: params[:id] )
 		@critique.strain ||= @critique.strain_test.strain
 		if @critique.update_attributes( params[:critique] )
 			redirect_to new_critique_path

@@ -1,0 +1,17 @@
+= link_to "Create New Feed", new_feed_path
+= link_to "Fetch Articles", fetch_feed_articles_path
+
+%table
+	%tr
+		%td.bold Name
+		%td.bold Articles Fetched
+		%td.bold Failurs
+		%td.bold Edit
+		%td.bold Remove
+	- @feeds.each do |feed|
+		%tr
+			%td= feed.name
+			%td= feed.articles_fetched
+			%td= feed.failures
+			%td= link_to "edit", edit_feed_path(feed)
+			%td= link_to "remove", feed, method: :delete, confirm: "Are you sure?"

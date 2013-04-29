@@ -53,8 +53,9 @@ C41::Application.routes.draw do
 	post "/search/strains" => "strains#index", as: :strains_search
 	resources :strain_tests
   resources :roachy_tips
-	get "/rss_feeds/admin_index" => "rss_feeds#admin_index", as: :rss_feeds_admin_index
-	resources :rss_feeds
+	get "/feeds/admin_index" => "feeds#admin_index", as: :feeds_admin_index
+	get "/feeds/fetch_new_articles" => "feeds#fetch_articles", as: :fetch_feed_articles
+	resources :feeds
 
 	#User Controlled Resources
 	post "/forums/seach" => "forum_threads#index", as: :forums_search

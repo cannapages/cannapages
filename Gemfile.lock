@@ -153,6 +153,9 @@ GEM
     mime-types (1.21)
     mongo (1.8.3)
       bson (~> 1.8.3)
+    mongo_session_store-rails3 (4.0.0)
+      actionpack (>= 3.1)
+      mongo
     mongoid (3.1.2)
       activemodel (~> 3.2)
       moped (~> 1.4.2)
@@ -160,9 +163,6 @@ GEM
       tzinfo (~> 0.3.22)
     mongoid-paperclip (0.0.8)
       paperclip (>= 2.3.6)
-    mongoid_session_store (2.0.0)
-      mongoid (>= 2.0)
-      rails (>= 3.0)
     moped (1.4.4)
     multi_json (1.7.2)
     multi_xml (0.5.3)
@@ -295,9 +295,9 @@ DEPENDENCIES
   meta-tags
   meta_request
   mongo
+  mongo_session_store-rails3 (~> 4.0.0)
   mongoid
   mongoid-paperclip
-  mongoid_session_store
   newrelic_rpm
   omniauth
   omniauth-facebook

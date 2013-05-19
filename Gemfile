@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'rails'
 gem 'mongoid'
-gem 'mongoid_session_store'
+gem 'mongo_session_store-rails3', '~> 4.0.0'
 gem 'mongo'
 gem 'thin'
 # gem 'mongoid-pagination', git: 'https://github.com/cannapages/mongoid-pagination.git'

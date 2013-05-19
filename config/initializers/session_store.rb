@@ -6,4 +6,4 @@
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
 # C41::Application.config.session_store :active_record_store
-Example::Application.config.session_store :mongoid_store
+C41::Application.config.session_store :mongoid_store

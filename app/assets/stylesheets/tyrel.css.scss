@@ -340,6 +340,18 @@ form {
 .listing_show_container {
 	position: relative;
 	top: -242px;
+	#social {
+		position: absolute;
+		top: 5px;
+		left: 790px;
+		z-index: 99;
+		a {
+			text-decoration: none;
+		}
+		img {
+			width: 40px;
+		}
+	}
 	#listing_show_map {
 		height: 300px;
 		width: 950px;
@@ -1447,4 +1459,10 @@ h3.cr_home {
 
 .back_content.cadets {
 	top: -63px;
+}
+
+#pages {
+	min-height: 330px;
+	padding-top: 10px;
+	background-color: rgba(255,255,255,0.7);
 }

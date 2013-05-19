@@ -20,6 +20,16 @@
 			- if alert
 				%p.error= alert
 			.listing-show-header.span-24
+				#social
+					-if @listing.facebook and @listing.facebook != "http://"
+						= link_to @listing.facebook, target: "_blank" do
+							= image_tag "facebook.png"
+					-if @listing.twitter and @listing.twitter != "http://"
+						= link_to @listing.twitter, target: "_blank" do
+							= image_tag "twitter.png"
+					-if @listing.website and @listing.website != "http://"
+						= link_to @listing.website, target: "_blank" do
+							= image_tag "web.png"
 				#listing_show_map
 				= image_tag @listing.logo(:large), id: :logo
 				= image_tag "/assets/creamocrop.png", id: :creamocrop if @listing.creamocrop

@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
 	end
 	
 	def side_banner_front_ads
-		@ads = Ad.any_of( ad_type: 'Banner Large').any_of( ad_type: 'Banner Small' ).to_a
+		@ads = [Ad.one_large.first, Ad.one_small.first]
 	end
 
 end

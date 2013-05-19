@@ -1,0 +1,24 @@
+= link_to "Create New Ad", new_ad_path
+
+%table.ads
+	%tr
+		%td.bold Name
+		%td.bold Href
+		%td.bold Type
+		%td.bold Live?
+		%td.bold Clicks
+		%td.bold Shows
+		%td.bold Expiration
+		%td.bold Image
+	- @ads.each do |ad|
+		%tr
+			%td= ad.name
+			%td= ad.href
+			%td= ad.ad_type
+			%td= ad.live ? "Yes" : "No"
+			%td= ad.clicks
+			%td= ad.shows
+			%td= ad.expiration
+			%td= image_tag ad.ad_image
+			%td= link_to "edit", edit_ad_path(ad)
+			%td= link_to "remove", ad, method: :delete, confirm: "Are you sure?"

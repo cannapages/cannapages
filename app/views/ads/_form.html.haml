@@ -1,0 +1,10 @@
+= simple_form_for @ad do |f|
+	= f.input :name
+	= f.input :href
+	= f.input :ad_type, collection: AD_CATEGORY_ARRAY
+	%br
+	= f.input :live, as: :boolean
+	%br
+	= f.input :expiration, as: :date
+	= f.input :ad_image
+	= f.submit

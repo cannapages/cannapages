@@ -189,6 +189,11 @@ a {
 }
 
 .admin_back_content {
+	tr {
+		img {
+			width: 50px;
+		}
+	}
 	background-color:#D7E5DB;
 	position:relative;
 	left:200px;
@@ -1465,4 +1470,8 @@ h3.cr_home {
 	min-height: 330px;
 	padding-top: 10px;
 	background-color: rgba(255,255,255,0.7);
+}
+
+.input.boolean.optional input {
+	float: left;
 }

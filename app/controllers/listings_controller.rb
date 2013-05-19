@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
 			@listings = @listings.any_of(name: reg).any_of(categroy: reg)
 		end
 		@listings = @listings.geo_near( [@user_location.lng, @user_location.lat] ).spherical.to_a
-		@listings = Kaminari.paginate_array(@listings).page(params[:page]).per(25)
+		@listings = Kaminari.paginate_array(@listings).page(params[:page]).per(10)
 		@listings.each do |l|
 			l.update_distance(@user_location)
 		end

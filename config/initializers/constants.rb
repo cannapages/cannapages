@@ -3,7 +3,7 @@ LEGAL_STATE_ARRAY = [ 'Alaska', 'Arizona', 'California', 'Colorado',
                       'Montana', 'Initiative', 'Nevada', 'New Jersey', 'New Mexico', 
                       'Massachusetts', 'Oregon', 'Rhode Island', 'Washington' ] 
                                         
-YESNO = ['yes','no']           
+YESNO = ['Yes','No']           
   
 LISTING_CATEGORY_ARRAY = [ 'Dispensary', 'Grow Store', 'Head Shop', 'Kind Doctor', 'Kind Land Lord', 'Smoke Shop', 'Kind Lawyer', 'Grow Consultant' ]
 

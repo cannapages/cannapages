@@ -12,7 +12,7 @@
 			%p= "volume #{@volume.volume_number}"
 		.span-8
 			%center
-				%h3= @volume.created_at.strftime("%B %d, %Y")
+				%h3= Time.now.strftime("%B %d, %Y")
 		.span-8.last
 			%p.floatright= @user_location.max_info_string
 	.span-24#dispatches_articles

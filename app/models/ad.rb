@@ -2,6 +2,7 @@ class Ad
   include Mongoid::Document
 	include Mongoid::Timestamps
 	include Mongoid::Paperclip
+	include Mongoid::MultiParameterAttributes
   field :name, type: String
   field :href, type: String
   field :ad_type, type: String
@@ -14,10 +15,6 @@ class Ad
 	validates_inclusion_of :ad_type, allow_nil: false, in: AD_CATEGORY_ARRAY
 
 	belongs_to :user
-
-	scope :for_page, ->(ad_type, num_of_ads = 1) do
-		self.where( ad_type: ad_type, live: true ).limit( num_of_ads ).order_by( shows: :desc )
-	end
 
 	before_create :initialize_anylitics
 
@@ -39,5 +36,10 @@ class Ad
 				:btob
 		end
 	end
+
+	scope :live, where( live: true ).where( :expiration.gte => Date.today )
+	scope :one_small, live.order_by( shows: :asc ).where( ad_type: "Banner Small" ).limit(1)
+	scope :one_large, live.order_by( shows: :asc ).where( ad_type: "Banner Large" ).limit(1)
+	scope :one_btb, live.order_by( shows: :asc ).where( ad_type: "Business to Business" ).limit(1)
 
 end

@@ -21,5 +21,12 @@ class PagesController < ApplicationController
 		@page.update_attributes( params[:page] )
 		redirect_to pages_path, notice: "Page updated sucsesfully"
 	end
+	
+	def highsociety
+		@page = Page.find_by( slug: 'high-society' )
+		@page.views += 1
+		@page.save
+		render "show"
+	end
   
 end

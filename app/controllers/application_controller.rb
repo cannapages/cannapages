@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
 	end
 	
 	def side_banner_front_ads
-		@ads = [Ad.one_large.first, Ad.one_small.first]
+		@ads = [Ad.one_large.first, Ad.one_small.first].select{|e| not e.nil?}
 	end
 
 end

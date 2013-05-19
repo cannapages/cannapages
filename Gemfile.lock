@@ -160,6 +160,9 @@ GEM
       tzinfo (~> 0.3.22)
     mongoid-paperclip (0.0.8)
       paperclip (>= 2.3.6)
+    mongoid_session_store (2.0.0)
+      mongoid (>= 2.0)
+      rails (>= 3.0)
     moped (1.4.4)
     multi_json (1.7.2)
     multi_xml (0.5.3)
@@ -294,6 +297,7 @@ DEPENDENCIES
   mongo
   mongoid
   mongoid-paperclip
+  mongoid_session_store
   newrelic_rpm
   omniauth
   omniauth-facebook

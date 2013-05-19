@@ -33,6 +33,8 @@ module ApplicationHelper
 				"listings"
 			when "cadets"
 				"listings"
+			when "pages"
+				"listings"
 			when "forum_threads"
 				"forums"
 			when "reviews"

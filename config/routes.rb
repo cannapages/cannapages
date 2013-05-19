@@ -1,5 +1,8 @@
 C41::Application.routes.draw do
 
+  resources :pages
+
+
   get "419" => redirect("http://ezregister.com/events/6491/")
   get "/420eve" => redirect("http://ezregister.com/events/6491/")
 

@@ -1,0 +1,18 @@
+= link_to "Create New Article", new_page_path
+
+%table
+	%tr
+		%td.bold Name
+		%td.bold Published Date
+		%td.bold Last Updated
+		%td.bold Views
+		%td.bold Edit
+		%td.bold Remove
+	- @pages.each do |page|
+		%tr
+			%td
+				= link_to page.name, page, target: "_blank"
+			%td= page.created_at
+			%td= page.updated_at
+			%td= page.views
+			%td= link_to "edit", edit_page_path(page)

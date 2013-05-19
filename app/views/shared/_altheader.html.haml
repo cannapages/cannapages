@@ -5,7 +5,7 @@
 #head2_container
 	.container
 		.span-12.alt_search_container
-			= image_tag "listings-icon.png", id: "altlogotop" if params[:controller] == "listings" or params[:controller] == "devise/registrations"
+			= image_tag "listings-icon.png", id: "altlogotop" if params[:controller] == "listings" or params[:controller] == "devise/registrations" or params[:controller] == "pages"
 			= image_tag "field-icon.png", id: "altlogotop" if params[:controller] == "strains"
 			= image_tag "news-icon.png", id: "altlogotop" if params[:controller] == "volumes" or params[:controller] == "articles"
 			= image_tag "critiques-icon.png", id: "altlogotop" if params[:controller] == "critiques"
@@ -17,7 +17,7 @@
 		.span-12.last#altnavlinks
 			%ul.alt_front_end_nav
 				%li
-					- unless params[:controller] == "listings" or params[:controller] == "devise/registrations"
+					- unless params[:controller] == "listings" or params[:controller] == "devise/registrations" or params[:controller] == "pages"
 						= link_to listings_path do
 							= image_tag "/assets/listings-icon.png"
 					- unless params[:controller] == "strains"

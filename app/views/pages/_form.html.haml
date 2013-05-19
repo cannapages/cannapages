@@ -1,0 +1,6 @@
+= simple_form_for @page do |f|
+	.edditor
+		= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120
+	= f.button :submit
+
+= tinymce

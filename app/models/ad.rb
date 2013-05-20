@@ -38,8 +38,8 @@ class Ad
 	end
 
 	scope :live, where( live: true ).where( :expiration.gte => Date.today )
-	scope :one_small, live.order_by( shows: :asc ).where( ad_type: "Banner Small" ).limit(1)
-	scope :one_large, live.order_by( shows: :asc ).where( ad_type: "Banner Large" ).limit(1)
-	scope :one_btb, live.order_by( shows: :asc ).where( ad_type: "Business to Business" ).limit(1)
+	scope :one_small, live.order_by( shows: :desc ).where( ad_type: "Banner Small" ).limit(1)
+	scope :one_large, live.order_by( shows: :desc ).where( ad_type: "Banner Large" ).limit(1)
+	scope :one_btb, live.order_by( shows: :desc ).where( ad_type: "Business to Business" ).limit(1)
 
 end

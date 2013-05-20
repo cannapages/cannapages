@@ -53,6 +53,10 @@ class ApplicationController < ActionController::Base
 	
 	def side_banner_front_ads
 		@ads = [Ad.one_large.first, Ad.one_small.first].select{|e| not e.nil?}
+		@ads.each do |ad|
+			ad.shows += 1
+			ad.save
+		end
 	end
 
 end

@@ -48,7 +48,7 @@
 						= image_tag "critique-icon-small.png", class: "listing-icon"
 .span-6.last.adds
 	- @ads.each do |ad|
-		= link_to ad.href do
+		= link_to ad do
 			= image_tag ad.ad_image
 .span-24
 	= paginate @listings

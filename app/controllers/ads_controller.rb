@@ -1,5 +1,12 @@
 class AdsController < ApplicationController
-	before_filter :require_admin
+	before_filter :require_admin, except: [:show]
+
+	def show
+		@ad = Ad.find( params[:id] )
+		@ad.clicks += 1
+		@ad.save
+		redirect_to ad
+	end
 
   def index
 		@ads = Ad.all

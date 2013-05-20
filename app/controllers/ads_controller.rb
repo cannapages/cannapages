@@ -5,7 +5,7 @@ class AdsController < ApplicationController
 		@ad = Ad.find( params[:id] )
 		@ad.clicks += 1
 		@ad.save
-		redirect_to @ad
+		redirect_to @ad.href
 	end
 
   def index

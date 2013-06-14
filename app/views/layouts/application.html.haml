@@ -2,16 +2,17 @@
 !!!
 %html
 	%head
-		-# %title= seo_title
-		%title CannaPages the best marijuana in the world
+		%title= seo_title
 		= javascript_include_tag :application
 		= csrf_meta_tag
 		= stylesheet_link_tag :application
 		-# /[if lt IE 8]
 		-# = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
 		<meta name="google-site-verification" content="I1xpGBoYSiHO4TcRPPk0NUA-2DAZIOx_WXRQQJ20Rdk" />
+		= display_meta_tags( generate_meta )
 		
 	%body
+		%h1.hidden= seo_h1
 		- if params[:controller] == "home"
 			= render 'shared/mainheader'
 		- else

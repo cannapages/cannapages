@@ -72,7 +72,7 @@ class Listing
 	belongs_to :user	
 	has_many :critiques
 	has_many :photo_uploads
-	has_many :comments
+	has_many :comments, as: :commentable
 	has_one :listing_review, autobuild: true, autosave: true
 	has_one :live_menu, autobuild: true
 	has_many :strain_tests

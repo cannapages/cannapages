@@ -1,12 +1,13 @@
 #black_bar
 	= render "shared/login_info"
 #head_container
-	= image_tag "hempheader.png", id: "hempheader"
-	.container#inner_header
-		.span-24.bob
-			= image_tag "main_logo.png", id: "logotop"
-			#search_form2
-				= render "searches/home_listings"
+	= image_tag "hempheader.png", id: "hempheader", alt: "best marijuna"
+	#outer_header
+		.container#inner_header
+			.span-24.bob
+				= image_tag "main_logo.png", id: "logotop"
+				#search_form2
+					= render "searches/home_listings"
 	#navbar
 		= image_tag "/assets/navbar2.png", id: "navimage"
 		.container#navlinks
@@ -14,14 +15,14 @@
 				%ul.front_end_nav
 					%li
 						= link_to strains_path do
-							= image_tag "/assets/field-logo.png"
+							= image_tag "/assets/field-logo.png", alt: "canibus dispensaries"
 						= link_to volumes_path do
-							= image_tag "/assets/news-icon.png"
+							= image_tag "/assets/news-icon.png", alt: "weed reviews"
 						= link_to critiques_home_path do
-							= image_tag "/assets/critiques-icon.png"
+							= image_tag "/assets/critiques-icon.png", alt: "weedmaps"
 						= link_to cadets_home_path do
-							= image_tag "/assets/members-icon.png"
+							= image_tag "/assets/members-icon.png", alt: "best marijuna"
 						= link_to forums_path do
-							= image_tag "/assets/forum-icon.png"
+							= image_tag "/assets/forum-icon.png", alt: "canibus dispensaries"
 						-# = link_to "#" do
 						-# 	= image_tag "/assets/saver-icon.png"

@@ -1,14 +1,12 @@
 $dark_green: #046414;
 
 body {
-	h1{
-		font-family:'gothic821_cn_btregular';
-		font-size: 55px;
-		color: $dark_green;
-	}
 	h2{
 		font-family:'gothic821_cn_btregular';
 		color: $dark_green;
+		&.home {
+			font-size: 55px;
+		}
 	}
 	h3{
 		font-family:'gothic821_cn_btregular';

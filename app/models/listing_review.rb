@@ -2,7 +2,7 @@ class ListingReview
   include Mongoid::Document
 	include Mongoid::Timestamps
 
-	has_many :reviews
+	has_many :reviews, as: :reviewable
 	belongs_to :listing
 
 	def average_rating

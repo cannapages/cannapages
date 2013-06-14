@@ -3,7 +3,6 @@ class Comment
 	include Mongoid::Timestamps
   field :body, type: String
 	attr_accessor :rating
-	belongs_to :listing
-	belongs_to :user
-	belongs_to :review
+	belongs_to :commentable, polymorphic: true
+	belongs_to :commenter, polymorphic: true
 end

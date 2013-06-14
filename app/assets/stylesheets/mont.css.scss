@@ -9,15 +9,13 @@ $dark_green: #046414;
 }
 
 body {
-	h1{
-		font-family:'gothic821_cn_btregular';
-		font-size: 55px;
-		color: $dark_green;
-	}
 	h2{
 		font-family:'gothic821_cn_btregular';
 		color: $dark_green;
 		line-height:1.2em;
+		&.home {
+			font-size: 55px;
+		}
 	}
 	h3{
 		font-family:'gothic821_cn_btregular';
@@ -113,6 +111,7 @@ h2{
 	height:30px;
 	background:black;
 	width:100%;
+	min-width: 950px;
 }
 
 #head_container{
@@ -121,11 +120,14 @@ h2{
 	position:relative;
 }
 
+#outer_header {
+	
+}
+
 #inner_header{
 	margin-top:-200px;
 	height:195px;
-	position: absolute;
-	left: 185px;
+	margin-left: auto;
 }
 
 #hempheader{

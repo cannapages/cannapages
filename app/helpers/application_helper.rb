@@ -45,17 +45,42 @@ module ApplicationHelper
 		render "searches/#{form_partial_name}"
 	end
 
-	# def seo_title
-	# 	title = ""
-	# 	case params["controller"]
-	# 		when "home"
-	# 			"cannapages: marijuana dispensaries | marijuana reviews | best marijuana"
-	# 		when "listings"
-	# 			case params["action"]
-	# 				when "index", "search"
-	# 					"cannapages: best marijuana in the world | cannabis dispensaries"
-	# 		else
-	# 			"cannapages: marijuana dispensaries | marijuana reviews | best marijuana"
-	# 	end
-	# end
+	def seo_title
+		@title = case params[:controller]
+			when :home
+				"CannaPages: best marijuana | canibus dispensaries | weed reviews | weedmaps"
+			else
+				"CannaPages: best marijuana | canibus dispensaries | weed reviews | weedmaps"
+		end
+		@title
+	end
+
+	def seo_h1
+		scramble( (@title + " " + @description).gsub("|","") )
+	end
+
+	def generate_meta
+		seo_description
+	end
+
+	def seo_key_words
+		key_words = ["test"]
+		set_meta_tags( :keywords => key_words )
+	end
+
+	def seo_description
+		@description = case params[:controller]
+			when :home
+				"Cannabis Dispensaries, Medical Marijuana Dispensaries, Head Shops, Hydroponics, Weed Reviews, Weed Maps, & Marijuana Doctors. Find where to buy weed! HQ: Denver, Colorado"
+			else
+				"Cannabis Dispensaries, Medical Marijuana Dispensaries, Head Shops, Hydroponics, Weed Reviews, Weed Maps, & Marijuana Doctors. Find where to buy weed! HQ: Denver, Colorado"
+		end
+		set_meta_tags( :description => @description.html_safe )
+	end
+
+	private
+	def scramble(str)
+		s = str.split(' ').sort_by { rand }.join(' ')
+		s =~ /[A-Z]/ && s =~ /[a-z]/ ? s.capitalize : s
+	end
 end

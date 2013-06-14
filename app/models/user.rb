@@ -36,7 +36,7 @@ class User
 	has_many :reviews
 	has_many :listings
 	has_many :ads
-	has_many :comments
+	has_many :comments, as: :commentable
 	has_many :pipe_graves
 
 	#Validations

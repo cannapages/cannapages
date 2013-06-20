@@ -14,7 +14,6 @@ C41::Application.routes.draw do
 	resources :searches
 
 	#Business Controlled Resources
-	post "/listings/search" => "listings#index", as: :listings_search
 	get "/listings/admin_index" => "listings#admin_index", as: :listings_admin_index
 	get "/listings/admin_new" => "listings#admin_new", as: :admin_new_listing
 	get "/listings/:id/admin_edit" => "listings#admin_edit", as: :admin_edit_listing
@@ -26,6 +25,8 @@ C41::Application.routes.draw do
 	put "/listings/:id/admin" => "listings#admin_update", as: :admin_update_listing
 	post "/listings/admin" => "listings#admin_create", as: :admin_create_listing
 	delete "/listings/:id/admin" => "listings#admin_destroy", as: :admin_destroy_listing
+	post "/listings/search" => "listings#index", as: :listings_search
+	get "/listings/search" => "listings#index", as: :listings_search
 	resources :listings
 
 	get "/live_menues/edit" => "live_menues#edit", as: :live_menu_edit

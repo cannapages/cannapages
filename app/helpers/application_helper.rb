@@ -46,17 +46,37 @@ module ApplicationHelper
 	end
 
 	def seo_title
-		@title = case params[:controller]
-			when :home
-				"CannaPages: best marijuana | canibus dispensaries | weed reviews | weedmaps"
+		case params[:controller]
+			when "home"
+				@title = "CANNAPAGES: Where To Find Marijuana | Marijuana Dispensaries | Weed Reviews | Weed Maps"
+			when "critiques"
+				extra = ""
+				if @critique
+					extra += " | #{@critique.strain.name if @critique.strain}"
+					extra += " | #{@critique.listing.name}" if @critique.listing
+				end
+				unless extra.empty?
+					@title = "CANNACRITIQUES: Marijuana Reviews#{ extra }"
+				else
+					@title = "CANNACRITIQUES: Marijuana Reviews | #{ @critique.title }" if @critique
+					@title = "CANNACRITIQUES: Marijuana Reviews | Cannabis Dispensaries | Best Marijuana | Weed Strains" unless @critique
+				end
+			when "listings"
+				if @listing
+					@title = "CANNAPAGES: #{@listing.name} | Where To Find Marijuana | Marijuana Dispensaries"
+				else
+					@title = "CANNAPAGES: Where To Find Marijuana | Head Shops | Marijuana Dispensaries | Grow Stores"
+				end
 			else
-				"CannaPages: best marijuana | canibus dispensaries | weed reviews | weedmaps"
+				@title = "CANNAPAGES: Medical Marijuana | Cannabis Dispensaries | Weed Reviews | Weedmaps"
 		end
 		@title
 	end
 
 	def seo_h1
-		scramble( (@title + " " + @description).gsub("|","") )
+		@title.gsub!("Where To Find Marijuana", "")
+		@title.gsub!("Where To Find Weed", "")
+		"Where To Find Marijuana " + scramble( (@title + " " + @description).gsub("|","") )
 	end
 
 	def generate_meta
@@ -70,10 +90,25 @@ module ApplicationHelper
 
 	def seo_description
 		@description = case params[:controller]
-			when :home
+			when "home"
 				"Cannabis Dispensaries, Medical Marijuana Dispensaries, Head Shops, Hydroponics, Weed Reviews, Weed Maps, & Marijuana Doctors. Find where to buy weed! HQ: Denver, Colorado"
+			when "critiques"
+				extra = ""
+				if @critique
+					extra += "#{@critique.listing.name}, " if @critique.listing
+					extra += "#{@critique.strain.name}, " if @critique.listing
+					extra += "#{@critique.title}, " unless @critique.listing or @critique.strain
+				end
+				"#{extra}Cannabis Reviews, Medical Marijuana Dispensaries, Weed Strains, and Marijuana Effects. Weed Brownies, Weed Reviews, Best Marijuana all from Cannapages.com"
+			when "listings"
+				extra = ""
+				if @listing
+					extra += "#{@listing.cannawisdom} | Where to find Marijuana"
+				else
+					"#{extra}Cannabis Reviews, Medical Marijuana Dispensaries, Weed Strains, and Marijuana Effects. Weed Brownies, Weed Reviews, Best Marijuana all from Cannapages.com"
+				end
 			else
-				"Cannabis Dispensaries, Medical Marijuana Dispensaries, Head Shops, Hydroponics, Weed Reviews, Weed Maps, & Marijuana Doctors. Find where to buy weed! HQ: Denver, Colorado"
+				"Cannabis Reviews, Medical Marijuana Dispensaries, Weed Strains, and Marijuana Effects. Weed Brownies, Weed Reviews, Best Marijuana all from Cannapages.com"
 		end
 		set_meta_tags( :description => @description.html_safe )
 	end

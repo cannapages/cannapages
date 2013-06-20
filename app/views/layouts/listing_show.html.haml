@@ -2,14 +2,16 @@
 !!!
 %html
 	%head
-		%title CannaPages
+		%title= seo_title
 		= javascript_include_tag :application
 		= csrf_meta_tag
 		= stylesheet_link_tag :application
 		-# /[if lt IE 8]
 		-# = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+		= display_meta_tags( generate_meta )
 		
 	%body
+		%h1.hidden= seo_h1
 		- if params[:controller] == "home"
 			= render 'shared/mainheader'
 		- else
@@ -23,16 +25,16 @@
 				#social
 					-if @listing.facebook and @listing.facebook != "http://"
 						= link_to @listing.facebook, target: "_blank" do
-							= image_tag "facebook.png"
+							= image_tag "facebook.png", alt: @listing.name
 					-if @listing.twitter and @listing.twitter != "http://"
 						= link_to @listing.twitter, target: "_blank" do
-							= image_tag "twitter.png"
+							= image_tag "twitter.png", alt: @listing.name
 					-if @listing.website and @listing.website != "http://"
 						= link_to @listing.website, target: "_blank" do
-							= image_tag "web.png"
+							= image_tag "web.png", alt: @listing.name
 				#listing_show_map
-				= image_tag @listing.logo(:large), id: :logo
-				= image_tag "/assets/creamocrop.png", id: :creamocrop if @listing.creamocrop
+				= image_tag @listing.logo(:large), id: :logo, alt: "Where to find Marijuana"
+				= image_tag "/assets/creamocrop.png", id: :creamocrop, alt: @listing.name if @listing.creamocrop
 				.info_background
 				.listing_info
 					%p.name= @listing.name

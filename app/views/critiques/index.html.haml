@@ -4,7 +4,7 @@
 		= link_to critique do
 			.crit_results
 				.crit_pic
-					= image_tag critique.critique_image(:small)
+					= image_tag critique.critique_image(:small), alt: critique.title
 				.crit_info
 					%ul
 						%li
@@ -26,7 +26,7 @@
 		- strain_test = critique.strain_test
 		- if strain_test
 			.crit_graph
-				= image_tag strain_test.chart_url, class: :small_strain_test_chart
+				= image_tag strain_test.chart_url, class: :small_strain_test_chart, alt: "Weed Strain Cannabinoids Graph"
 			
 			
 	

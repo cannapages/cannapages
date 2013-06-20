@@ -1,7 +1,7 @@
 .listing_icons
 	- unless @listing.critiques.empty?
 		= link_to "/critiques?listing=#{@listing.slug}" do
-			= image_tag "critique-icon-small.png", class: "listing-icon"
+			= image_tag "critique-icon-small.png", class: "listing-icon", alt: "Marijuana Reviews"
 	- if @listing.has_menu?
 		= link_to listing_path(@listing, intent: "menu") do
-			= image_tag "menu.png", class: "listing-icon"
+			= image_tag "menu.png", class: "listing-icon", alt: "Marijuana Strains"

@@ -1,6 +1,6 @@
 #top
 .span-24.push_down
-	= image_tag "critiquespage-logo.png", class: "critique-home"
+	= image_tag "critiquespage-logo.png", class: "critique-home", alt: "Weed Reviews"
 	.critiques_slider_top
 		.arrow_left
 		.arrow_right
@@ -8,14 +8,14 @@
 			= link_to critique do
 				.slide{class: index > 0 ? "hidden":"shown", index: index, current: index > 0 ? "false" : "true"}
 					%p= critique.title
-					= image_tag critique.critique_image(:large)
+					= image_tag critique.critique_image(:large), alt: critique.title
 .span-24
 	.latest_critique
 		%p.header Latest Critique
 		%h2= ("Business: <span>#{@latest.listing.name}</span>").html_safe if @latest.listing
 		%h2= ("Product: <span>#{@latest.strain_test.strain_name}</span>").html_safe if @latest.strain_test
 		%h3= ("Product: <span>#{@latest.strain.strain_name}</span>").html_safe if @latest.strain
-		= image_tag @latest.critique_image(:small)
+		= image_tag @latest.critique_image(:small), alt: @latest.title
 		= raw @latest.exerpt(120)
 		= link_to "Keep reading", @latest, class: "continue"
 	.slider_right_container
@@ -27,7 +27,7 @@
 				.critique_dispensaries.green_thingy{class: index > 0 ? "hidden" : "shown", index: index, current: index > 0 ? "false" : "true"}
 					= link_to listing do
 						%p= listing.cannawisdom
-						= image_tag listing.logo(:thumb)
+						= image_tag listing.logo(:thumb), alt: listing.name
 		.slider2
 			.arrow_right
 			.arrow_left
@@ -36,5 +36,5 @@
 				.critique_strain.green_thingy{class: index > 0 ? "hidden" : "shown", index: index, current: index > 0 ? "false" : "true"}
 					= link_to strain do
 						%h3= strain.name
-						= image_tag strain.best_image
+						= image_tag strain.best_image, alt: strain.name
 

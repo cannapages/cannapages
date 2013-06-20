@@ -1,6 +1,6 @@
 #top
 .span-18.first#critique_container
-	= image_tag @critique.critique_image, id: "strain_image"
+	= image_tag @critique.critique_image, id: "strain_image", alt: @critique.title
 	= link_to @listing do
 		%h2= ("Business: <span>#{@listing.name}</span>").html_safe if @listing
 	= link_to @strain do
@@ -9,7 +9,7 @@
 		= raw @critique.content
 	- if @strain_test
 		#crit_strain_test
-			= image_tag @strain_test.chart_url, class: :chart
+			= image_tag @strain_test.chart_url, class: :chart, alt: "Cannabinoids Chart"
 			%ul
 				- if @strain
 					%li= ("Dominance: <span>#{@strain.dominance.capitalize}</span>").html_safe
@@ -29,7 +29,7 @@
 			- 10.times do |x|
 				%tr
 					%td.col1
-						= image_tag "leaf-logo-sm.png"
+						= image_tag "leaf-logo-sm.png", alt: "Weed Reviews"
 					%td.col2
 						%p Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.
 				

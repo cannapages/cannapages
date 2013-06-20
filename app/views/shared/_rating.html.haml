@@ -1,5 +1,9 @@
 .rating_container
+	- alt_array = ["Best Marijuana", "Where to find Marijuana", "Marijuana Dispensaries", "Buy Marijuana", "Head Shops"]
+	- alt_count = 0
 	- stars.to_i.times do
-		= image_tag "rating-on.png", class: :rating_star
+		= image_tag "rating-on.png", class: :rating_star, alt: alt_array[alt_count]
+		- alt_count += 1
 	- (5 - stars.to_i).times do
-		= image_tag "rating-off.png", class: :rating_star
+		= image_tag "rating-off.png", class: :rating_star, alt: alt_array[alt_count]
+		- alt_count += 1

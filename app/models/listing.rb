@@ -237,7 +237,11 @@ class Listing
 	end
 
 	def cannawisdom
-		about or "#{name} is a #{category.downcase} located in #{city}, #{state}"
+		if about.nil? or about.empty?
+			"#{name} is a #{category.downcase} located in #{city}, #{state}"
+		else
+			about
+		end
 	end
 
 end

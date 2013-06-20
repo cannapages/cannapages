@@ -1,10 +1,10 @@
 - menu_hash = setup_menu( @listing )
 .menu-section
-	= image_tag "hybrid-header-menu.jpg"
+	= image_tag "hybrid-header-menu.jpg", alt: "Best Marijuana Hybrids"
 	- menu_hash[:hybrids].each do |product|
 		- strain = product.strain
 		.menu-item
-			= image_tag product.best_image_tag, class: :product_image
+			= image_tag product.best_image_tag, class: :product_image, alt: (product.strain ? product.strain.name : "Marijuana Menu")
 			%p.name= truncate(product.strain.name, length: 15)
 			- if strain.strain_tests.count > 0
 				- strain_test = strain.strain_tests.first
@@ -22,11 +22,11 @@
 				%p.price.quarter= product.price_1_4
 				%p.price.half= product.price_1_2
 				%p.price.ounce= product.price_ounce
-	= image_tag "indica-header-menu.jpg"
+	= image_tag "indica-header-menu.jpg", alt: "Best Marijuana Indica"
 	- menu_hash[:indicas].each do |product|
 		- strain = product.strain
 		.menu-item
-			= image_tag product.best_image_tag, class: :product_image
+			= image_tag product.best_image_tag, class: :product_image, alt: (product.strain ? product.strain.name : "Marijuana Menu")
 			%p.name= truncate(product.strain.name, length: 15)
 			- if strain.strain_tests.count > 0
 				- strain_test = strain.strain_tests.first
@@ -44,11 +44,11 @@
 				%p.price.quarter= product.price_1_4
 				%p.price.half= product.price_1_2
 				%p.price.ounce= product.price_ounce
-	= image_tag "sativa-header-menu.jpg"
+	= image_tag "sativa-header-menu.jpg", alt: "Best Marijuana Sativa"
 	- menu_hash[:sativas].each do |product|
 		- strain = product.strain
 		.menu-item
-			= image_tag product.best_image_tag, class: :product_image
+			= image_tag product.best_image_tag, class: :product_image, alt: (product.strain ? product.strain.name : "Marijuana Menu")
 			%p.name= truncate(product.strain.name, length: 15)
 			- if strain.strain_tests.count > 0
 				- strain_test = strain.strain_tests.first

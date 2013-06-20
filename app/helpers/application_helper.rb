@@ -48,7 +48,7 @@ module ApplicationHelper
 	def seo_title
 		case params[:controller]
 			when "home"
-				@title = "CANNAPAGES: Where To Find Marijuana | Marijuana Dispensaries | Weed Reviews | Weed Maps"
+				@title = "Where To Find Marijuana | Marijuana Dispensaries | Weed Reviews | Weed Maps"
 			when "critiques"
 				extra = ""
 				if @critique
@@ -56,19 +56,41 @@ module ApplicationHelper
 					extra += " | #{@critique.listing.name}" if @critique.listing
 				end
 				unless extra.empty?
-					@title = "CANNACRITIQUES: Marijuana Reviews#{ extra }"
+					@title = "Marijuana Reviews#{ extra }"
 				else
-					@title = "CANNACRITIQUES: Marijuana Reviews | #{ @critique.title }" if @critique
-					@title = "CANNACRITIQUES: Marijuana Reviews | Cannabis Dispensaries | Best Marijuana | Weed Strains" unless @critique
+					@title = "Marijuana Reviews | #{ @critique.title }" if @critique
+					@title = "Marijuana Reviews | Cannabis Dispensaries | Best Marijuana | Weed Strains" unless @critique
 				end
 			when "listings"
 				if @listing
-					@title = "CANNAPAGES: #{@listing.name} | Where To Find Marijuana | Marijuana Dispensaries"
+					@title = "#{@listing.name} | Where To Find Marijuana | Marijuana Dispensaries"
 				else
-					@title = "CANNAPAGES: Where To Find Marijuana | Head Shops | Marijuana Dispensaries | Grow Stores"
+					@title = "Where To Find Marijuana | Head Shops | Marijuana Dispensaries | Grow Stores"
 				end
+			when "volumes", "articles"
+				if @article
+					@title = "Marijuana News | Medical Marijuana | #{@article.title}"
+				else
+					@title = "Marijuana News | Medical Marijuana | Marijuana Articles | Marijuana Legal"
+				end
+			when "strains"
+				if @strain
+					@title = "#{@strain.name} | #{@strain.menu_type} | Marijuana Effects"
+				else
+					@title = "Indica | Sativa | Marijuana Effects | Marijuana Strains | Types of Marijuana"
+				end
+			when "forums", "forum_threads"
+				if @forum
+					@thread_extra = @thread.title if @thread
+					@thread_extra ||= ""
+					@title = "#{@forum.name} #{@thread_extra} | What is Marijuana | Grow Marijuana | Grow Weed"
+				else
+					@title = "What is Marijuana | Grow Marijuana | Grow Weed | Cannabis Growing | Marijuana Forum"
+				end
+			when "cadets"
+				@title = "Pot and Marijuana | Marijuana Pictures | Marijuana Sale | Marijuana is Cannabis"
 			else
-				@title = "CANNAPAGES: Medical Marijuana | Cannabis Dispensaries | Weed Reviews | Weedmaps"
+				@title = "Where to find Marijuana | Pot and Marijuanai | Marijuanai is Cannabis"
 		end
 		@title
 	end
@@ -107,8 +129,23 @@ module ApplicationHelper
 				else
 					"#{extra}Cannabis Reviews, Medical Marijuana Dispensaries, Weed Strains, and Marijuana Effects. Weed Brownies, Weed Reviews, Best Marijuana all from Cannapages.com"
 				end
+			when "articles", "volumes"
+				extra = "#{@article.title}: " if @article
+				extra ||= ""
+				"#{extra}Marijuana news and marijuana articles from the world of medical marijuana and legal marijuana. Best marijuana news site."
+			when "strains"
+				extra = "#{@strain.name}: " if @strain
+				extra ||= ""
+				"#{extra}Indica and sativa marijuana strains, also marijuana effects and types of marijuana. See pictures of marijuana and where to find marijuana."
+			when "forums", "forum_threads"
+				extra = "#{@forum.name}: " if @forum
+				extra += "#{@thread.title} " if @thread
+				extra ||= ""
+				"#{extra}Cannabis growing and finding out what is marijuana. Grow weed and grow marijuana questions answered."
+			when "cadets"
+				"Everything pot and marijuana, marijuana is cannabis! Cannabis pictures, marijuana sale, join our ranks today!"
 			else
-				"Cannabis Reviews, Medical Marijuana Dispensaries, Weed Strains, and Marijuana Effects. Weed Brownies, Weed Reviews, Best Marijuana all from Cannapages.com"
+				"Information on Pot and Marijuana, Cannabis Reviews, Medical Marijuana Dispensaries, Weed Strains, and Marijuana Effects. Weed Brownies, Weed Reviews, Best Marijuana all from Cannapages.com"
 		end
 		set_meta_tags( :description => @description.html_safe )
 	end

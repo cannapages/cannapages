@@ -13,7 +13,7 @@
 		- @strains.each do |strain|
 			= link_to strain do
 				.result
-					= image_tag "field-guide-footerlogo.png"
+					= image_tag "field-guide-footerlogo.png", alt: "#{strain.name} #{strain.menu_type}"
 					%h2= strain.name
 					%h3= "#{strain.dominance}"
 					%p.bio= "#{truncate strain.bio, length: 150}"

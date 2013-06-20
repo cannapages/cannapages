@@ -46,6 +46,7 @@ C41::Application.routes.draw do
 	resources :volumes, except: [:create]
 	post "/search/critiques" => "critiques#index", as: :critiques_search
 	get "/critiques/admin_index" => "critiques#admin_index", as: :critiques_admin_index
+	get "/cannacritiques" => "critiques#home"
 	get "/critiques/home" => "critiques#home", as: :critiques_home
 	resources :critiques
 	get "/strains/admin_index" => "strains#admin_index", as: :strains_admin_index

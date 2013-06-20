@@ -23,7 +23,7 @@
 								= image_tag "critique-icon-small.png"
 						- if @featured_listing.has_menu?
 							= link_to listing_path(@featured_listing, intent: "menu") do
-								= image_tag "critique-icon-small.png", class: "listing-icon"
+								= image_tag "menu.png", class: "listing-icon"
 	- @listings.each_with_index do |listing, index|
 		- if listing.id == @featured_listing.id
 			- listing.reload

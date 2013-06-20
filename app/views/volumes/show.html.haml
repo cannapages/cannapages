@@ -2,11 +2,11 @@
 #dispatches
 	.span-24#dispatches_head
 		.span-4.first#dispatch_logo
-			=image_tag "dispatches_logo.png"
+			= image_tag "dispatches_logo.png", alt: "Marijuana News"
 		.span-16#dispatch_title
 			%h1 Dispatches from the Highlands
 		.span-4.last#dispatch_desc
-			%p Read articles from contributing authors and staff writers on what’s going on in the world of Cannabis
+			%p  Marijuana news from contributing authors and staff writers on the latest in marijuana and medical marijuana
 	.span-24#dispatches_subhead
 		.span-8.first
 			%p= "volume #{@volume.volume_number}"
@@ -19,24 +19,24 @@
 		.span-7.first#column_1
 			- @three_col_array.first.each do |article|
 				.article
-					%h2.article_title= ("#{article.title}").html_safe
+					%h2.article_title= link_to(("#{article.title}").html_safe, article)
 					%h3= ("#{article.author}").html_safe
 					%p= ("#{article.content}").html_safe
 		.span-10#column_2
 			- @featured_article = @three_col_array[1].shift
 			#featured_article
 				%center
-					%h1= @featured_article.title
-					= image_tag @featured_article.article_image(:large), class: :featured
+					%h1= link_to(@featured_article.title, @featured_article)
+					= image_tag @featured_article.article_image(:large), class: :featured, alt: "Marijuana and Medical Marijuana"
 					%p= @featured_article.content.html_safe
 			- @three_col_array[1].each do |article|
 				.article
-					%h2.article_title= ("#{article.title}").html_safe
+					%h2.article_title= link_to(("#{article.title}").html_safe, article)
 					%h3= ("#{article.author}").html_safe
 					%p= ("#{article.content}").html_safe
 		.span-7#column_3.last
 			- @three_col_array[2].each do |article|
 				.article
-					%h2.article_title= ("#{article.title}").html_safe
+					%h2.article_title= link_to(("#{article.title}").html_safe, article)
 					%h3= ("#{article.author}").html_safe
 					%p= ("#{article.content}").html_safe

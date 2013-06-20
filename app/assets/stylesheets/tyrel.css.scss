@@ -514,10 +514,12 @@ form {
 }
 
 .login_info {
+	z-index: 99;
 	color: white;
 	float: right;
 	margin-right: 25px;
-	position: relative;
+	position: absolute;
+	right: 4px;
 	top: 5px;
 	font-size: 14px;
 	a {

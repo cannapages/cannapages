@@ -1,6 +1,6 @@
 #top
 .span-12.first#header
-	= image_tag "harvest_header.png", id: "harvestheader"
+	= image_tag "harvest_header.png", id: "harvestheader", alt: "What is marijuana"
 .span-10.prepend-2.last
 	-# = image_tag "http://placehold.it/300x150", id: "harvestadd"
 .span-24.forum_container
@@ -14,7 +14,7 @@
 		- @forums.each do |forum|
 			%tr
 				%td
-					= image_tag "leaf-logo-sm.png"
+					= image_tag "leaf-logo-sm.png", alt: forum.name
 				%td= ("<h2>#{ link_to forum.name, forum}</h2>").html_safe
 				%td= forum.about
 				%td= forum.num_of_threads

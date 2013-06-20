@@ -16,12 +16,12 @@
 	.span-11#home_text
 		%h2	Explore the largest collection of cannabis dispensaries and "kind" companies in the world
 		%br
-		%h3 Check out our <a href="/strains">Field Guide</a> to find the best marijuana and to make an informed choice on the strain variety for you. Utilize our weed maps to find where to buy marijuana.
+		%h3 Check out our <a href="/strains">Field Guide</a> to find the best marijuana and to make an informed choice on the strain variety for you. Utilize our <a href="/listings/search">weed maps</a> to discover where to find marijuana.
 	
 .span-24#homefeatured
 	.header
 		= image_tag "aarow-logo.png", id: "aarowlogo", alt: "marijuana listings"
-		%h2#maptext= "All listings near #{@user_location.max_info_string}"
+		%h2#maptext= "Where to find Marijuana near #{@user_location.max_info_string}"
 		= link_to "change location", '#', id: "location_change"
 	.span-11.first
 		#map

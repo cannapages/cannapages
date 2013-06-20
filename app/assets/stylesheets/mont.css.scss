@@ -285,6 +285,7 @@ h2{
 }
 
 #maptext{
+	font-weight: bold;
 	margin-top:-35px;
 	margin-left:40px;
 }
@@ -550,7 +551,10 @@ h2{
 }
 
 .article{
-	border-bottom:1px solid;
+	border-bottom: 1px solid;
+	margin-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
 }
 
 .article_title{

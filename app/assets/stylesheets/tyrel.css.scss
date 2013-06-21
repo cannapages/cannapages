@@ -287,7 +287,7 @@ form {
 		background-color: $grey_blue;
 		clear: both;
 		margin-bottom: 10px;
-		.comment {
+		&.comment {
 			.rating_container {
 				position: absolute;
 				top: 10px;

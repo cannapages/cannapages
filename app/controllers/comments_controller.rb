@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	before_filter :require_user
   def new
 		load_commentable
 		@comment = @commentable.comments.new

@@ -34,7 +34,7 @@ class ForumThreadsController < ApplicationController
   def update
 		@forum_thread = ForumThread.find_by( slug: params[:id] )
 		if @forum_thread.user == @current_user
-			@post = @forum_thread.forum_posts.first
+			@post = @forum_thread.forum_posts.order_by(created_at: :asc).first
 			@post.content = params[:forum_thread][:content]
 			@forum_thread.update_attributes( params[:forum_thread] )
 			@forum_thread.save
@@ -62,7 +62,8 @@ class ForumThreadsController < ApplicationController
   def edit
 		@forum_thread = ForumThread.find_by( slug: params[:id] )
 		if @forum_thread.user == @current_user
-			@post = @forum_thread.forum_posts.order_by(created_at: :desc).first
+			@post = @forum_thread.forum_posts.order_by(created_at: :asc).first
+			debugger
 			@forum_thread.content = @post.content
 		else
 			redirect_to forum_forum_thread_path(@forum_thread.forum, @forum_thread), notice: "You are not the creator of that thread"

@@ -628,6 +628,10 @@ form#new_product {
 	width: 85px;
 	height: 32px;
 	border: none;
+	&:hover {
+		cursor: hand;
+		cursor: pointer;
+	}
 }
 
 

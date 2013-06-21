@@ -21,7 +21,7 @@ C41::Application.routes.draw do
 	post "/listings/search" => "listings#index", as: :listings_search
 	get "/listings/search" => "listings#index", as: :listings_search
 	resources :listings do
-		resources :comments
+		resources :comments, :defaults => { :commentable => 'listing' }
 	end
 
 	get "/live_menues/edit" => "live_menues#edit", as: :live_menu_edit
@@ -52,7 +52,7 @@ C41::Application.routes.draw do
 	put "/strains/:strain_id/update_review/:id" => "reviews#update_for_strain", as: :strain_review_update
 	get "/strains/:strain_id/destroy_review/:id" => "reviews#destroy_for_strain", as: :strain_review_destroy
 	resources :strains do
-		resources :comments
+		resources :comments, :defaults => { :commentable => 'strain' }
 	end
 
 	post "/search/strains" => "strains#index", as: :strains_search

@@ -33,7 +33,7 @@
 				%span.user= comment.commenter.user_name
 				%p= comment.body
 				- if @current_user == comment.commenter
-					.edit= link_to_modal "edit", edit_listing_comment_path( @strain, comment )
+					.edit= link_to_modal "edit", edit_strain_comment_path( @strain, comment )
 					.remove= link_to( "remove", [@strain, comment], confirm: "Are you sure?", method: :delete )
 		
 .span-8.last.adds

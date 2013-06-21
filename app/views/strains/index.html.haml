@@ -18,7 +18,7 @@
 					%h3= "#{strain.dominance}"
 					%p.bio= "#{truncate strain.bio, length: 150}"
 					.strain_index_rating
-						= render partial: "shared/rating", locals: {stars: rand(5) + 1}
+						= render partial: "shared/rating", locals: {stars: strain.rating || 0}
 .span-6.last
 	- @ads.each do |ad|
 		= link_to ad.href do

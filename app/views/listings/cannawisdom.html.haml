@@ -22,10 +22,10 @@
 
 - @listing.comments.each do |comment|
 	.full-box.comment
-		= image_tag Gravatar.new(comment.user.email).image_url, class: :avatar
-		= render partial: "shared/rating", locals: {stars: comment.review.rating}
-		%span.user= comment.user.user_name
+		= image_tag Gravatar.new(comment.commenter.email).image_url, class: :avatar
+		= render partial: "shared/rating", locals: {stars: comment.rating}
+		%span.user= comment.commenter.user_name
 		%p= comment.body
-		- if @current_user == comment.user
-			.edit= link_to_modal "edit", listing_review_edit_path( @listing, comment ) 
-			.remove= link_to( "remove", listing_review_destroy_path( @listing, comment ), confirm: "Are you sure?" )
+		- if @current_user == comment.commenter
+			.edit= link_to_modal "edit", edit_listing_comment_path( @listing, comment )
+			.remove= link_to( "remove", [@listing, comment], confirm: "Are you sure?", method: :delete )

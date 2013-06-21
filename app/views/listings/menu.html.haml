@@ -5,7 +5,7 @@
 		- strain = product.strain
 		.menu-item
 			= image_tag product.best_image_tag, class: :product_image, alt: (product.strain ? product.strain.name : "Marijuana Menu")
-			%p.name= truncate(product.strain.name, length: 15)
+			%p.name= link_to(truncate(product.strain.name, length: 15), product.strain)
 			- if strain.strain_tests.count > 0
 				- strain_test = strain.strain_tests.first
 				.test_results
@@ -27,7 +27,7 @@
 		- strain = product.strain
 		.menu-item
 			= image_tag product.best_image_tag, class: :product_image, alt: (product.strain ? product.strain.name : "Marijuana Menu")
-			%p.name= truncate(product.strain.name, length: 15)
+			%p.name= link_to(truncate(product.strain.name, length: 15), product.strain)
 			- if strain.strain_tests.count > 0
 				- strain_test = strain.strain_tests.first
 				.test_results
@@ -49,7 +49,7 @@
 		- strain = product.strain
 		.menu-item
 			= image_tag product.best_image_tag, class: :product_image, alt: (product.strain ? product.strain.name : "Marijuana Menu")
-			%p.name= truncate(product.strain.name, length: 15)
+			%p.name= link_to(truncate(product.strain.name, length: 15), product.strain)
 			- if strain.strain_tests.count > 0
 				- strain_test = strain.strain_tests.first
 				.test_results

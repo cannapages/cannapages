@@ -37,7 +37,7 @@
 					%p= "Category: #{listing.category}"
 					%p= "#{listing.distance.round(2)} miles from #{@user_location.max_info_string}" if listing.distance
 			.listing_info_right
-				= render partial: "shared/rating", locals: {stars: listing.listing_review.average_rating}
+				= render partial: "shared/rating", locals: {stars: listing.rating || 0}
 				%p= listing.full_address
 			.listing_icons
 				- unless listing.critiques.empty?

@@ -1,6 +1,4 @@
 C41::Application.routes.draw do
-
-
 	#Admin controlled resources
 	match "/highsociety" => "pages#highsociety"
   resources :pages
@@ -17,17 +15,14 @@ C41::Application.routes.draw do
 	get "/listings/admin_index" => "listings#admin_index", as: :listings_admin_index
 	get "/listings/admin_new" => "listings#admin_new", as: :admin_new_listing
 	get "/listings/:id/admin_edit" => "listings#admin_edit", as: :admin_edit_listing
-	get "/listings/:id/new_review" => "reviews#new", as: :listing_review_new
-	get "/listings/:listing_id/edit_review/:id" => "reviews#edit", as: :listing_review_edit
-	post "/listings/:id/create_review" => "reviews#create", as: :listing_review_create
-	put "/listings/:listing_id/update_review/:id" => "reviews#update", as: :listing_review_update
-	get "/listings/:listing_id/destroy_review/:id" => "reviews#destroy", as: :listing_review_destroy
 	put "/listings/:id/admin" => "listings#admin_update", as: :admin_update_listing
 	post "/listings/admin" => "listings#admin_create", as: :admin_create_listing
 	delete "/listings/:id/admin" => "listings#admin_destroy", as: :admin_destroy_listing
 	post "/listings/search" => "listings#index", as: :listings_search
 	get "/listings/search" => "listings#index", as: :listings_search
-	resources :listings
+	resources :listings do
+		resources :comments
+	end
 
 	get "/live_menues/edit" => "live_menues#edit", as: :live_menu_edit
 	get "/products/:id/set_as_in_stock" => "products#set_as_in_stock", as: :set_product_as_in_stock
@@ -50,7 +45,16 @@ C41::Application.routes.draw do
 	get "/critiques/home" => "critiques#home", as: :critiques_home
 	resources :critiques
 	get "/strains/admin_index" => "strains#admin_index", as: :strains_admin_index
-	resources :strains
+
+	get "/strains/:id/new_review" => "reviews#new_for_strain", as: :strain_review_new
+	get "/strains/:strain_id/edit_review/:id" => "reviews#edit_for_strain", as: :strain_review_edit
+	post "/strains/:id/create_review" => "reviews#create_for_strain", as: :strain_review_create
+	put "/strains/:strain_id/update_review/:id" => "reviews#update_for_strain", as: :strain_review_update
+	get "/strains/:strain_id/destroy_review/:id" => "reviews#destroy_for_strain", as: :strain_review_destroy
+	resources :strains do
+		resources :comments
+	end
+
 	post "/search/strains" => "strains#index", as: :strains_search
 	resources :strain_tests
   resources :roachy_tips

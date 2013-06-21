@@ -7,6 +7,21 @@ $light_grey: #C8C8C8;
 $bold_red: #E02020;
 $transparrent_green: rgba(4,100,20,.5);
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+		background-color: #006012;
+    -webkit-box-shadow: inset 0 0 6px green; 
+}
+
 .hidden {
 	display: none;
 }
@@ -266,11 +281,23 @@ form {
 }
 
 .strain_show_left {
+	.full-box {
+		width: 730px;
+		float: left;
+		background-color: $grey_blue;
+		clear: both;
+		margin-bottom: 10px;
+	}
+	#comments {
+		a.create_comment {
+			font-size: 24px;
+		}
+	}
 	#image_widget {
 		float: left;
 		position: relative;
 		width: 400px;
-		height: 350px;
+		height: 475px;
 		margin-bottom: 50px;
 		img.fieldguide-logo {
 			position: absolute;
@@ -487,7 +514,8 @@ form {
 			float: left;
 			padding: 5px;
 			background-color: $grey_blue;
-			min-height: 100px;
+			height: 100px;
+			overflow-y: auto;
 			p {
 				font-size: 14px;
 				width: 320px;

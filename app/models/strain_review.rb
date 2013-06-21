@@ -1,9 +1,9 @@
-class ListingReview
+class StrainReview
   include Mongoid::Document
 	include Mongoid::Timestamps
 
 	has_many :reviews, as: :reviewable
-	belongs_to :listing
+	belongs_to :strain
 
 	def average_rating
 		return 0 if reviews.size < 1
@@ -14,8 +14,8 @@ class ListingReview
 	before_save :update_average
 
 	def update_average
-		self.listing.rating = average_rating.round(0)
-		self.listing.num_of_reviews = reviews.size
+		self.strain.rating = average_rating.round(0)
+		self.strain.num_of_reviews = reviews.size
 	end
 
 end

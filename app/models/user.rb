@@ -33,10 +33,9 @@ class User
 	attr_accessible :email, :user_name, :password, :password_confirmation, :provider, :uid
 
 	#Relationships
-	has_many :reviews
 	has_many :listings
 	has_many :ads
-	has_many :comments, as: :commentable
+	has_many :comments, as: :commenter, dependent: :delete
 	has_many :pipe_graves
 
 	#Validations

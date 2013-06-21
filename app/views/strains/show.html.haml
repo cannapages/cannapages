@@ -24,6 +24,18 @@
 					%p.title= critique.listing.name
 					%p= raw critique.exerpt
 					%p.read_more= link_to "Read More", critique
+	#comments
+		= link_to_modal "Rate Strain", new_strain_comment_path( @strain ), class: "create_comment"
+		- @strain.comments.each do |comment|
+			.full-box.comment
+				= image_tag Gravatar.new(comment.commenter.email).image_url, class: :avatar
+				= render partial: "shared/rating", locals: {stars: comment.rating}
+				%span.user= comment.commenter.user_name
+				%p= comment.body
+				- if @current_user == comment.commenter
+					.edit= link_to_modal "edit", edit_listing_comment_path( @strain, comment )
+					.remove= link_to( "remove", [@strain, comment], confirm: "Are you sure?", method: :delete )
+		
 .span-8.last.adds
 	- @ads.each do |ad|
 		= link_to ad.href, class: :add do

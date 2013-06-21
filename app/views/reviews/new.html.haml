@@ -1,5 +1,0 @@
-%h2= "Rate #{@listing.name}"
-= simple_form_for @review, url: listing_review_create_path do |f|
-	= f.input :rating, collection: (1..5).to_a, label: "How was your experience from one to five?"
-	= f.input :comment, as: :text, input_html: {value: ''}, label: "Questions, comments, or purhapse a haiku"
-	= f.submit "Submit"

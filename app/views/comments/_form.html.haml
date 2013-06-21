@@ -1,0 +1,6 @@
+- identity_message = @commentable.respond_to?(:title) ? :title : :name
+%h2= "Leave a comment for #{@commentable.send( identity_message )}"
+= simple_form_for [@commentable ,@comment] do |f|
+	= f.input :rating, as: :select, collection: 1..5, include_blank: false, label: "Select a 1 to 5 rating"
+	= f.input :body, as: :text, label: "Add some remarks if you please"
+	= f.submit

@@ -10,6 +10,7 @@ class Strain
 	field :genetics, type: String
 	field :slug, type: String
 	field :familly, type: String
+	field :rating, type: Integer
 
 	#Scientific
   field :thc, type: Float
@@ -20,6 +21,7 @@ class Strain
 	has_many :strain_tests
 	has_many :critiques
 	has_many :products
+	has_many :comments, as: :commentable
 
 	# validates_inclusion_of :dominance, allow_nil: false, in: STRAIN_DOMINANCE_ARRAY
 	# validate :sum_of_percentages_makes_sense
@@ -29,6 +31,12 @@ class Strain
 	# validates :cbn, :inclusion => {:in => 0.0..100.0}
 
 	before_save :update_slug, :map_familly
+
+	def update_rating
+		total_rating = comments.each.inject(0) {|r,c| r + c.rating}
+		self.rating = (total_rating / comments.size).to_i
+		save
+	end
 
 	def map_familly
 		mappings = {

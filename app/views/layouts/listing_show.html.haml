@@ -40,10 +40,10 @@
 					%p.name= @listing.name
 					%p.address= @listing.full_address
 					%p.phone= @listing.formated_phone
-					= render partial: "shared/rating", locals: {stars: @listing.listing_review.average_rating.round}
+					= render partial: "shared/rating", locals: {stars: @listing.rating || 0}
 					.extra_links
 						= directions_to( @listing.full_address )
-						= link_to_modal "Rate Business", listing_review_new_path
+						= link_to_modal "Rate Business", new_listing_comment_path( @listing )
 					= render partial: "shared/listing_icons", locals: {listing: @listing}
 			.listing_show_content.span-24
 				.show_nav

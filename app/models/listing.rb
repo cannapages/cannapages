@@ -33,7 +33,9 @@ class Listing
 	#Account
 	field :featured, type: Boolean
 	field :featured_expiration, type: Date
+	#Ratings
 	field :creamocrop, type: Boolean
+	field :rating
 	#Anylitics
 	field :shows, type: Integer
 	field :clicks, type: Integer
@@ -73,7 +75,6 @@ class Listing
 	has_many :critiques
 	has_many :photo_uploads
 	has_many :comments, as: :commentable
-	has_one :listing_review, autobuild: true, autosave: true
 	has_one :live_menu, autobuild: true
 	has_many :strain_tests
 
@@ -108,6 +109,12 @@ class Listing
 	#Callbacks
 	before_save :format_phone, :update_lat_lng?, :ensure_http, :update_slug?, :nulify_empty_values
 	before_create :initialize_dependencies, :initialize_anylitics
+
+	def update_rating
+		total_rating = comments.each.inject(0) {|r,c| r + c.rating}
+		self.rating = (total_rating / comments.size).to_i
+		save
+	end
 
 	def has_media?
 		not photo_uploads.empty?
@@ -189,8 +196,6 @@ class Listing
 
 	def initialize_dependencies
 		create_listing_review unless listing_review
-		self.rating = listing_review.average_rating
-		
 		create_live_menu unless live_menu
 	end
 

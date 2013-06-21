@@ -57,7 +57,7 @@
 							%li Media
 					-# = link_to listing_path(@listing, intent: "cannasaver"), class: listing_link_active?("cannasaver","cannasaver") do
 					-# 	%li CannaSaver
-					= link_to_modal listing_review_new_path do
+					= link_to_modal new_listing_comment_path( @listing ) do
 						%li Rate Business
 					=	link_to "http://maps.google.com/maps?q=#{@listing.full_address}", target: "_blank" do
 						%li Directions

@@ -282,11 +282,28 @@ form {
 
 .strain_show_left {
 	.full-box {
-		width: 730px;
+		width: 630px;
 		float: left;
 		background-color: $grey_blue;
 		clear: both;
 		margin-bottom: 10px;
+		.comment {
+			.rating_container {
+				position: absolute;
+				top: 10px;
+				left: 515px;
+			}
+			.edit {
+				position: absolute;
+				top: 77px;
+				left: 590px;
+			}
+			.remove {
+				position: absolute;
+				top: 76px;
+				left: 525px;
+			}
+		}
 	}
 	#comments {
 		a.create_comment {

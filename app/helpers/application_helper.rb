@@ -118,7 +118,7 @@ module ApplicationHelper
 				extra = ""
 				if @critique
 					extra += "#{@critique.listing.name}, " if @critique.listing
-					extra += "#{@critique.strain.name}, " if @critique.listing
+					extra += "#{@critique.strain.name}, " if @critique.strain
 					extra += "#{@critique.title}, " unless @critique.listing or @critique.strain
 				end
 				"#{extra}Cannabis Reviews, Medical Marijuana Dispensaries, Weed Strains, and Marijuana Effects. Weed Brownies, Weed Reviews, Best Marijuana all from Cannapages.com"

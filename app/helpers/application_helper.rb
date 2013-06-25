@@ -48,7 +48,7 @@ module ApplicationHelper
 	def seo_title
 		case params[:controller]
 			when "home"
-				@title = "Where To Find Marijuana | Marijuana Dispensaries | Weed Reviews | Weed Maps"
+				@title = "Medical Marijuana Dispensaries | Where To Find Marijuana | Weed Reviews | Weed Maps"
 			when "critiques"
 				extra = ""
 				if @critique
@@ -56,7 +56,7 @@ module ApplicationHelper
 					extra += " | #{@critique.listing.name}" if @critique.listing
 				end
 				unless extra.empty?
-					@title = "Marijuana Reviews#{ extra }"
+					@title = "Medical Marijuana Dispensaries | Marijuana Reviews#{ extra }"
 				else
 					@title = "Marijuana Reviews | #{ @critique.title }" if @critique
 					@title = "Marijuana Reviews | Cannabis Dispensaries | Best Marijuana | Weed Strains" unless @critique
@@ -65,7 +65,7 @@ module ApplicationHelper
 				if @listing
 					@title = "#{@listing.name} | Where To Find Marijuana | Marijuana Dispensaries"
 				else
-					@title = "Where To Find Marijuana | Head Shops | Marijuana Dispensaries | Grow Stores"
+					@title = "Medical Marijuana Dispensaries | Where To Find Marijuana | Head Shops | Grow Stores"
 				end
 			when "volumes", "articles"
 				if @article
@@ -98,7 +98,7 @@ module ApplicationHelper
 	def seo_h1
 		@title.gsub!("Where To Find Marijuana", "")
 		@title.gsub!("Where To Find Weed", "")
-		"Where To Find Marijuana " + scramble( (@title + " " + @description).gsub("|","") )
+		"Medical Marijuana Dispensaries " + scramble( (@title + " " + @description).gsub("|","") )
 	end
 
 	def generate_meta

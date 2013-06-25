@@ -113,7 +113,7 @@ module ApplicationHelper
 	def seo_description
 		@description = case params[:controller]
 			when "home"
-				"Where to find Marijuana, Cannabis Dispensaries, Medical Marijuana Dispensaries, Head Shops, Hydroponics, Weed Reviews, Weed Maps, & Marijuana Doctors. HQ: Denver, Colorado"
+				"Medical Marijuana Dispensaries, Where to find Marijuana, Cannabis Dispensaries, Head Shops, Hydroponics, Weed Reviews, Weed Maps, & Marijuana Doctors. HQ: Denver, Colorado"
 			when "critiques"
 				extra = ""
 				if @critique

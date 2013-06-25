@@ -13,7 +13,7 @@
 		= display_meta_tags( generate_meta )
 		
 	%body
-		%h1.hidden= seo_h1
+		%h1(style='display:none')= seo_h1
 		- if params[:controller] == "home"
 			= render 'shared/mainheader'
 		- else

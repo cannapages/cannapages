@@ -25,6 +25,7 @@ C41::Application.routes.draw do
 	end
 
 	get "/live_menues/edit" => "live_menues#edit", as: :live_menu_edit
+	get "/live_menues/:id/admin_edit" => "live_menues#admin_edit", as: :live_menu_admin_edit
 	get "/products/:id/set_as_in_stock" => "products#set_as_in_stock", as: :set_product_as_in_stock
 	get "/products/:id/set_as_out_of_stock" => "products#set_as_out_of_stock", as: :set_product_as_out_of_stock
 	resources :products, only: [:create, :update, :destroy]

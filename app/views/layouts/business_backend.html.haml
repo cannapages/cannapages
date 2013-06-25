@@ -19,7 +19,7 @@
 				= render 'shared/business_backend_nav'
 				.span-18.back_content
 					= yield
-					- btob_ad = Ad.for_page( 'Business to Business' ).first
+					- btob_ad = Ad.where( ad_type: "Business to Business" ).sort( shows: :asc ).first
 					- btob_ad.shows += 1
 					- btob_ad.save
 					= link_to btob_ad.href do

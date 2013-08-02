@@ -25,7 +25,7 @@
 							= link_to listing_path(@featured_listing, intent: "menu") do
 								= image_tag "menu.png", class: "listing-icon"
 	- @listings.each_with_index do |listing, index|
-		- if listing.id == @featured_listing.id
+		- if @featured_listing and listing.id == @featured_listing.id
 			- listing.reload
 		.listing-index{class: (index % 2 == 0) ? "light_blue" : ""}
 			= link_to listing do

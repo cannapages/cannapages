@@ -5,7 +5,7 @@ LEGAL_STATE_ARRAY = [ 'Alaska', 'Arizona', 'California', 'Colorado',
                                         
 YESNO = ['Yes','No']           
   
-LISTING_CATEGORY_ARRAY = [ 'Dispensary', 'Grow Store', 'Head Shop', 'Kind Doctor', 'Kind Land Lord', 'Smoke Shop', 'Kind Lawyer', 'Grow Consultant' ]
+LISTING_CATEGORY_ARRAY = [ 'Dispensary', 'Grow Store', 'Head Shop', 'Kind Doctor', 'Kind Land Lord', 'Smoke Shop', 'Kind Lawyer', 'Grow Consultant', 'Infused Products' ]
 
 AD_CATEGORY_ARRAY = ['Banner Small', 'Banner Large', 'Business to Business']
 

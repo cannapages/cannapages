@@ -1,4 +1,8 @@
 C41::Application.routes.draw do
+  devise_for :admins
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
 	#Admin controlled resources
 	match "/highsociety" => "pages#highsociety"
   resources :pages

@@ -195,7 +195,6 @@ class Listing
 	end
 
 	def initialize_dependencies
-		create_listing_review unless listing_review
 		create_live_menu unless live_menu
 	end
 

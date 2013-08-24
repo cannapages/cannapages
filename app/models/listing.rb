@@ -199,7 +199,7 @@ class Listing
 	end
 
 	def initialize_anylitics
-		self.shows, self.clicks, self.featured_shows, self.featured_clicks, self.num_of_reviews, self.creamocrop = 0,0,0,0,0,false
+		self.shows, self.clicks, self.featured_shows, self.featured_clicks, self.creamocrop = 0,0,0,0,false
 	end
 
 	def format_phone
